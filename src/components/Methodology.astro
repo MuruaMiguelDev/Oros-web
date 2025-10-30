@@ -17,12 +17,10 @@ import CallToAction from "./ui/CallToAction.astro";
     </div>
 
     <!-- Fases -->
-    <div class="grid md:grid-cols-3 gap-8 methodology-grid">
+    <div class="grid lg:grid-cols-3 md:grid-cols-2 gap-8 methodology-grid">
 
       <!-- FASE I -->
-      <a id="fase1" href="#fase1"
-         class="card-modal bg-white rounded-xl border border-gray-200 p-8 flex flex-col shadow-sm hover:shadow-md transition cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#f95738]/40">
-        <!-- Resumen -->
+      <article id="fase1" class="card-modal">
         <div class="card-summary">
           <div class="text-sm font-bold text-[#f95738] tracking-wider mb-2">
             FASE I: CIMA RÁPIDA
@@ -30,14 +28,19 @@ import CallToAction from "./ui/CallToAction.astro";
           <h3 class="text-2xl font-semibold text-[#0a2540] mb-4">
             El Blueprint de Ataque <span class="text-gray-500 text-sm">(Estrategia)</span>
           </h3>
-          <p class="text-gray-600 leading-relaxed">
+          <p class="text-gray-600 leading-relaxed mb-6">
             Definimos su posición, mensaje clave y los 3 primeros <em>shots</em> de marketing 
             con el mayor potencial de retorno. <strong>Menos papel, más acción.</strong>
           </p>
+          <br>
+          <!-- Botón para abrir modal -->
+          <a href="#fase1" class="btn-info" role="button" aria-label="Abrir más información de Fase I">Más info</a>
         </div>
 
-        <!-- Detalle (se muestra al hacer clic) -->
-        <div class="card-details hidden">
+        <!-- Contenido del modal -->
+        <div class="card-details">
+          <a href="#methodology" class="close-btn" aria-label="Cerrar">✕</a>
+
           <div class="text-sm font-bold text-[#f95738] tracking-wider mb-2">
             FASE I: CIMA RÁPIDA
           </div>
@@ -68,14 +71,10 @@ import CallToAction from "./ui/CallToAction.astro";
             y escalar con seguridad.
           </p>
         </div>
-
-        <a href="#methodology" class="close-btn" aria-label="Cerrar">✕</a>
-      </a>
+      </article>
 
       <!-- FASE II -->
-      <a id="fase2" href="#fase2"
-         class="card-modal bg-white rounded-xl border border-gray-200 p-8 flex flex-col shadow-sm hover:shadow-md transition cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#f95738]/40">
-        <!-- Resumen -->
+      <article id="fase2" class="card-modal">
         <div class="card-summary">
           <div class="text-sm font-bold text-[#f95738] tracking-wider mb-2">
             FASE II: LOMADA EN MOVIMIENTO
@@ -83,14 +82,18 @@ import CallToAction from "./ui/CallToAction.astro";
           <h3 class="text-2xl font-semibold text-[#0a2540] mb-4">
             Activación y Construcción de Plataformas
           </h3>
-          <p class="text-gray-600 leading-relaxed">
+          <p class="text-gray-600 leading-relaxed mb-6">
             Construimos o ajustamos su web. Lanzamos su nueva identidad y creamos los activos 
             de alto impacto para sus redes sociales. Todo con mentalidad de <strong>testeo continuo</strong>.
           </p>
+
+          <!-- Botón para abrir modal -->
+          <a href="#fase2" class="btn-info" role="button" aria-label="Abrir más información de Fase II">Más info</a>
         </div>
 
-        <!-- Detalle -->
-        <div class="card-details hidden">
+        <div class="card-details">
+          <a href="#methodology" class="close-btn" aria-label="Cerrar">✕</a>
+
           <div class="text-sm font-bold text-[#f95738] tracking-wider mb-2">
             FASE II: LOMADA EN MOVIMIENTO
           </div>
@@ -111,14 +114,10 @@ import CallToAction from "./ui/CallToAction.astro";
             Publicamos, medimos y ajustamos rápidamente para quedarnos con lo que mejor rinde.
           </p>
         </div>
-
-        <a href="#methodology" class="close-btn" aria-label="Cerrar">✕</a>
-      </a>
+      </article>
 
       <!-- FASE III -->
-      <a id="fase3" href="#fase3"
-         class="card-modal bg-white rounded-xl border border-gray-200 p-8 flex flex-col shadow-sm hover:shadow-md transition cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#f95738]/40">
-        <!-- Resumen -->
+      <article id="fase3" class="card-modal">
         <div class="card-summary">
           <div class="text-sm font-bold text-[#f95738] tracking-wider mb-2">
             FASE III: ASCENSO ACELERADO
@@ -126,15 +125,19 @@ import CallToAction from "./ui/CallToAction.astro";
           <h3 class="text-2xl font-semibold text-[#0a2540] mb-4">
             Gestión Multicanal y Escalada
           </h3>
-          <p class="text-gray-600 leading-relaxed">
+          <p class="text-gray-600 leading-relaxed mb-6">
             Es la fase de crecimiento. Activamos la estrategia multicanal 
             (<strong>Ads + Redes + Email</strong>) y optimizamos los presupuestos a diario. 
             Solo invertimos en lo que <strong>sabemos que funciona</strong>.
           </p>
+
+          <!-- Botón para abrir modal -->
+          <a href="#fase3" class="btn-info" role="button" aria-label="Abrir más información de Fase III">Más info</a>
         </div>
 
-        <!-- Detalle -->
-        <div class="card-details hidden">
+        <div class="card-details">
+          <a href="#methodology" class="close-btn" aria-label="Cerrar">✕</a>
+
           <div class="text-sm font-bold text-[#f95738] tracking-wider mb-2">
             FASE III: ASCENSO ACELERADO
           </div>
@@ -155,9 +158,7 @@ import CallToAction from "./ui/CallToAction.astro";
             Invertimos más en lo que prueba resultados, y pausamos lo que no rinde — sin despilfarrar presupuesto.
           </p>
         </div>
-
-        <a href="#methodology" class="close-btn" aria-label="Cerrar">✕</a>
-      </a>
+      </article>
 
       <!-- OVERLAY (cierra al hacer clic afuera) -->
       <a href="#methodology" class="overlay" aria-hidden="true"></a>
@@ -168,42 +169,50 @@ import CallToAction from "./ui/CallToAction.astro";
 </section>
 
 <style>
+  /* Bloqueo del scroll del documento (CSS puro) */
+  html:has(.card-modal:target),
+  body:has(.card-modal:target) {
+    overflow: hidden;
+    overscroll-behavior: contain;
+    touch-action: none;
+  }
+
   /* Base card */
   .card-modal {
     position: relative;
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    border-radius: 1rem;
+    padding: 2rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,.05);
     transition: box-shadow .2s ease, transform .2s ease;
   }
   .card-modal:hover { box-shadow: 0 8px 24px rgba(0,0,0,.08); }
 
+  /* Botón “Más info” */
+  .btn-info {
+    display: inline-block;
+    padding: .55rem .9rem;
+    border-radius: .75rem;
+    border: 1px solid #f95738;
+    text-decoration: none;
+    font-weight: 600;
+    color: #fff;
+    background: #f95738;
+    box-shadow: 0 1px 2px rgba(0,0,0,.04);
+  }
+  .btn-info:hover { filter: brightness(.98); }
+  .btn-info:focus { outline: 2px solid #0a2540; outline-offset: 2px; }
+
   /* Mostrar/ocultar contenido según estado */
-  .card-details { display: none; }
   .card-summary { display: block; }
+  .card-details { display: none; }
+
   .card-modal:target .card-summary { display: none; }
   .card-modal:target .card-details { display: block; }
 
-  /* Botón cerrar (oculto por defecto) */
-  .close-btn {
-    display: none;
-    position: absolute;
-    top: .75rem;
-    right: .75rem;
-    padding: .375rem .625rem;
-    font-size: .95rem;
-    line-height: 1;
-    border-radius: 999px;
-    border: 1px solid #e5e7eb;
-    background: rgba(255,255,255,.92);
-    box-shadow: 0 2px 6px rgba(0,0,0,.08);
-    color: #0a2540;
-  }
-  .close-btn:hover { filter: brightness(.98); }
-  .card-modal:target .close-btn { display: inline-block; }
-
-  /* Overlay: inicialmente oculto */
-  .overlay { display: none; }
-
-  /* Estado expandido: cualquier .card-modal que sea :target */
-  .card-modal:target {
+  /* Estado expandido (modal) */
+  .card-modal:target .card-details {
     position: fixed;
     left: 50%;
     top: 50%;
@@ -212,19 +221,39 @@ import CallToAction from "./ui/CallToAction.astro";
     width: min(92vw, 920px);
     max-height: 85vh;
     overflow: auto;
-    padding: 2.5rem; /* p-10 */
+    padding: 2.5rem;
     box-shadow: 0 24px 80px rgba(0,0,0,.22);
     border-radius: 1rem;
+    background: #fff;
     animation: pop .18s ease-out;
-    background: #fff; /* asegura fondo sólido al expandir */
   }
 
   @keyframes pop {
-    from { transform: translate(-50%, -50%) scale(1.02); }
-    to   { transform: translate(-50%, -50%) scale(1); }
+    from { transform: translate(-50%, -50%) scale(1.02); opacity: .95; }
+    to   { transform: translate(-50%, -50%) scale(1); opacity: 1; }
   }
 
-  /* Mostrar overlay cuando cualquiera de las cards está en :target */
+  /* Botón cerrar en el modal */
+  .close-btn {
+    position: absolute;
+    top: .75rem;
+    right: .75rem;
+    padding: .4rem .6rem;
+    border-radius: 999px;
+    border: 1px solid #e5e7eb;
+    background: rgba(255,255,255,.96);
+    box-shadow: 0 2px 6px rgba(0,0,0,.08);
+    font-size: 1rem;
+    line-height: 1;
+    color: #0a2540;
+    z-index: 60;
+    cursor: pointer;
+    text-decoration: none;
+  }
+  .close-btn:hover { filter: brightness(.98); }
+
+  /* Overlay */
+  .overlay { display: none; }
   .card-modal:target ~ .overlay {
     display: block;
     position: fixed;
@@ -234,6 +263,6 @@ import CallToAction from "./ui/CallToAction.astro";
     backdrop-filter: blur(6px);
   }
 
-  /* Quitar subrayado enlaces dentro de las cards */
+  /* Evitar subrayados globales en la card */
   .card-modal, .card-modal * { text-decoration: none; }
 </style>
