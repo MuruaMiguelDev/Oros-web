@@ -1,0 +1,27 @@
+---
+import Phone from "../ico/Phone.astro";
+import Arrow from "../ico/ArrowIcon.astro";
+---
+
+<section id="call-to-action" class="mt-12">
+  <div class="">
+    <a
+      href="/contacto"
+      class="flex justify-between items-center rounded-xl p-4 w-full bg-[#0a2540] text-neutral-200 group text-xl"
+    >
+      <span>Quiero mi Plan de Ataque</span>
+      <span class="relative w-6 h-6 overflow-hidden">
+        <!-- Phone: visible al inicio, sale hacia abajo -->
+        <!-- <Phone
+          class="absolute inset-0 transition-transform duration-300 ease-out will-change-transform group-hover:translate-y-full"
+          color="white"
+        /> -->
+
+        <!-- Arrow: escondido arriba, entra “scrolleando” hacia abajo -->
+        <Arrow
+          class=""
+        />
+      </span>
+    </a>
+  </div>
+</section>

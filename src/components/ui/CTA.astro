@@ -1,0 +1,58 @@
+---
+const text = "¡Agenda una reunión!";
+---
+
+<style>
+  /* Animación suave tipo wave hacia arriba */
+  @keyframes waveIn {
+    0%   { transform: translate3d(0, 70%, 0); opacity: 0; }
+    60%  { transform: translate3d(0,-8%, 0); }
+    100% { transform: translate3d(0, 0, 0); opacity: 1; }
+  }
+
+  .cta-wave {
+    /* Evita micro-reflujos al animar chars */
+    contain: layout paint;
+  }
+
+  .char {
+    display: inline-block;
+    will-change: transform, opacity;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    line-height: 1em; /* evita salto vertical */
+  }
+
+  /* Dispara animación sólo en hover */
+  .cta-wave:hover .char {
+    animation: waveIn .45s cubic-bezier(.22,.61,.36,1) both;
+    animation-delay: calc(var(--i) * 32ms);
+  }
+
+  /* No animar espacios para que no parpadeen */
+  .char.space { animation: none !important; }
+
+  /* Respeto accesibilidad */
+  @media (prefers-reduced-motion: reduce) {
+    .cta-wave:hover .char { animation: none; }
+  }
+</style>
+
+<div class="mx-auto">
+  <a
+    href="#"
+    class="cta-wave inline-block rounded-full bg-[#911C81] text-white py-2 px-6 font-medium"
+    aria-label={text}
+  >
+    {
+      text.split("").map((ch, i) => (
+        <span
+          class={`char ${ch === " " ? "space" : ""}`}
+          style={`--i:${i}`}
+        >
+          {ch === " " ? "\u00A0" : ch}
+        </span>
+      ))
+    }
+  </a>
+</div>

@@ -1,0 +1,188 @@
+---
+import Asterisco from "../ico/Asterisco.astro";
+
+interface Props {
+  items?: string[];
+  bg?: string;
+  accent?: string;
+  pxPerSec?: number;
+  bob?: boolean;
+}
+
+const {
+  items = ["Content Marketing", "Social Media Marketing", "Performance Marketing",
+  "SEO Optimization","Web Development","Frontend Development",
+  "Backend Development","UI/UX Design",
+  "Brand Strategy",
+  "Marketing Automation",
+  "Conversion Optimization",
+  "E-Commerce Solutions",
+  "Landing Page Design",
+  "Data Analytics",
+  "Digital Strategy",
+  "Paid Media Management",
+  "Lead Generation"],
+  bg = "#0a2540",
+  accent = "#f95738",
+  pxPerSec = 70,
+  bob = true,
+} = Astro.props as Props;
+
+// Triplicamos para asegurar loop sin huecos
+const content = [...items, ...items, ...items];
+---
+
+<section
+  class="relative w-full overflow-hidden text-white"
+  style={`--bg:${bg}; background:${bg}`}
+  aria-label="Servicios destacados en carrusel"
+>
+  <div
+    class="mask-fade"
+    style="
+      -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+      mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    "
+  >
+    <div class="group relative flex h-full items-center">
+      <div
+        id="marquee-track"
+        class="track inline-flex shrink-0 items-center whitespace-nowrap py-2 sm:py-3 md:py-4 gap-6 sm:gap-8 md:gap-10"
+        data-px-per-sec={pxPerSec}
+        data-bob={bob}
+      >
+        {content.map((label) => (
+          <div class="item inline-flex items-center gap-3 sm:gap-4">
+            <span class="asterisco relative grid place-content-center w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6">
+              <Asterisco color={accent} />
+            </span>
+            <span class="text-sm sm:text-base md:text-lg lg:text-xl font-medium tracking-wide">{label}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+
+  <!-- Overlays laterales -->
+  <div class="pointer-events-none absolute inset-y-0 left-0 w-12 sm:w-20 md:w-24 bg-gradient-to-r from-[var(--bg)] to-transparent z-10"></div>
+  <div class="pointer-events-none absolute inset-y-0 right-0 w-12 sm:w-20 md:w-24 bg-gradient-to-l from-[var(--bg)] to-transparent z-10"></div>
+</section>
+
+<style is:global>
+  @keyframes marqueeX {
+    0% { 
+      transform: translate3d(0, 0, 0); 
+    }
+    100% { 
+      transform: translate3d(-33.333%, 0, 0); 
+    }
+  }
+
+  @keyframes bob {
+    0%, 100% { 
+      transform: translateY(0); 
+    }
+    50% { 
+      transform: translateY(-3px); 
+    }
+  }
+
+  @keyframes spin-slow {
+    from { 
+      transform: rotate(0deg); 
+    }
+    to { 
+      transform: rotate(360deg); 
+    }
+  }
+
+  .track {
+    animation: marqueeX var(--duration, 50s) linear infinite;
+    will-change: transform;
+  }
+
+  .item {
+    flex-shrink: 0;
+    transform: translateZ(0);
+  }
+
+  /* Bobbing con stagger */
+  .item.bob-active:nth-child(3n + 1) {
+    animation: bob 2.4s ease-in-out infinite;
+    animation-delay: 0s;
+  }
+
+  .item.bob-active:nth-child(3n + 2) {
+    animation: bob 2.8s ease-in-out infinite;
+    animation-delay: 0.4s;
+  }
+
+  .item.bob-active:nth-child(3n + 3) {
+    animation: bob 3.2s ease-in-out infinite;
+    animation-delay: 0.8s;
+  }
+
+  .asterisco {
+    animation: spin-slow 24s linear infinite;
+    opacity: 0.95;
+  }
+
+  .asterisco svg {
+    width: 100%;
+    height: 100%;
+    transform-origin: center;
+  }
+
+  /*@media (prefers-reduced-motion: reduce) {
+    .track,
+    .item,
+    .asterisco {
+      animation: none !important;
+    }
+  }*/
+</style>
+
+<script is:inline>
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const track = document.getElementById('marquee-track');
+
+  if (track && !prefersReduced) {
+    const pxPerSec = Number(track.dataset.pxPerSec) || 70;
+    const bobEnabled = track.dataset.bob === 'true';
+
+    // Activar bobbing si está habilitado
+    if (bobEnabled) {
+      const items = track.querySelectorAll('.item');
+      items.forEach(item => item.classList.add('bob-active'));
+    }
+
+    function calculateDuration() {
+      // Esperamos a que el DOM y las fuentes estén listas
+      requestAnimationFrame(() => {
+        const trackWidth = track.scrollWidth;
+        const itemCount = track.children.length;
+        
+        // Como triplicamos el contenido, un tercio es el loop perfecto
+        const loopWidth = trackWidth / 3;
+        const duration = loopWidth / pxPerSec;
+        
+        track.style.setProperty('--duration', `${duration}s`);
+      });
+    }
+
+    // Calcular al cargar
+    calculateDuration();
+
+    // Recalcular en resize con debounce
+    let resizeTimer: number;
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(calculateDuration, 150);
+    });
+
+    // Recalcular cuando las fuentes se carguen
+    if (document.fonts) {
+      document.fonts.ready.then(calculateDuration);
+    }
+  }
+</script>

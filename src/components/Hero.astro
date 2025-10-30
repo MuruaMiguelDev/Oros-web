@@ -1,0 +1,134 @@
+---
+// src/components/Hero.astro
+interface Props {
+  title?: string;
+  subtitle?: string;
+  ctaPrimaryText?: string;
+  ctaPrimaryHref?: string;
+  ctaSecondaryText?: string;
+  ctaSecondaryHref?: string;
+}
+const {
+  title = "El Gran Ascenso Digital Para Tu Marca Comienza Hoy.",
+  subtitle = "Somos el motor de crecimiento que estas buscando. Diseñamos la estrategia multicanal perfecta para que escales posiciones en redes y en todas partes. Es hora de ejecutar y ver los resultados.",
+  ctaPrimaryText = "Solicitar Propuesta",
+  ctaPrimaryHref = "/contacto",
+  ctaSecondaryText = "Ver servicios",
+  ctaSecondaryHref = "/pageServices",
+} = Astro.props as Props;
+---
+
+<section
+  class="relative overflow-hidden
+  before:absolute before:inset-0 before:bg-[url('/silueta-cordillera.webp')]
+  before:bg-bottom before:bg-cover before:opacity-5 before:mix-blend-multiply before:pointer-events-none"
+>
+
+  <div class="mx-auto max-w-7xl px-6 py-16 md:py-12 lg:px-8">
+    <div class="grid items-center gap-10 md:grid-cols-2">
+      <!-- Columna izquierda: texto -->
+      <div class="max-w-xl">
+        <!-- badge -->
+        <div class="inline-flex items-center gap-2 py-1 text-xs md:text-2xl font-medium text-[#0a2540]">
+          <span class="inline-block h-4 w-4 rounded-full bg-[#f95738]"></span>
+          Elevá tu marca con nosotros
+        </div>
+
+        <h1 class="text-4xl font-bold leading-tight tracking-tight text-[#0a2540] md:text-6xl">
+          {title}
+        </h1>
+
+        <p class="mt-4 text-[#0a2540]/70">
+          {subtitle}
+        </p>
+
+        <div class="mt-6 ml-2 text-sm text-[#f95738]/80 font-semibold">
+          Iniciar el Ascenso Ahora:
+        </div>
+
+        <!-- CTAs -->
+        <div class="mt-4 md:mt-2 flex flex-wrap items-center gap-2 md:gap-4">
+          <a
+            href={ctaPrimaryHref}
+            class="inline-flex items-center text-white hover:text-[#f95738] rounded-full bg-[#0a2540] px-5 py-3 text-sm shadow-lg shadow-[#0a2540]/10 transition hover:translate-y-[-1px] hover:shadow-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-[#f95738]"
+          >
+            {ctaPrimaryText}
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+            </svg>
+          </a>
+
+          <a
+            href={ctaSecondaryHref}
+            class="inline-flex items-center underline underline-offset-4  hover:text-[#f95738] gap-2 px-5 py-3 text-sm text-[#0a2540] transition hover:translate-y-[-1px]"
+          >
+            {ctaSecondaryText}
+          </a>
+        </div>
+
+        <!-- sello decorativo -->
+        <div class="mt-10 inline-flex items-center gap-2 text-xs text-[#0a2540]/60">
+          <span class="relative grid place-content-center">
+            <span class="absolute h-8 w-8 rounded-full bg-[#f95738]/20 blur-[6px]"></span>
+            <span class="h-5 w-5 rounded-full border-2 border-dashed border-[#0a2540]"></span>
+          </span>
+          <!-- Certificado de Buenas Prácticas • UX • SEO • Performance -->
+
+          Garantia de resultados y satisfacción
+        </div>
+      </div>
+
+      <!-- Columna derecha: collage -->
+      <div class="relative">
+        <!-- brillo verde -->
+        <div class="pointer-events-none absolute -right-10 -top-6 h-36 w-36 rounded-full bg-[#f95738]/30 blur-2xl"></div>
+
+        <div class="relative mx-auto grid max-w-md grid-cols-3 gap-3 md:max-w-none">
+          <!-- Tile 1 -->
+          <div class="col-span-1 translate-y-4">
+            <div class="group relative aspect-[3/4] overflow-hidden rounded-3xl bg-emerald-100 ring-1 ring-[#0a2540]/10 transition-transform duration-300 will-change-transform [transform:skewY(-6deg)] hover:[transform:skewY(-6deg)_translateY(-4px)]">
+              <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?q=80&w=1200&auto=format&fit=crop" alt="" class="h-full w-full object-cover opacity-90 transition group-hover:opacity-100"/>
+            </div>
+          </div>
+
+          <!-- Tile 2 -->
+          <div class="col-span-1">
+            <div class="group relative aspect-square overflow-hidden rounded-3xl bg-emerald-100 ring-1 ring-[#0a2540]/10 transition-transform duration-300 [transform:skewY(6deg)] hover:[transform:skewY(6deg)_translateY(-4px)]">
+              <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1200&auto=format&fit=crop" alt="" class="h-full w-full object-cover"/>
+            </div>
+          </div>
+
+          <!-- Tile 3 -->
+          <div class="col-span-1 -translate-y-6">
+            <div class="group relative aspect-[3/4] overflow-hidden rounded-3xl bg-emerald-100 ring-1 ring-[#0a2540]/10 transition-transform duration-300 [transform:skewY(-6deg)] hover:[transform:skewY(-6deg)_translateY(-4px)]">
+              <img src="https://images.unsplash.com/photo-1516387938699-a93567ec168e?q=80&w=1200&auto=format&fit=crop" alt="" class="h-full w-full object-cover"/>
+            </div>
+          </div>
+
+          <!-- Tile 4 (wide) -->
+          <div class="col-span-3">
+            <div class="group relative aspect-[16/7] overflow-hidden rounded-3xl bg-emerald-100 ring-1 ring-[#0a2540]/10 transition-transform duration-300 [transform:skewY(3deg)] hover:[transform:skewY(3deg)_translateY(-4px)]">
+              <img src="https://images.unsplash.com/photo-1552581234-26160f608093?q=80&w=1600&auto=format&fit=crop" alt="" class="h-full w-full object-cover"/>
+              <!-- estrellita -->
+              <span class="absolute right-4 top-4 grid h-8 w-8 place-content-center rounded-full bg-white/80 shadow ring-1 ring-[#0a2540]/10">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-[#0a2540]" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2l2.39 6.92L22 9.27l-5.5 4.01L18.78 21 12 17.27 5.22 21 7.5 13.28 2 9.27l7.61-.35L12 2z"/>
+                </svg>
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- borde y sticker -->
+        <!-- <div class="pointer-events-none absolute -left-6 bottom-10 hidden lg:block">
+          <div class="relative">
+            <div class="absolute -left-4 -top-4 h-10 w-10 rounded-full bg-[#f95738] opacity-70 blur-lg"></div>
+            <div class="rounded-full border border-dashed border-[#0a2540]/30 px-4 py-1 text-xs font-semibold text-[#0a2540]/80 bg-white">
+              Growth • Results • UX
+            </div>
+          </div>
+        </div> -->
+      </div>
+    </div>
+  </div>
+</section>

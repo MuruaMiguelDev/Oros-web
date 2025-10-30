@@ -1,0 +1,50 @@
+---
+import Asterisco from "../ico/Asterisco.astro";
+import Facebook from "../ico/Facebook.astro";
+import Instagram from "../ico/Instagram.astro";
+import Linkedin from "../ico/Linkedin.astro";
+import Mail from "../ico/Mail.astro";
+import Phone from "../ico/Phone.astro";
+import Ubication from "../ico/Ubication.astro";
+---
+
+<div class="relative w-full overflow-hidden ">
+  <div class="max-w-7xl mx-auto  grid grid-cols-1 md:grid-cols-[auto_30%]">
+    
+    <!-- Bloque izquierdo (contacto) -->
+    <div class="bg-[#0a2540] text-white relative z-10 hidden md:block">
+      <div class="px-4 py-2 flex flex-wrap gap-4 items-center">
+        <a href="tel:+5493510000000" 
+           class="flex px-3 py-1.5 items-center text-sm gap-2">
+          <Phone color='#f95738'/> +5493510000000
+        </a>
+        <a href="mailto:oros.strategy@gmail.com" 
+           class="flex px-3 py-1.5 items-center text-sm gap-2">
+          <Mail color='#f95738'/>oros.strategy@gmail.com
+        </a>
+        <a href="https://maps.google.com/?q=Córdoba" target="_blank" 
+           class="flex px-3 py-1.5 items-center text-sm gap-2">
+          <Ubication color='#f95738' />Córdoba, Argentina.
+        </a>
+      </div>
+    </div>
+
+    <!-- Bloque derecho (redes sociales con corte diagonal) -->
+    <div class="relative">
+      <!-- fondo verde flúor con diagonal -->
+      <div class="absolute inset-0 bg-[#f95738] [clip-path:polygon(15%_0,100%_0,100%_100%,0_100%)]"></div>
+      
+      <!-- contenido -->
+      <div class="relative flex items-center justify-end px-4 py-2 mr-2">
+        <div class="flex gap-2">
+          <a href="#" class="w-8 h-8 rounded-full bg-[#0a2540] hover:bg-[#0a2540]/30 flex items-center justify-center transition"><Instagram color="white"/></a>
+          <a href="#" class="w-8 h-8 rounded-full bg-[#0a2540] hover:bg-[#0a2540]/30 flex items-center justify-center transition"><Facebook color="white"/></a>
+          <a href="#" class="w-8 h-8 rounded-full bg-[#0a2540] hover:bg-[#0a2540]/30 flex items-center justify-center transition"><Linkedin color="white"/></a>
+          <!-- <a href="#" class="w-8 h-8 rounded-full border border-white bg-[#224433]/20 hover:bg-[#224433]/30 flex items-center justify-center transition"></a>
+          <a href="#" class="w-8 h-8 rounded-full border border-[#224433]/40 bg-[#224433]/20 hover:bg-[#224433]/30 flex items-center justify-center transition"></a> -->
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

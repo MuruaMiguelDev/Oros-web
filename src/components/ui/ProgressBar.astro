@@ -1,0 +1,62 @@
+---
+interface Skill {
+  name: string;
+  percent: number; // 0-100
+}
+
+const {
+    ctaText = "About us",
+  ctaHref = "#contacto",
+    
+    skills = [
+    { name: "Marketing & Business Growth", percent: 85 },
+    { name: "Creativity & Innovation", percent: 90 },
+    { name: "Business & Financial Management", percent: 80 },
+  ],description = "Impulsamos el crecimiento real de tu negocio combinando estrategia, diseño y tecnología. Trabajamos con foco en resultados medibles y mejoras continuas.",
+  
+} = Astro.props;
+---
+
+
+<!-- Barra de progreso / skills -->
+ 
+    <div class="grid content-between py-18 gap-4">
+        <p class="mt-3 max-w-prose text-sm leading-relaxed text-[#0a2540]/80 md:text-base">
+        {description}
+      </p>
+      <div>
+      {skills.map((s) => (
+        <div class="space-y-2" aria-label={s.name}>
+          <div class="flex items-center justify-between text-sm font-medium text-[#0a2540]">
+            <span>{s.name}</span>
+            <span class="tabular-nums text-[#0a2540]/70">{s.percent}%</span>
+          </div>
+          <div class="relative h-2.5 w-full overflow-hidden rounded-full bg-[#0a2540]/10">
+            <div
+              class="h-full rounded-full bg-[#f95738] transition-[width] duration-500"
+              style={`width:${s.percent}%`}
+            />
+            <span
+              class="absolute -top-1.5 size-5 translate-x-1/2 rounded-full border border-black/5 bg-white shadow-sm"
+              style={`left:${s.percent}%`}
+            >
+              <span class="absolute inset-1 rounded-full bg-[#f95738]"></span>
+            </span>
+          </div>
+        </div>
+      ))}
+      </div>
+
+      <a
+        href={ctaHref}
+        class="group mt-2 inline-flex w-fit items-center gap-2 rounded-full bg-[#0a2540] px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:shadow-md"
+      >
+        {ctaText}
+        <svg
+          class="size-4 transition -translate-x-0 group-hover:translate-x-0.5"
+          viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        >
+          <path d="M5 12h14"></path><path d="M13 5l7 7-7 7"></path>
+        </svg>
+      </a>
+    </div>

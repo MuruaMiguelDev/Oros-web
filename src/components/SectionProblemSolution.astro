@@ -1,0 +1,98 @@
+---
+import Metrics from "./ui/Metrics.astro";
+import ProgressBar from "./ui/ProgressBar.astro";
+
+/**
+ * AboutExpertise.astro
+ * - Sección "About / Expertise" con imágenes, badge, barras de progreso, CTA y KPIs
+ * - Tailwind-ready (usa #0a2540 y #f95738 como en tu paleta)
+ */
+interface Skill {
+  name: string;
+  percent: number; // 0-100
+}
+
+interface Metric {
+  label: string;
+  value: string;
+}
+
+interface Props {
+  eyebrow?: string;
+  title?: string;
+  description?: string;
+  ctaText?: string;
+  ctaHref?: string;
+  skills?: Skill[];
+  metrics?: Metric[];
+  imgTop?: string;
+  imgBottom?: string;
+}
+
+const {
+  // eyebrow = "About Us",
+  eyebrow = "Sobre Nosotros",
+  // title = "Empowering Your Success with Digital Expertise",
+  title = `¿Cansado de la "Montaña de Pendientes"?`,
+  imgTop = "https://images.unsplash.com/photo-1551836022-d5d88e9218df?q=80&w=1200&auto=format&fit=crop",
+  imgBottom = "https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1200&auto=format&fit=crop",
+} = Astro.props as Props;
+---
+
+<section class="relative mx-auto max-w-7xl px-4 py-12 md:py-16">
+  <!-- Fondo y acento lateral -->
+  <!-- <div class="absolute inset-0 -z-10 rounded-3xl border border-black/5 bg-white shadow-sm"></div>
+  <div class="pointer-events-none absolute inset-y-0 right-0 w-1/6 [clip-path:polygon(30%_0,100%_0,100%_100%,0_100%)] bg-[#f95738]/20 -z-10 rounded-e-3xl"></div> -->
+
+  <!-- Header -->
+  <div class="max-w-7xl mx-auto px-6 lg:px-8 grid md:grid-cols-2 gap-12 items-center">
+
+    <!-- Columna Izquierda: Texto general -->
+    <div>
+      <h2 class="text-4xl md:text-5xl font-bold text-[#0a2540] mb-6">
+        ¿Cansado de la <span class="text-[#f95738]">Montaña de Pendientes</span>?
+      </h2>
+      <p class="text-gray-600 mb-8">
+        Sabemos lo que es invertir tiempo y capital en marketing sin ver el retorno.
+        Las estrategias pasivas no funcionan. Necesitás un socio que tome el mando
+        de la ejecución y garantice que tus canales trabajen sincronizados.
+      </p>
+
+      <!-- Problema -->
+      <div class="mb-6">
+        <h3 class="text-xl font-semibold text-[#0a2540] mb-2">El Problema</h3>
+        <p class="text-gray-600">
+          No necesitás más teoría. Necesitás <span class="font-semibold text-[#f95738]">acción inmediata</span>,
+          testing constante y un equipo que resuelva la operación diaria de tu marketing digital.
+        </p>
+      </div>
+
+      <!-- Solución -->
+      <div class="mb-8">
+        <h3 class="text-xl font-semibold text-[#0a2540] mb-2">La Solución</h3>
+        <p class="text-gray-600">
+          Ejecutamos la <span class="font-semibold">estrategia multicanal</span>:
+          activamos tus redes, optimizamos tu web y automatizamos el email marketing
+          para que vos te enfoques en el negocio.
+        </p>
+      </div>
+
+      <!-- CTA -->
+      <a href="/contacto"
+         class="inline-block bg-[#f95738] hover:bg-[#e24d32] text-white font-medium px-6 py-3 rounded-lg transition">
+         Hablemos de la Ejecución →
+      </a>
+    </div>
+
+    <!-- Columna Derecha: Imagen conceptual -->
+    <div class="relative">
+      <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?q=80&w=1200&auto=format&fit=crop"
+           alt="Ejecución de marketing sincronizada"
+           class="rounded-xl shadow-[0_10px_30px_rgba(0,0,0,0.1)]">
+    </div>
+
+  </div>
+  <!-- <div class="mb-10 gap-6 md:items-center w-full">
+    <Metrics />
+  </div> -->
+</section>

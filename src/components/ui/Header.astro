@@ -1,0 +1,176 @@
+---
+import AnnouncementBar from "./AnnouncementBar.astro";
+---
+
+<header class="bg-[#0a2540] shadow">
+  <AnnouncementBar />
+
+  <div class="bg-white px-4 md:px-6 py-3">
+    <div class="mx-auto flex max-w-7xl items-center justify-between">
+      <!-- Logo -->
+      <a href="/" class="flex items-center gap-2 p-2 rounded-2xl">
+        <img src="/orossm-lg.webp" alt="Logo Intellecta" class="h-8 w-auto" />
+      </a>
+
+      <!-- Botón mobile -->
+      <button
+        id="mobileMenuBtn"
+        class="inline-flex h-10 w-10 items-center justify-center rounded-xl text-[#0a2540] md:hidden"
+        aria-controls="mobileMenu"
+        aria-expanded="false"
+        aria-label="Abrir menú"
+      >
+        <!-- ICONO PROVISTO -->
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="currentColor"
+          class="icon icon-tabler icons-tabler-filled icon-tabler-layout-sidebar-right-expand"
+          ><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path
+            d="M18 3a3 3 0 0 1 2.995 2.824l.005 .176v12a3 3 0 0 1 -2.824 2.995l-.176 .005h-12a3 3 0 0 1 -2.995 -2.824l-.005 -.176v-12a3 3 0 0 1 2.824 -2.995l.176 -.005h12zm-3 2h-9a1 1 0 0 0 -.993 .883l-.007 .117v12a1 1 0 0 0 .883 .993l.117 .007h9v-14zm-3.293 4.293a1 1 0 0 1 .083 1.32l-.083 .094l-1.292 1.293l1.292 1.293a1 1 0 0 1 .083 1.32l-.083 .094a1 1 0 0 1 -1.32 .083l-.094 -.083l-2 -2a1 1 0 0 1 -.083 -1.32l.083 -.094l2 -2a1 1 0 0 1 1.414 0z"
+          ></path></svg
+        >
+      </button>
+
+      <!-- Nav escritorio -->
+<nav class="hidden md:flex md:items-center md:space-x-8">
+  {
+    ["Inicio", "Servicios", "Contacto", "Nosotros"].map((txt) => {
+      // Definir destino según el texto
+      const href =
+        txt === "Inicio"
+          ? "/"
+          : txt === "Servicios"
+          ? "/pageServices"
+          : txt === "Contacto"
+          ? "/contacto"
+          : txt === "Nosotros"
+          ? "/about"
+          : "";
+      return (
+        <a
+          href={href}
+          class="group relative font-medium text-[#0a2540] transition-colors duration-200"
+        >
+          {txt}
+          <span class="absolute left-0 -bottom-1 h-[2px] w-0 bg-[#f95738] transition-all duration-300 group-hover:w-full" />
+        </a>
+      );
+    })
+  }
+</nav>
+
+      <!-- CTA escritorio -->
+      <a
+        href="/contacto"
+        class="hidden md:inline-flex items-center justify-center rounded-full bg-[#0a2540] px-4 py-2 font-medium text-white hover:text-[#f95738] transition-colors duration-200"
+      >
+        Solicitar Propuesta
+      </a>
+    </div>
+  </div>
+
+  <!-- Overlay + Panel Mobile -->
+  <div
+    id="mobileOverlay"
+    class="fixed inset-0 z-40 hidden bg-black/40 backdrop-blur-[1px]"
+  >
+  </div>
+
+  <div
+    id="mobileMenu"
+    class="fixed inset-y-0 right-0 z-50 w-80 max-w-[85%] translate-x-full bg-white shadow-xl transition-transform duration-300 md:hidden"
+    role="dialog"
+    aria-modal="true"
+    aria-label="Menú"
+  >
+    <div class="flex items-center justify-between border-b px-4 py-3">
+      <span class="text-sm font-semibold text-[#0a2540]">Menú</span>
+      <button
+        id="mobileCloseBtn"
+        class="inline-flex h-9 w-9 items-center justify-center rounded-lg text-[#0a2540]"
+        aria-label="Cerrar menú"
+      >
+        <!-- Reutilizo el mismo icono girado como 'cerrar' (opcional cambiar por X) -->
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="currentColor"
+          class="icon icon-tabler icons-tabler-filled icon-tabler-layout-sidebar-left-expand"
+          ><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path
+            d="M18 3a3 3 0 0 1 2.995 2.824l.005 .176v12a3 3 0 0 1 -2.824 2.995l-.176 .005h-12a3 3 0 0 1 -2.995 -2.824l-.005 -.176v-12a3 3 0 0 1 2.824 -2.995l.176 -.005h12zm0 2h-9v14h9a1 1 0 0 0 .993 -.883l.007 -.117v-12a1 1 0 0 0 -.883 -.993l-.117 -.007zm-4.387 4.21l.094 .083l2 2a1 1 0 0 1 .083 1.32l-.083 .094l-2 2a1 1 0 0 1 -1.497 -1.32l.083 -.094l1.292 -1.293l-1.292 -1.293a1 1 0 0 1 -.083 -1.32l.083 -.094a1 1 0 0 1 1.32 -.083z"
+          ></path></svg
+        >
+      </button>
+    </div>
+
+<nav class="px-4 py-4 space-y-1">
+  {
+    ["Inicio", "Servicios", "Contacto", "Nosotros"].map((txt) => {
+      // Definir el enlace de destino
+      const href =
+        txt === "Inicio"
+          ? "/"
+          : txt === "Servicios"
+          ? "/pageServices"
+          : txt === "Nosotros"
+          ? "/about"
+          : "#";
+
+      return (
+        <a
+          href={href}
+          class="block rounded-lg px-3 py-2 text-base font-medium text-[#0a2540] hover:bg-[#f95738]/10"
+        >
+          {txt}
+        </a>
+      );
+    })
+  }
+
+  <a
+    href="#"
+    class="mt-3 inline-flex w-full items-center justify-center rounded-full bg-[#0a2540] px-4 py-2 font-medium transition-colors duration-200 text-white hover:text-[#f95738]"
+  >
+    Solicitar Propuesta
+  </a>
+</nav>
+  </div>
+
+  <!-- Script toggle -->
+  <script is:inline>
+    (function () {
+      const btn = document.getElementById("mobileMenuBtn");
+      const panel = document.getElementById("mobileMenu");
+      const overlay = document.getElementById("mobileOverlay");
+      const closeBtn = document.getElementById("mobileCloseBtn");
+
+      const open = () => {
+        panel.classList.remove("translate-x-full");
+        overlay.classList.remove("hidden");
+        btn.setAttribute("aria-expanded", "true");
+        document.body.style.overflow = "hidden";
+      };
+
+      const close = () => {
+        panel.classList.add("translate-x-full");
+        overlay.classList.add("hidden");
+        btn.setAttribute("aria-expanded", "false");
+        document.body.style.overflow = "";
+      };
+
+      btn?.addEventListener("click", open);
+      overlay?.addEventListener("click", close);
+      closeBtn?.addEventListener("click", close);
+
+      // Escape para cerrar
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") close();
+      });
+    })();
+  </script>
+</header>

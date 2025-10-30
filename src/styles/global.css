@@ -1,0 +1,11 @@
+@import "tailwindcss";
+
+/* Define tu tema (equivalente a extend.fontFamily) */
+@theme {
+  --font-sansation: "Sansation", sans-serif;
+}
+
+/* Usa la variable como font-family en utilidades: */
+:root { font-family: var(--font-sansation); }
+
+/* Y seguí usando clases Tailwind normalmente */

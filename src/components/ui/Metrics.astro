@@ -1,0 +1,47 @@
+---
+interface Metric {
+  label: string;
+  value: string;
+}
+
+const {
+metrics = [
+    { label: "Successful impacts", value: "3k+" },
+    { label: "Expert team", value: "200+" },
+    { label: "Happy customers", value: "350+" },
+    { label: "Years of experience", value: "16+" },
+  ],
+} = Astro.props;
+---
+
+<div class="relative px-4">
+      <!-- Badge -->
+      <!-- <div class="absolute -top-5 left-6">
+        <div class="relative">
+          <div class="rounded-full bg-white px-3 py-1.5 shadow-md ring-1 ring-black/5">
+            <div class="flex items-center gap-2 text-xs font-semibold text-[#0a2540]">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" class="text-[#B3F111]">
+                <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/>
+                <path d="M7 12l3 3 7-7" stroke="currentColor" stroke-width="2" />
+              </svg>
+              Certified Partner
+            </div>
+          </div>
+        </div>
+      </div> -->
+
+      <!-- <p class="mt-4 text-sm leading-relaxed text-[#0a2540]/80">
+        Creamos sistemas escalables y experiencias que convierten. Integraciones con ERP, e-commerce,
+        dashboards y automatizaciones para crecer con datos y foco en ROI.
+      </p> -->
+
+      <!-- KPIs -->
+      <dl class="mt-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
+        {metrics.map((m) => (
+          <div class="p-3 text-center">
+            <dd class="mt-0.5 text-4xl font-bold text-[#0a2540]">{m.value}</dd>
+            <dt class="text-sm text-[#0a2540]/60">{m.label}</dt>
+          </div>
+        ))}
+      </dl>
+    </div>

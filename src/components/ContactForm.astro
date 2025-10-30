@@ -1,0 +1,118 @@
+  ---
+
+  ---
+  <section class="px-6 py-12">
+    <div class="mx-auto max-w-6xl">
+      <div class="grid gap-10 md:grid-cols-2">
+        <!-- Columna: Formulario -->
+        <form id="contact-form" action="#" method="post" class="max-w-xl">
+          <h2 class="text-3xl md:text-4xl font-semibold tracking-tight text-slate-900">
+            Ponte en Contacto
+          </h2>
+          <p class="mt-2 text-sm text-slate-500">
+            ¿Tienes alguna pregunta? Estamos aquí para ayudarte.
+          </p>
+
+          <!-- Nombre -->
+          <label for="nombre" class="mt-6 block text-sm font-medium text-slate-700">Nombre</label>
+          <input
+            type="text"
+            id="nombre"
+            name="nombre"
+            required
+            placeholder="Tu nombre"
+            class="mt-2 w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-800 placeholder-slate-400 outline-none ring-blue-500 focus:border-blue-400 focus:ring-2"
+          />
+
+          <!-- Correo -->
+          <label for="correo" class="mt-5 block text-sm font-medium text-slate-700">Correo Electrónico</label>
+          <input
+            type="email"
+            id="correo"
+            name="correo"
+            required
+            placeholder="tu@email.com"
+            class="mt-2 w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-800 placeholder-slate-400 outline-none ring-blue-500 focus:border-blue-400 focus:ring-2"
+          />
+
+          <!-- Asunto -->
+          <label for="asunto" class="mt-5 block text-sm font-medium text-slate-700">Asunto</label>
+          <input
+            type="text"
+            id="asunto"
+            name="asunto"
+            placeholder="Asunto del mensaje"
+            class="mt-2 w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-800 placeholder-slate-400 outline-none ring-blue-500 focus:border-blue-400 focus:ring-2"
+          />
+
+          <!-- Mensaje -->
+          <label for="mensaje" class="mt-5 block text-sm font-medium text-slate-700">Mensaje</label>
+          <textarea
+            id="mensaje"
+            name="mensaje"
+            rows="6"
+            required
+            placeholder="Escribe tu mensaje aquí…"
+            class="mt-2 w-full resize-y rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-800 placeholder-slate-400 outline-none ring-blue-500 focus:border-blue-400 focus:ring-2"
+          ></textarea>
+
+          <!-- Botón -->
+          <button
+            type="submit"
+            class="mt-6 inline-flex items-center justify-center gap-2 rounded-xl bg-[#f95738] hover:bg-[#e24d32] text-white px-6 py-3 text-sm font-medium shadow-sm focus:outline-none focus:ring-2 focus:ring-[#f95738] transition hover:translate-y-[-1px]"
+          >
+            Enviar Mensaje
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M5 12h14"></path>
+              <path d="m12 5 7 7-7 7"></path>
+            </svg>
+          </button>
+        </form>
+
+        <!-- Columna: Panel de contacto -->
+        <aside class="rounded-2xl bg-white p-6 shadow-sm md:p-8">
+          <h3 class="text-2xl font-semibold text-start text-[#0a2540] mb-4">Otras Formas de Contactarnos</h3>
+
+          <!-- Teléfono -->
+          <div class="mt-6 flex items-start gap-4">
+            <span class="grid h-10 w-10 place-items-center rounded-full bg-[#0a2540] text-white">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
+                <path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 2 6a2 2 0 0 1 2-2"/>
+              </svg>
+            </span>
+            <div>
+              <p class="text-sm font-medium text-slate-700">Teléfono</p>
+              <p class="text-sm text-slate-500">+54 9 351-567-890</p>
+            </div>
+          </div>
+
+          <!-- Email -->
+          <div class="mt-5 flex items-start gap-4">
+            <span class="grid h-10 w-10 place-items-center rounded-full bg-[#0a2540] text-white">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
+                <rect x="3" y="5" width="18" height="14" rx="2"></rect>
+                <path d="M3 7l9 6 9-6"></path>
+              </svg>
+            </span>
+            <div>
+              <p class="text-sm font-medium text-slate-700">Email</p>
+              <p class="text-sm text-slate-500">oros.strategy@gmail.com</p>
+            </div>
+          </div>
+
+          <!-- Dirección -->
+          <div class="mt-5 flex items-start gap-4">
+            <span class="grid h-10 w-10 place-items-center rounded-full bg-[#0a2540] text-white">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 21a2 2 0 0 1-1.42-.59l-4.24-4.24a9 9 0 1 1 12.73 0l-4.24 4.24A2 2 0 0 1 12 21Zm0-12a3 3 0 1 0 0 6a3 3 0 0 0 0-6Z"/>
+              </svg>
+            </span>
+            <div>
+              <p class="text-sm font-medium text-slate-700">Dirección</p>
+              <p class="text-sm text-slate-500">Ciudad de Tampa 8699, Córdoba, Arg.</p>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
