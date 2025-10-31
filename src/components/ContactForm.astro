@@ -1,6 +1,6 @@
-  ---
+---
 
-  ---
+---
   <section class="px-6 py-12">
     <div class="mx-auto max-w-6xl">
       <div class="grid gap-10 md:grid-cols-2">
@@ -18,7 +18,7 @@
           <input
             type="text"
             id="nombre"
-            name="nombre"
+            name="name"
             required
             placeholder="Tu nombre"
             class="mt-2 w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-800 placeholder-slate-400 outline-none ring-blue-500 focus:border-blue-400 focus:ring-2"
@@ -29,7 +29,7 @@
           <input
             type="email"
             id="correo"
-            name="correo"
+            name="email"
             required
             placeholder="tu@email.com"
             class="mt-2 w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-800 placeholder-slate-400 outline-none ring-blue-500 focus:border-blue-400 focus:ring-2"
@@ -40,7 +40,7 @@
           <input
             type="text"
             id="asunto"
-            name="asunto"
+            name="affair"
             placeholder="Asunto del mensaje"
             class="mt-2 w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-800 placeholder-slate-400 outline-none ring-blue-500 focus:border-blue-400 focus:ring-2"
           />
@@ -49,7 +49,7 @@
           <label for="mensaje" class="mt-5 block text-sm font-medium text-slate-700">Mensaje</label>
           <textarea
             id="mensaje"
-            name="mensaje"
+            name="message"
             rows="6"
             required
             placeholder="Escribe tu mensaje aquí…"
@@ -116,3 +116,5 @@
       </div>
     </div>
   </section>
+
+  <script is:inline src="/js/contact-form.js" defer></script>
