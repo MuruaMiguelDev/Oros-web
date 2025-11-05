@@ -5,69 +5,86 @@
     <div class="mx-auto max-w-6xl">
       <div class="grid gap-10 md:grid-cols-2">
         <!-- Columna: Formulario -->
-        <form id="contact-form" action="#" method="post" class="max-w-xl">
-          <h2 class="text-3xl md:text-4xl font-semibold tracking-tight text-slate-900">
-            Ponte en Contacto
-          </h2>
-          <p class="mt-2 text-sm text-slate-500">
-            ¿Tienes alguna pregunta? Estamos aquí para ayudarte.
-          </p>
+<form id="contact-form" action="#" method="post" class="max-w-xl">
+  <h2 class="text-3xl md:text-4xl font-semibold tracking-tight text-slate-900">
+    Ponte en Contacto
+  </h2>
+  <p class="mt-2 text-sm text-slate-500">
+    ¿Tienes alguna pregunta? Estamos aquí para ayudarte.
+  </p>
 
-          <!-- Nombre -->
-          <label for="nombre" class="mt-6 block text-sm font-medium text-slate-700">Nombre</label>
-          <input
-            type="text"
-            id="nombre"
-            name="name"
-            required
-            placeholder="Tu nombre"
-            class="mt-2 w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-800 placeholder-slate-400 outline-none ring-blue-500 focus:border-blue-400 focus:ring-2"
-          />
+  <!-- Nombre -->
+  <label for="nombre" class="mt-6 block text-sm font-medium text-slate-700">Nombre</label>
+  <input
+    type="text"
+    id="nombre"
+    name="name"
+    required
+    placeholder="Tu nombre"
+    class="mt-2 w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-800 placeholder-slate-400 outline-none ring-blue-500 focus:border-blue-400 focus:ring-2"
+  />
 
-          <!-- Correo -->
-          <label for="correo" class="mt-5 block text-sm font-medium text-slate-700">Correo Electrónico</label>
-          <input
-            type="email"
-            id="correo"
-            name="email"
-            required
-            placeholder="tu@email.com"
-            class="mt-2 w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-800 placeholder-slate-400 outline-none ring-blue-500 focus:border-blue-400 focus:ring-2"
-          />
+  <!-- Correo -->
+  <label for="correo" class="mt-5 block text-sm font-medium text-slate-700">Correo Electrónico</label>
+  <input
+    type="email"
+    id="correo"
+    name="email"
+    required
+    placeholder="tu@email.com"
+    class="mt-2 w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-800 placeholder-slate-400 outline-none ring-blue-500 focus:border-blue-400 focus:ring-2"
+  />
 
-          <!-- Asunto -->
-          <label for="asunto" class="mt-5 block text-sm font-medium text-slate-700">Asunto</label>
-          <input
-            type="text"
-            id="asunto"
-            name="affair"
-            placeholder="Asunto del mensaje"
-            class="mt-2 w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-800 placeholder-slate-400 outline-none ring-blue-500 focus:border-blue-400 focus:ring-2"
-          />
+  <!-- Asunto -->
+  <label for="asunto" class="mt-5 block text-sm font-medium text-slate-700">Asunto</label>
+  <input
+    type="text"
+    id="asunto"
+    name="affair"
+    placeholder="Asunto del mensaje"
+    class="mt-2 w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-800 placeholder-slate-400 outline-none ring-blue-500 focus:border-blue-400 focus:ring-2"
+  />
 
-          <!-- Mensaje -->
-          <label for="mensaje" class="mt-5 block text-sm font-medium text-slate-700">Mensaje</label>
-          <textarea
-            id="mensaje"
-            name="message"
-            rows="6"
-            required
-            placeholder="Escribe tu mensaje aquí…"
-            class="mt-2 w-full resize-y rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-800 placeholder-slate-400 outline-none ring-blue-500 focus:border-blue-400 focus:ring-2"
-          ></textarea>
+  <!-- Mensaje -->
+  <label for="mensaje" class="mt-5 block text-sm font-medium text-slate-700">Mensaje</label>
+  <textarea
+    id="mensaje"
+    name="message"
+    rows="6"
+    required
+    placeholder="Escribe tu mensaje aquí…"
+    class="mt-2 w-full resize-y rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-800 placeholder-slate-400 outline-none ring-blue-500 focus:border-blue-400 focus:ring-2"
+  ></textarea>
 
-          <!-- Botón -->
-          <button
-            type="submit"
-            class="mt-6 inline-flex items-center justify-center gap-2 rounded-xl bg-[#f95738] hover:bg-[#e24d32] text-white px-6 py-3 text-sm font-medium shadow-sm focus:outline-none focus:ring-2 focus:ring-[#f95738] transition hover:translate-y-[-1px]"
-          >
-            Enviar Mensaje
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M5 12h14"></path>
-              <path d="m12 5 7 7-7 7"></path>
-            </svg>
-          </button>
-        </form>
+  <!-- Check política de privacidad -->
+  <div class="flex items-start mt-4">
+    <input
+      type="checkbox"
+      id="privacyPolicy"
+      name="privacyPolicy"
+      required
+      class="mt-1 h-4 w-4 text-[#f95738] border-slate-300 rounded focus:ring-[#f95738]"
+    />
+    <label for="privacyPolicy" class="ml-2 text-sm text-slate-600">
+      Acepto la
+      <a href="/privacy-policy" target="_blank" rel="noopener noreferrer" class="text-[#f95738] hover:underline">
+        Política de Privacidad
+      </a>.
+    </label>
+  </div>
+
+  <!-- Botón -->
+  <button
+    type="submit"
+    class="mt-6 inline-flex items-center justify-center gap-2 rounded-xl bg-[#f95738] hover:bg-[#e24d32] text-white px-6 py-3 text-sm font-medium shadow-sm focus:outline-none focus:ring-2 focus:ring-[#f95738] transition hover:translate-y-[-1px]"
+  >
+    Enviar Mensaje
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M5 12h14"></path>
+      <path d="m12 5 7 7-7 7"></path>
+    </svg>
+  </button>
+</form>
 
         <!-- Columna: Panel de contacto -->
         <aside class="rounded-2xl bg-white p-6 shadow-sm md:p-8">

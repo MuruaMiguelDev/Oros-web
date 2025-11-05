@@ -230,7 +230,7 @@
           type: "success",
           title: "¡Gracias! Recibimos tu mensaje",
           message:
-            "Te contactaremos a la brevedad. Si necesitas una respuesta urgente, puedes escribirnos a <strong>oros.strategy@gmail.com</strong> o llamar al <strong>+54 9 351-567-890</strong>."
+            "Te contactaremos a la brevedad. Si necesitas una respuesta urgente, puedes escribirnos a <strong>info@orossm.com</strong> o llamar al <strong>+54 9 351-380-6166</strong>."
         });
       } else {
         const details = (() => {
