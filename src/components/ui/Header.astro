@@ -37,7 +37,7 @@ import AnnouncementBar from "./AnnouncementBar.astro";
       <!-- Nav escritorio -->
 <nav class="hidden md:flex md:items-center md:space-x-8">
   {
-    ["Inicio", "Servicios", "Contacto", "Nosotros"].map((txt) => {
+    ["Inicio", "Servicios", "Contacto", "Nosotros","Blogs"].map((txt) => {
       // Definir destino según el texto
       const href =
         txt === "Inicio"
@@ -48,6 +48,8 @@ import AnnouncementBar from "./AnnouncementBar.astro";
           ? "/contacto"
           : txt === "Nosotros"
           ? "/about"
+          : txt === "Blogs"
+          ?"/blog"
           : "";
       return (
         <a
@@ -110,7 +112,7 @@ import AnnouncementBar from "./AnnouncementBar.astro";
 
 <nav class="px-4 py-4 space-y-1">
   {
-    ["Inicio", "Servicios", "Contacto", "Nosotros"].map((txt) => {
+    ["Inicio", "Servicios", "Contacto", "Nosotros","Blogs"].map((txt) => {
       // Definir el enlace de destino
       const href =
         txt === "Inicio"
@@ -121,7 +123,9 @@ import AnnouncementBar from "./AnnouncementBar.astro";
           ? "/contacto"
           : txt === "Nosotros"
           ? "/about"
-          : "#";
+          : txt === "Blogs"
+          ?"/blog"
+          : "";
 
       return (
         <a

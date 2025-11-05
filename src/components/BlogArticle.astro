@@ -1,0 +1,74 @@
+---
+// BlogArticle.astro
+// Componente de sección de blog reutilizable con Tailwind y <slot/> para el cuerpo.
+// Requiere Tailwind configurado en tu proyecto.
+
+export interface Props {
+  title: string;
+  subtitle?: string;
+  author?: string;
+  publishedAt?: string;
+  readingTime?: string;
+  heroImage?: string;
+  tags?: string[];
+}
+
+const {
+  title,
+  subtitle = "",
+  author = "Óros Strategy and Marketing (OSM)",
+  publishedAt = "5 de noviembre de 2025",
+  readingTime = "4 min de lectura",
+  heroImage = "",
+  tags = [],
+} = Astro.props as Props;
+---
+
+<article class="relative bg-white">
+  <!-- Cabecera / Hero -->
+  <header class="relative">
+    <figure class="relative h-[42svh] w-full lg:max-w-5xl xl:max-w-6xl mx-auto overflow-hidden rounded-2xl">
+      <img
+        src={heroImage}
+        alt={subtitle ? `${title} – ${subtitle}` : title}
+        class="h-full w-full object-cover"
+        loading="eager"
+        decoding="async"
+      />
+      <div
+        class="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent"
+        aria-hidden="true"
+      />
+      <figcaption class="absolute inset-x-0 bottom-0 mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 pb-8 text-white">
+        <p class="mb-2 text-sm/6 opacity-90">{publishedAt} • {readingTime}</p>
+        <h1 class="font-semibold tracking-tight text-3xl sm:text-4xl lg:text-5xl">
+          {title}
+        </h1>
+        {subtitle && (
+          <p class="mt-2 pt-12 sm:pt-0 text-white/90 text-base sm:text-lg">
+            {subtitle}
+          </p>
+        )}
+        <p class="mt-3 text-white/90 text-sm">
+          Por {author}
+        </p>
+        {tags.length > 0 && (
+          <ul class="mt-4 flex flex-wrap gap-2 max-sm:hidden">
+            {tags.map((t) => (
+              <li class="rounded-full bg-white/15 px-3 py-1 text-xs backdrop-blur">
+                {t}
+              </li>
+            ))}
+          </ul>
+        )}
+      </figcaption>
+    </figure>
+  </header>
+
+  <!-- Cuerpo del artículo -->
+  <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 py-10">
+    <section class="prose prose-neutral max-w-none prose-p:leading-relaxed prose-headings:scroll-mt-24">
+      <slot />
+    </section>
+  </div>
+</article>
