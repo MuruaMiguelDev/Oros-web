@@ -1,149 +1,161 @@
 ---
-
+// Detectar idioma según la URL
+const isEnglish = Astro.url.pathname.startsWith('/en/') || Astro.url.pathname === '/en';
 ---
-     <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10
-        relative overflow-hidden
-        before:absolute before:inset-0 before:bg-[url('/silueta-cordillera.webp')]
-        before:bg-bottom before:bg-cover before:opacity-2 before:mix-blend-multiply before:pointer-events-none">
 
-      <!-- HERO / HISTORIA -->
-      <section class="grid grid-cols-1 lg:grid-cols-2 gap-6 items-start">
-        <!-- Texto -->
-        <div>
-          <h1 class="text-4xl font-bold leading-tight tracking-tight text-[#001F3F] md:text-6xl">
-            Nuestra Historia, Tu<br/>Futuro
-          </h1>
-          <p class="mt-4 text-[#303133]/70">
-            Descubre la pasión y la dedicación que nos impulsa a crear
-            soluciones innovadoras. Nuestra historia se forja con el propósito de
-            construir un futuro brillante, tanto para nuestros clientes como para
-            nuestro equipo.
-          </p>
+<main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10
+      relative overflow-hidden
+      before:absolute before:inset-0 before:bg-[url('/silueta-cordillera.webp')]
+      before:bg-bottom before:bg-cover before:opacity-2 before:mix-blend-multiply before:pointer-events-none">
+
+  <!-- HERO / HISTORIA -->
+  <section class="grid grid-cols-1 lg:grid-cols-2 gap-6 items-start">
+    <!-- Texto -->
+    <div>
+      <h1 class="text-4xl font-bold leading-tight tracking-tight text-[#001F3F] md:text-6xl">
+        {isEnglish ? (
+          <>Our Story, Your<br/>Future</>
+        ) : (
+          <>Nuestra Historia, Tu<br/>Futuro</>
+        )}
+      </h1>
+      <p class="mt-4 text-[#303133]/70">
+        {isEnglish 
+          ? "Discover the passion and dedication driving us to build innovative solutions. Our story is forged with the goal of creating a bright future for both our clients and our team."
+          : "Descubre la pasión y la dedicación que nos impulsa a crear soluciones innovadoras. Nuestra historia se forja con el propósito de construir un futuro brillante, tanto para nuestros clientes como para nuestro equipo."}
+      </p>
+    </div>
+
+    <!-- Misión / Visión -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+      <!-- Card Misión -->
+      <article class="bg-white border border-gray-200 rounded-xl shadow-sm p-5">
+        <div class="flex flex-col items-start gap-3">
+          <span class="inline-flex w-12 h-12 rounded-xl bg-blue-100 text-blue-600 items-center justify-center shadow-sm">
+            <!-- icono brújula -->
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" d="M12 3v2m0 14v2m9-9h-2M5 12H3m13.657-6.343l-1.414 1.414M6.757 17.243l-1.414 1.414M17.243 17.243l1.414 1.414M6.757 6.757L5.343 5.343M14 10l-4 2 2-4 2 2z"/>
+            </svg>
+          </span>
+          <div>
+            <h3 class="text-2xl font-semibold text-start text-[#001F3F] mb-4">
+              {isEnglish ? "Mission" : "Misión"}
+            </h3>
+            <p class="mt-4 text-[#303133]/70">
+              {isEnglish
+                ? "Empower our clients with innovative tools that simplify complexity and drive success."
+                : "Empoderar a nuestros clientes con herramientas innovadoras que simplifiquen la complejidad y impulsen el éxito."}
+            </p>
+          </div>
         </div>
-
-        <!-- Misión / Visión -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <!-- Card Misión -->
-          <article class="bg-white border border-gray-200 rounded-xl shadow-sm p-5">
-            <div class="flex flex-col items-start gap-3">
-              <span class="inline-flex w-12 h-12 rounded-xl bg-blue-100 text-blue-600 items-center justify-center shadow-sm">
-                <!-- icono brújula -->
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" d="M12 3v2m0 14v2m9-9h-2M5 12H3m13.657-6.343l-1.414 1.414M6.757 17.243l-1.414 1.414M17.243 17.243l1.414 1.414M6.757 6.757L5.343 5.343M14 10l-4 2 2-4 2 2z"/>
-                </svg>
-              </span>
-              <div>
-                <h3 class="text-2xl font-semibold text-start text-[#001F3F] mb-4">Misión</h3>
-                <p class="mt-4 text-[#303133]/70">
-                  Empoderar a nuestros clientes con herramientas innovadoras que
-                  simplifiquen la complejidad y impulsen el éxito.
-                </p>
-              </div>
-            </div>
-          </article>
-
-          <!-- Card Visión -->
-          <article class="bg-white border border-gray-200 rounded-xl shadow-sm p-5">
-            <div class="flex flex-col items-start gap-3">
-              <span class="inline-flex w-12 h-12 rounded-xl bg-blue-100 text-blue-600 items-center justify-center shadow-sm">
-                <!-- icono ojo -->
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6S2 12 2 12z"/>
-                  <circle cx="12" cy="12" r="3" stroke-width="1.6"/>
-                </svg>
-              </span>
-              <div>
-                <h3 class="text-2xl font-semibold text-start text-[#001F3F] mb-4">Visión</h3>
-                <p class="mt-4 text-[#303133]/70">
-                  Ser líderes globales en soluciones digitales, reconocidos por
-                  nuestro impacto positivo en la sociedad.
-                </p>
-              </div>
-            </div>
-          </article>
-        </div>
-      </section>
-
-      <!-- separador -->
-      <div class="h-12"></div>
-
-
-<!-- Sección: Conoce a nuestros Fundadores -->
-<section id="founders" class="bg-[#F6F6F6] py-20">
-  <div class="max-w-6xl mx-auto px-6">
-    <h2 class="text-4xl font-bold leading-tight tracking-tight text-[#001F3F] md:text-6xl text-center">
-      Conoce a nuestros Fundadores
-    </h2>
-    <p class="mt-4 text-[#303133]/70 text-center max-w-2xl mx-auto">
-      Creemos en las personas, en su potencial y en lo que pueden lograr con las herramientas correctas.
-    </p>
-
-    <div class="grid md:grid-cols-2 gap-16 mt-14">
-      <!-- Founder 1 -->
-      <article class="flex flex-col items-center text-center">
-        <div class="relative w-64 h-64 md:w-72 md:h-72">
-          <!-- Imagen con fondo transparente y sombra suave -->
-          <img
-            src="/Mauricio-2.png"
-            alt="Retrato de Mauricio"
-            loading="lazy"
-            class="w-full h-full object-contain drop-shadow-xl filter brightness-105 contrast-110 saturate-90"
-          />
-          <!-- Sombra elíptica difuminada debajo -->
-          <div class="pointer-events-none absolute inset-x-0 -bottom-2 mx-auto w-40 h-6 rounded-full bg-black/20 blur-md"></div>
-        </div>
-
-        <h3 class="mt-6 text-xl md:text-2xl font-semibold text-[#001F3F]">
-          Mauricio López
-        </h3>
-        <span class="text-sky-600 text-sm font-medium hover:underline">
-          CEO &amp; Co-Founder
-        </span>
-        <p class="mt-3 text-[#303133] text-start text-sm leading-relaxed max-w-[35ch]">
-          Director Estratégico y Fundador de Óros Strategy and Marketing, es la visión que une la planificación de alto nivel con la ejecución precisa. Con casi una década de experiencia como Digital Marketer y una base sólida en diseño gráfico, su enfoque se centra en la aplicación de conocimiento práctico para resolver problemas de negocio y asegurar que la estrategia siempre domine la táctica. Ha desarrollado planes integrales en gestión avanzada de campañas publicitarias (Meta Business Manager), optimización de email marketing y posicionamiento web mediante Ads y Analytics, garantizando que cada cliente tenga un camino de valor sólido y medible hacia sus objetivos de crecimiento.
-        </p>
       </article>
 
-      <!-- Founder 2 -->
-      <article class="flex flex-col items-center text-center">
-        <div class="relative w-64 h-64 md:w-72 md:h-72">
-          <!-- Imagen con fondo transparente y sombra suave -->
-          <img
-            src="/Migue-2.png"
-            alt="Retrato de Miguel"
-            loading="lazy"
-            class="w-full h-full object-contain drop-shadow-xl filter brightness-105 contrast-110 saturate-90"
-          />
-          <!-- Sombra elíptica difuminada debajo -->
-          <div class="pointer-events-none absolute inset-x-0 -bottom-2 mx-auto w-40 h-6 rounded-full bg-black/20 blur-md"></div>
+      <!-- Card Visión -->
+      <article class="bg-white border border-gray-200 rounded-xl shadow-sm p-5">
+        <div class="flex flex-col items-start gap-3">
+          <span class="inline-flex w-12 h-12 rounded-xl bg-blue-100 text-blue-600 items-center justify-center shadow-sm">
+            <!-- icono ojo -->
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6S2 12 2 12z"/>
+              <circle cx="12" cy="12" r="3" stroke-width="1.6"/>
+            </svg>
+          </span>
+          <div>
+            <h3 class="text-2xl font-semibold text-start text-[#001F3F] mb-4">
+              {isEnglish ? "Vision" : "Visión"}
+            </h3>
+            <p class="mt-4 text-[#303133]/70">
+              {isEnglish
+                ? "To be global leaders in digital solutions, recognized for our positive impact on society."
+                : "Ser líderes globales en soluciones digitales, reconocidos por nuestro impacto positivo en la sociedad."}
+            </p>
+          </div>
         </div>
-
-        <h3 class="mt-6 text-xl md:text-2xl font-semibold text-[#001F3F]">
-          Miguel Murua
-        </h3>
-        <span class="text-sky-600 text-sm font-medium hover:underline">
-          CTO &amp; Co-Founder
-        </span>
-        <p class="mt-3 text-[#303133] text-start text-sm leading-relaxed max-w-[35ch]">
-          Especialista en desarrollo front-end y marketing digital, orientado a diseñar estrategias y productos que integran tecnología, creatividad y análisis de datos. Su visión se centra en mejorar la experiencia del usuario y optimizar los resultados de negocio.
-        </p>
       </article>
     </div>
-  </div>
-</section>
+  </section>
 
+  <!-- separador -->
+  <div class="h-12"></div>
 
+  <!-- Sección: Conoce a nuestros Fundadores -->
+  <section id="founders" class="bg-[#F6F6F6] py-20">
+    <div class="max-w-6xl mx-auto px-6">
+      <h2 class="text-4xl font-bold leading-tight tracking-tight text-[#001F3F] md:text-6xl text-center">
+        {isEnglish ? "Meet Our Founders" : "Conoce a nuestros Fundadores"}
+      </h2>
+      <p class="mt-4 text-[#303133]/70 text-center max-w-2xl mx-auto">
+        {isEnglish
+          ? "We believe in people, their potential, and what they can achieve with the right tools."
+          : "Creemos en las personas, en su potencial y en lo que pueden lograr con las herramientas correctas."}
+      </p>
 
-    </main>
+      <div class="grid md:grid-cols-2 gap-16 mt-14">
+        <!-- Founder 1 -->
+        <article class="flex flex-col items-center text-center">
+          <div class="relative w-64 h-64 md:w-72 md:h-72">
+            <!-- Imagen con fondo transparente y sombra suave -->
+            <img
+              src="/Mauricio-2.png"
+              alt={isEnglish ? "Portrait of Mauricio" : "Retrato de Mauricio"}
+              loading="lazy"
+              class="w-full h-full object-contain drop-shadow-xl filter brightness-105 contrast-110 saturate-90"
+            />
+            <!-- Sombra elíptica difuminada debajo -->
+            <div class="pointer-events-none absolute inset-x-0 -bottom-2 mx-auto w-40 h-6 rounded-full bg-black/20 blur-md"></div>
+          </div>
 
-    <!-- Estilos extra opcionales (si usas Tailwind CDN puedes dejarlos tal cual) -->
+          <h3 class="mt-6 text-xl md:text-2xl font-semibold text-[#001F3F]">
+            Mauricio López
+          </h3>
+          <span class="text-sky-600 text-sm font-medium hover:underline">
+            CEO &amp; Co-Founder
+          </span>
+          <p class="mt-3 text-[#303133] text-start text-sm leading-relaxed max-w-[35ch]">
+            {isEnglish 
+              ? "Strategic Director and Founder of Óros Strategy and Marketing, bridging high-level planning with precise execution. With nearly a decade of experience as a Digital Marketer and a strong foundation in graphic design, his focus is on applying practical knowledge to solve business challenges and ensure strategy always leads tactics. He has developed comprehensive plans in advanced ad management (Meta Business Manager), email marketing optimization, and web positioning via Ads and Analytics, ensuring measurable value and growth for every client."
+              : "Director Estratégico y Fundador de Óros Strategy and Marketing, es la visión que une la planificación de alto nivel con la ejecución precisa. Con casi una década de experiencia como Digital Marketer y una base sólida en diseño gráfico, su enfoque se centra en la aplicación de conocimiento práctico para resolver problemas de negocio y asegurar que la estrategia siempre domine la táctica. Ha desarrollado planes integrales en gestión avanzada de campañas publicitarias (Meta Business Manager), optimización de email marketing y posicionamiento web mediante Ads y Analytics, garantizando que cada cliente tenga un camino de valor sólido y medible hacia sus objetivos de crecimiento."}
+          </p>
+        </article>
+
+        <!-- Founder 2 -->
+        <article class="flex flex-col items-center text-center">
+          <div class="relative w-64 h-64 md:w-72 md:h-72">
+            <!-- Imagen con fondo transparente y sombra suave -->
+            <img
+              src="/Migue-2.png"
+              alt={isEnglish ? "Portrait of Miguel" : "Retrato de Miguel"}
+              loading="lazy"
+              class="w-full h-full object-contain drop-shadow-xl filter brightness-105 contrast-110 saturate-90"
+            />
+            <!-- Sombra elíptica difuminada debajo -->
+            <div class="pointer-events-none absolute inset-x-0 -bottom-2 mx-auto w-40 h-6 rounded-full bg-black/20 blur-md"></div>
+          </div>
+
+          <h3 class="mt-6 text-xl md:text-2xl font-semibold text-[#001F3F]">
+            Miguel Murua
+          </h3>
+          <span class="text-sky-600 text-sm font-medium hover:underline">
+            CTO &amp; Co-Founder
+          </span>
+          <p class="mt-3 text-[#303133] text-start text-sm leading-relaxed max-w-[35ch]">
+            {isEnglish
+              ? "Front-end development and digital marketing specialist, focused on designing strategies and products that blend technology, creativity, and data analytics. His vision centers on enhancing user experience and optimizing business performance."
+              : "Especialista en desarrollo front-end y marketing digital, orientado a diseñar estrategias y productos que integran tecnología, creatividad y análisis de datos. Su visión se centra en mejorar la experiencia del usuario y optimizar los resultados de negocio."}
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+</main>
+
 <style>
   /* Estilo para las tarjetas de los fundadores */
   #founders article img {
     -webkit-mask-image: linear-gradient(#000 0 85%, transparent 100%);
     mask-image: linear-gradient(#000 1rem, 90%, transparent 100%);
     mask-mode: alpha;
-}
+  }
 
   #founders article img {
     transition: transform 0.3s ease, box-shadow 0.3s ease;

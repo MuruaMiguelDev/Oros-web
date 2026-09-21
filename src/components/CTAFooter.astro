@@ -1,9 +1,7 @@
 ---
 /**
- * ServicesShowcase.astro
- * - Sección de servicios con grid de 3 tarjetas
- * - Card central destacada (#f95738) como en el mock
- * - Imágenes en escala de grises, badges y CTA "View All Services"
+ * CTAFooter.astro
+ * - Sección de llamado a la acción final antes del pie de página.
  */
 
 interface Service {
@@ -22,13 +20,29 @@ interface Props {
   services?: Service[];
 }
 
+// Detectar idioma según la URL
+const isEnglish = Astro.url.pathname.startsWith('/en/') || Astro.url.pathname === '/en';
+
+// Textos traducidos por defecto
+const defaultEyebrow = isEnglish
+  ? "The only risk is standing still."
+  : "El único riesgo es quedarse quieto.";
+
+const defaultTitle = isEnglish
+  ? "Let's talk about your next growth objective. Send us the details of your project and we will respond with a strategic proposal in less than 48 hours."
+  : "Hablemos de su próximo objetivo de crecimiento. Envíenos los detalles de su proyecto y le responderemos con una propuesta estratégica en menos de 48 horas.";
+
+const defaultCtaText = isEnglish
+  ? "Request Proposal and Rates"
+  : "Solicitar Propuesta y Tarifas";
+
+const defaultCtaHref = isEnglish ? "/en/contact" : "/contacto";
+
 const {
-  // eyebrow = "Our Services",
-  eyebrow = "El único riesgo es quedarse quieto.",
-  // title = "Boost Your Brand with Our Expertise",
-  title = "Hablemos de su próximo objetivo de crecimiento. Envíenos los detalles de su proyecto y le responderemos con una propuesta estratégica en menos de 48 horas.",
-  // ctaText = "View All Services",
-  ctaText = "Solicitar Propuesta y Tarifas",
+  eyebrow = defaultEyebrow,
+  title = defaultTitle,
+  ctaText = defaultCtaText,
+  ctaHref = defaultCtaHref,
 } = Astro.props as Props;
 ---
 
@@ -51,7 +65,7 @@ const {
     </div>
 
     <a
-      href="/contacto"
+      href={ctaHref}
       class="group inline-flex text-xl items-center justify-center gap-2 self-start rounded-full bg-white px-4 md:px-12 py-3 text-sm font-semibold text-[#303133] hover:text-[#ff4a09] shadow-sm ring-1 ring-black/5 transition hover:shadow-md"
     >
       {ctaText}

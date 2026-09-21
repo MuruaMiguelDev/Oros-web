@@ -1,113 +1,144 @@
 ---
+// Detectar idioma según la URL
+const isEnglish = Astro.url.pathname.startsWith('/en/') || Astro.url.pathname === '/en';
+
+const contactHref = isEnglish ? "/en/contact" : "/contacto";
 ---
-    <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10 
-    relative overflow-hidden
-  before:absolute before:inset-0 before:bg-[url('/silueta-cordillera.webp')]
-  before:bg-bottom before:bg-cover before:opacity-3 before:mix-blend-multiply before:pointer-events-none">
-      <!-- Encabezado -->
-      <section class="text-center mb-10">
-        <h1 class="text-4xl font-bold leading-tight tracking-tight text-[#001F3F] md:text-6xl">
-          Nuestros Servicios
-        </h1>
-        <p class="mt-4 text-[#303133]/70">
-          Ofrecemos una amplia gama de soluciones para satisfacer las necesidades de su negocio.
-          Nuestro equipo de expertos está dedicado a ofrecer resultados de alta calidad y un servicio
-          excepcional.
-        </p>
-      </section>
-      
-      <!-- Grid de servicios -->
-      <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-        <!-- Card -->
-        <article class="bg-white rounded-xl border border-gray-200 shadow-sm p-5 hover:shadow-md transition-shadow">
-          <div class="flex flex-col items-center gap-3">
-            <span class="inline-flex w-12 h-12 rounded-xl bg-blue-100 text-blue-600 items-center justify-center shadow-sm">
-              <!-- ícono -->
-                <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-ad-circle"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 12m-10 0a10 10 0 1 0 20 0a10 10 0 1 0 -20 0" /><path d="M7 15v-4.5a1.5 1.5 0 0 1 3 0v4.5" /><path d="M7 13h3" /><path d="M14 9v6h1a2 2 0 0 0 2 -2v-2a2 2 0 0 0 -2 -2h-1z" /></svg>
-            </span>
-            <div class="p-4">
-              <h3 class="text-2xl font-semibold text-center text-[#303133] mb-4">Marketing Digital</h3>
-              <p class="mt-1 text-[13px] text-start leading-5 text-gray-500">
-                Aumente su presencia en línea y llegue a su público objetivo con nuestras estrategias personalizadas.
-              </p>
-            </div>
-          </div>
-        </article>
 
-        <!-- Card -->
-        <article class="bg-white rounded-xl border border-gray-200 shadow-sm p-5 hover:shadow-md transition-shadow">
-          <div class="flex flex-col items-center gap-3">
-            <span class="inline-flex w-12 h-12 rounded-xl bg-blue-100 text-blue-600 items-center justify-center shadow-sm">
-                <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-icons"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6.5 6.5m-3.5 0a3.5 3.5 0 1 0 7 0a3.5 3.5 0 1 0 -7 0" /><path d="M2.5 21h8l-4 -7z" /><path d="M14 3l7 7" /><path d="M14 10l7 -7" /><path d="M14 14h7v7h-7z" /></svg>
-            </span>
-            <div class="p-4">
-              <h3 class="text-2xl font-semibold text-center text-[#303133] mb-4">Diseño UX/UI</h3>
-              <p class="mt-1 text-[13px] leading-5 text-gray-500">
-                Diseños intuitivos y atractivos para mejorar la experiencia del usuario y la conversión.
-              </p>
-            </div>
-          </div>
-        </article>
-
-        <!-- Card -->
-        <article class="bg-white rounded-xl border border-gray-200 shadow-sm p-5 hover:shadow-md transition-shadow">
-          <div class="flex flex-col items-center gap-3">
-            <span class="inline-flex w-12 h-12 rounded-xl bg-blue-100 text-blue-600 items-center justify-center shadow-sm">
-              <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" d="M12 8c1.657 0 3-1.567 3-3.5S13.657 1 12 1 9 2.567 9 4.5 10.343 8 12 8zM5.5 22a6.5 6.5 0 0113 0"/>
-              </svg>
-            </span>
-            <div class="p-4">
-              <h3 class="text-2xl font-semibold text-center text-[#303133] mb-4">Consultoría Estratégica</h3>
-              <p class="mt-1 text-[13px] leading-5 text-gray-500">
-                Alineamos sus objetivos de negocio con estrategias tecnológicas innovadoras y efectivas.
-              </p>  
-            </div>
-          </div>
-        </article>
-
-        <!-- Card -->
-        <article class="bg-white rounded-xl border border-gray-200 shadow-sm p-5 hover:shadow-md transition-shadow">
-          <div class="flex flex-col items-center gap-3">
-            <span class="inline-flex w-12 h-12 rounded-xl bg-blue-100 text-blue-600 items-center justify-center shadow-sm">
-                <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-device-analytics"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 4m0 1a1 1 0 0 1 1 -1h16a1 1 0 0 1 1 1v10a1 1 0 0 1 -1 1h-16a1 1 0 0 1 -1 -1z" /><path d="M7 20l10 0" /><path d="M9 16l0 4" /><path d="M15 16l0 4" /><path d="M8 12l3 -3l2 2l3 -3" /></svg>
-            </span>
-            <div class="p-4">
-              <h3 class="text-2xl font-semibold text-center text-[#303133] mb-4">Análisis de Datos</h3>
-              <p class="mt-1 text-[13px] leading-5 text-gray-500">
-                Transforme sus datos en información valiosa para la toma de decisiones estratégicas.
-              </p>  
-            </div>
-          </div>
-        </article>
-
-        <!-- Card -->
-        <article class="bg-white rounded-xl border border-gray-200 shadow-sm p-5 hover:shadow-md transition-shadow">
-          <div class="flex flex-col items-center gap-3">
-            <span class="inline-flex w-12 h-12 rounded-xl bg-blue-100 text-blue-600 items-center justify-center shadow-sm">
-                <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-ticket"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M15 5l0 2" /><path d="M15 11l0 2" /><path d="M15 17l0 2" /><path d="M5 5h14a2 2 0 0 1 2 2v3a2 2 0 0 0 0 4v3a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-3a2 2 0 0 0 0 -4v-3a2 2 0 0 1 2 -2" /></svg>
-            </span>
-            <div class="p-4">
-              <h3 class="text-2xl font-semibold text-center text-[#303133] mb-4">Soporte 24/7</h3>
-              <p class="mt-1 text-[13px] leading-5 text-gray-500">
-                Asistencia continua para garantizar el buen funcionamiento de sus sistemas y su tranquilidad.
-              </p>  
-            </div>
-          </div>
-        </article>
-      </section>
-
-      <!-- CTA -->
-      <section class="mt-8">
-        <div class="bg-white rounded-xl border border-gray-200 shadow-sm p-8 text-center">
-          <h2 class="text-2xl font-semibold text-center text-[#001F3F] mb-4">
-            Ponte en contacto con nosotros para una<br class="hidden sm:block" /> cotización
-          </h2>
-          <p class="mt-4 text-[#0a2540]/70">
-            Descubre cómo nuestros servicios pueden ayudar a que tu negocio crezca.
-            Estamos listos para escuchar tus ideas.
+<main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10 
+relative overflow-hidden
+before:absolute before:inset-0 before:bg-[url('/silueta-cordillera.webp')]
+before:bg-bottom before:bg-cover before:opacity-3 before:mix-blend-multiply before:pointer-events-none">
+  <!-- Encabezado -->
+  <section class="text-center mb-10">
+    <h1 class="text-4xl font-bold leading-tight tracking-tight text-[#001F3F] md:text-6xl">
+      {isEnglish ? "Our Services" : "Nuestros Servicios"}
+    </h1>
+    <p class="mt-4 text-[#303133]/70">
+      {isEnglish 
+        ? "We offer a wide range of solutions to meet your business needs. Our team of experts is dedicated to delivering high-quality results and exceptional service."
+        : "Ofrecemos una amplia gama de soluciones para satisfacer las necesidades de su negocio. Nuestro equipo de expertos está dedicado a ofrecer resultados de alta calidad y un servicio excepcional."}
+    </p>
+  </section>
+  
+  <!-- Grid de servicios -->
+  <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+    <!-- Card 1: Marketing Digital -->
+    <article class="bg-white rounded-xl border border-gray-200 shadow-sm p-5 hover:shadow-md transition-shadow">
+      <div class="flex flex-col items-center gap-3">
+        <span class="inline-flex w-12 h-12 rounded-xl bg-blue-100 text-blue-600 items-center justify-center shadow-sm">
+          <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-ad-circle"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 12m-10 0a10 10 0 1 0 20 0a10 10 0 1 0 -20 0" /><path d="M7 15v-4.5a1.5 1.5 0 0 1 3 0v4.5" /><path d="M7 13h3" /><path d="M14 9v6h1a2 2 0 0 0 2 -2v-2a2 2 0 0 0 -2 -2h-1z" /></svg>
+        </span>
+        <div class="p-4">
+          <h3 class="text-2xl font-semibold text-center text-[#303133] mb-4">
+            {isEnglish ? "Digital Marketing" : "Marketing Digital"}
+          </h3>
+          <p class="mt-1 text-[13px] text-start leading-5 text-gray-500">
+            {isEnglish 
+              ? "Boost your online presence and reach your target audience through our customized strategies."
+              : "Aumente su presencia en línea y llegue a su público objetivo con nuestras estrategias personalizadas."}
           </p>
-          <a href="/contacto" class="mt-6 inline-flex items-center justify-center gap-2 rounded-xl bg-[#FF7F50] hover:bg-[#f76f3a] text-white px-6 py-3 text-sm font-medium shadow-sm focus:outline-none focus:ring-2 focus:ring-[#FF7F50] transition hover:translate-y-[-1px]">Solicita una consulta gratuita</a>
         </div>
-      </section>
-    </main>
+      </div>
+    </article>
+
+    <!-- Card 2: Diseño UX/UI -->
+    <article class="bg-white rounded-xl border border-gray-200 shadow-sm p-5 hover:shadow-md transition-shadow">
+      <div class="flex flex-col items-center gap-3">
+        <span class="inline-flex w-12 h-12 rounded-xl bg-blue-100 text-blue-600 items-center justify-center shadow-sm">
+          <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-icons"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6.5 6.5m-3.5 0a3.5 3.5 0 1 0 7 0a3.5 3.5 0 1 0 -7 0" /><path d="M2.5 21h8l-4 -7z" /><path d="M14 3l7 7" /><path d="M14 10l7 -7" /><path d="M14 14h7v7h-7z" /></svg>
+        </span>
+        <div class="p-4">
+          <h3 class="text-2xl font-semibold text-center text-[#303133] mb-4">
+            {isEnglish ? "UX/UI Design" : "Diseño UX/UI"}
+          </h3>
+          <p class="mt-1 text-[13px] leading-5 text-gray-500">
+            {isEnglish 
+              ? "Intuitive and engaging designs crafted to enhance user experience and maximize conversion rates."
+              : "Diseños intuitivos y atractivos para mejorar la experiencia del usuario y la conversión."}
+          </p>
+        </div>
+      </div>
+    </article>
+
+    <!-- Card 3: Consultoría Estratégica -->
+    <article class="bg-white rounded-xl border border-gray-200 shadow-sm p-5 hover:shadow-md transition-shadow">
+      <div class="flex flex-col items-center gap-3">
+        <span class="inline-flex w-12 h-12 rounded-xl bg-blue-100 text-blue-600 items-center justify-center shadow-sm">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" d="M12 8c1.657 0 3-1.567 3-3.5S13.657 1 12 1 9 2.567 9 4.5 10.343 8 12 8zM5.5 22a6.5 6.5 0 0113 0"/>
+          </svg>
+        </span>
+        <div class="p-4">
+          <h3 class="text-2xl font-semibold text-center text-[#303133] mb-4">
+            {isEnglish ? "Strategic Consulting" : "Consultoría Estratégica"}
+          </h3>
+          <p class="mt-1 text-[13px] leading-5 text-gray-500">
+            {isEnglish 
+              ? "We align your business objectives with innovative and effective technological strategies."
+              : "Alineamos sus objetivos de negocio con estrategias tecnológicas innovadoras y efectivas."}
+          </p>  
+        </div>
+      </div>
+    </article>
+
+    <!-- Card 4: Análisis de Datos -->
+    <article class="bg-white rounded-xl border border-gray-200 shadow-sm p-5 hover:shadow-md transition-shadow">
+      <div class="flex flex-col items-center gap-3">
+        <span class="inline-flex w-12 h-12 rounded-xl bg-blue-100 text-blue-600 items-center justify-center shadow-sm">
+          <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-device-analytics"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 4m0 1a1 1 0 0 1 1 -1h16a1 1 0 0 1 1 1v10a1 1 0 0 1 -1 1h-16a1 1 0 0 1 -1 -1z" /><path d="M7 20l10 0" /><path d="M9 16l0 4" /><path d="M15 16l0 4" /><path d="M8 12l3 -3l2 2l3 -3" /></svg>
+        </span>
+        <div class="p-4">
+          <h3 class="text-2xl font-semibold text-center text-[#303133] mb-4">
+            {isEnglish ? "Data Analytics" : "Análisis de Datos"}
+          </h3>
+          <p class="mt-1 text-[13px] leading-5 text-gray-500">
+            {isEnglish 
+              ? "Transform your raw data into valuable insights for informed and strategic decision-making."
+              : "Transforme sus datos en información valiosa para la toma de decisiones estratégicas."}
+          </p>  
+        </div>
+      </div>
+    </article>
+
+    <!-- Card 5: Soporte 24/7 -->
+    <article class="bg-white rounded-xl border border-gray-200 shadow-sm p-5 hover:shadow-md transition-shadow">
+      <div class="flex flex-col items-center gap-3">
+        <span class="inline-flex w-12 h-12 rounded-xl bg-blue-100 text-blue-600 items-center justify-center shadow-sm">
+          <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-ticket"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M15 5l0 2" /><path d="M15 11l0 2" /><path d="M15 17l0 2" /><path d="M5 5h14a2 2 0 0 1 2 2v3a2 2 0 0 0 0 4v3a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-3a2 2 0 0 0 0 -4v-3a2 2 0 0 1 2 -2" /></svg>
+        </span>
+        <div class="p-4">
+          <h3 class="text-2xl font-semibold text-center text-[#303133] mb-4">
+            {isEnglish ? "24/7 Support" : "Soporte 24/7"}
+          </h3>
+          <p class="mt-1 text-[13px] leading-5 text-gray-500">
+            {isEnglish 
+              ? "Continuous support to guarantee smooth operation of your systems and peace of mind."
+              : "Asistencia continua para garantizar el buen funcionamiento de sus sistemas y su tranquilidad."}
+          </p>  
+        </div>
+      </div>
+    </article>
+  </section>
+
+  <!-- CTA -->
+  <section class="mt-8">
+    <div class="bg-white rounded-xl border border-gray-200 shadow-sm p-8 text-center">
+      <h2 class="text-2xl font-semibold text-center text-[#001F3F] mb-4">
+        {isEnglish ? (
+          <>Get in touch with us for a <br class="hidden sm:block" /> quote</>
+        ) : (
+          <>Ponte en contacto con nosotros para una<br class="hidden sm:block" /> cotización</>
+        )}
+      </h2>
+      <p class="mt-4 text-[#0a2540]/70">
+        {isEnglish 
+          ? "Discover how our services can help grow your business. We are ready to hear your ideas."
+          : "Descubre cómo nuestros servicios pueden ayudar a que tu negocio crezca. Estamos listos para escuchar tus ideas."}
+      </p>
+      <a href={contactHref} class="mt-6 inline-flex items-center justify-center gap-2 rounded-xl bg-[#FF7F50] hover:bg-[#f76f3a] text-white px-6 py-3 text-sm font-medium shadow-sm focus:outline-none focus:ring-2 focus:ring-[#FF7F50] transition hover:translate-y-[-1px]">
+        {isEnglish ? "Request a Free Consultation" : "Solicita una consulta gratuita"}
+      </a>
+    </div>
+  </section>
+</main>

@@ -1,5 +1,10 @@
 ---
 import CallToAction from "./ui/CallToAction.astro";
+
+// Detectar idioma según la URL
+const isEnglish = Astro.url.pathname.startsWith('/en/') || Astro.url.pathname === '/en';
+
+const moreInfoBtnText = isEnglish ? "More info" : "Más info";
 ---
 
 <section id="methodology" class="bg-[#F6F6F6] py-20">
@@ -8,11 +13,18 @@ import CallToAction from "./ui/CallToAction.astro";
     <!-- Encabezado -->
     <div class="text-center mb-16">
       <h2 class="text-4xl md:text-5xl font-bold text-[#001F3F]">
-        Así Garantizamos su <span class="text-[#ff4a09]">Avance Rápido</span>
+        {isEnglish ? (
+          <>This is How We Guarantee Your <span class="text-[#ff4a09]">Fast Growth</span></>
+        ) : (
+          <>Así Garantizamos su <span class="text-[#ff4a09]">Avance Rápido</span></>
+        )}
       </h2>
       <p class="mt-4 text-gray-600 max-w-2xl mx-auto">
-        No perdemos tiempo. Nuestro modelo está diseñado para pasar de la idea al lanzamiento 
-        en el menor tiempo posible, garantizando que el <strong>ascenso de su marca</strong> sea firme y sostenido.
+        {isEnglish ? (
+          <>We don't waste time. Our model is designed to go from idea to launch in the shortest time possible, ensuring that your <strong>brand's ascent</strong> is steady and sustained.</>
+        ) : (
+          <>No perdemos tiempo. Nuestro modelo está diseñado para pasar de la idea al lanzamiento en el menor tiempo posible, garantizando que el <strong>ascenso de su marca</strong> sea firme y sostenido.</>
+        )}
       </p>
     </div>
 
@@ -23,53 +35,73 @@ import CallToAction from "./ui/CallToAction.astro";
       <article id="fase1" class="card-modal">
         <div class="card-summary">
           <div class="text-sm font-bold text-[#ff4a09] tracking-wider mb-2">
-            FASE I: CIMA RÁPIDA
+            {isEnglish ? "PHASE I: QUICK PEAK" : "FASE I: CIMA RÁPIDA"}
           </div>
           <h3 class="text-2xl font-semibold text-[#001F3F] mb-4">
-            La Estrategia
+            {isEnglish ? "The Strategy" : "La Estrategia"}
           </h3>
           <p class="text-gray-600 leading-relaxed mb-6">
-            Definimos su posición, mensaje clave y los 3 primeros <em>shots</em> de marketing 
-            con el mayor potencial de retorno. <strong>Menos papel, más acción.</strong>
+            {isEnglish ? (
+              <>We define your positioning, key message, and the first 3 marketing <em>shots</em> with the highest return potential. <strong>Less paperwork, more action.</strong></>
+            ) : (
+              <>Definimos su posición, mensaje clave y los 3 primeros <em>shots</em> de marketing con el mayor potencial de retorno. <strong>Menos papel, más acción.</strong></>
+            )}
           </p>
           <br><br>
           <!-- Botón para abrir modal -->
-          <a href="#fase1" class="btn-info" role="button" aria-label="Abrir más información de Fase I">Más info</a>
+          <a href="#fase1" class="btn-info" role="button" aria-label={isEnglish ? "Open Phase I information" : "Abrir más información de Fase I"}>{moreInfoBtnText}</a>
         </div>
 
         <!-- Contenido del modal -->
         <div class="card-details">
-          <a href="#methodology" class="close-btn" aria-label="Cerrar">✕</a>
+          <a href="#methodology" class="close-btn" aria-label={isEnglish ? "Close" : "Cerrar"}>✕</a>
 
           <div class="text-sm font-bold text-[#ff4a09] tracking-wider mb-2">
-            FASE I: CIMA RÁPIDA
+            {isEnglish ? "PHASE I: QUICK PEAK" : "FASE I: CIMA RÁPIDA"}
           </div>
           <h3 class="text-2xl font-semibold text-[#001F3F] mb-3">
-            La Estrategia
+            {isEnglish ? "The Strategy" : "La Estrategia"}
           </h3>
 
-          <p class="text-gray-700 leading-relaxed mb-3">
-            <strong>Análisis profundo de su marca y competencia.</strong><br />
-            Revisamos cómo se comunica su negocio en redes, qué hacen sus competidores y quién es su público ideal. 
-            Con esa base, definimos objetivos claros para la campaña (más clics, nuevos contactos y ventas medibles).
-          </p>
-
-          <p class="text-gray-700 leading-relaxed mb-3">
-            <strong>Diseño del recorrido de conversión.</strong><br />
-            Trazamos un plan que guía a su audiencia paso a paso: primero los atraemos, luego generamos interés
-            y finalmente los convertimos en clientes.
-          </p>
-
-          <p class="text-gray-700 leading-relaxed mb-3">
-            <strong>Plan de anuncios inteligente.</strong><br />
-            Elegimos formatos y mensajes para cada etapa y definimos a qué públicos dirigirnos para obtener resultados.
-          </p>
-
-          <p class="text-gray-700 leading-relaxed">
-            <strong>Configuración técnica lista para medir.</strong><br />
-            Dejamos su cuenta de Meta Business Suite bien conectada (píxel, eventos y audiencias) para medir qué funciona
-            y escalar con seguridad.
-          </p>
+          {isEnglish ? (
+            <>
+              <p class="text-gray-700 leading-relaxed mb-3">
+                <strong>In-depth analysis of your brand and competition.</strong><br />
+                We review how your business communicates on social media, what competitors are doing, and who your ideal audience is. Based on this, we set clear campaign goals (more clicks, new leads, and measurable sales).
+              </p>
+              <p class="text-gray-700 leading-relaxed mb-3">
+                <strong>Conversion journey design.</strong><br />
+                We map a plan that guides your audience step by step: first we attract them, then generate interest, and finally convert them into clients.
+              </p>
+              <p class="text-gray-700 leading-relaxed mb-3">
+                <strong>Smart ad planning.</strong><br />
+                We select formats and messages for each stage and target specific audiences to yield real results.
+              </p>
+              <p class="text-gray-700 leading-relaxed">
+                <strong>Technical setup ready to measure.</strong><br />
+                We connect your Meta Business Suite properly (pixel, events, and audiences) to measure what works and scale with confidence.
+              </p>
+            </>
+          ) : (
+            <>
+              <p class="text-gray-700 leading-relaxed mb-3">
+                <strong>Análisis profundo de su marca y competencia.</strong><br />
+                Revisamos cómo se comunica su negocio en redes, qué hacen sus competidores y quién es su público ideal. Con esa base, definimos objetivos claros para la campaña (más clics, nuevos contactos y ventas medibles).
+              </p>
+              <p class="text-gray-700 leading-relaxed mb-3">
+                <strong>Diseño del recorrido de conversión.</strong><br />
+                Trazamos un plan que guía a su audiencia paso a paso: primero los atraemos, luego generamos interés y finalmente los convertimos en clientes.
+              </p>
+              <p class="text-gray-700 leading-relaxed mb-3">
+                <strong>Plan de anuncios inteligente.</strong><br />
+                Elegimos formatos y mensajes para cada etapa y definimos a qué públicos dirigirnos para obtener resultados.
+              </p>
+              <p class="text-gray-700 leading-relaxed">
+                <strong>Configuración técnica lista para medir.</strong><br />
+                Dejamos su cuenta de Meta Business Suite bien conectada (píxel, eventos y audiencias) para medir qué funciona y escalar con seguridad.
+              </p>
+            </>
+          )}
         </div>
       </article>
 
@@ -77,42 +109,64 @@ import CallToAction from "./ui/CallToAction.astro";
       <article id="fase2" class="card-modal">
         <div class="card-summary">
           <div class="text-sm font-bold text-[#ff4a09] tracking-wider mb-2">
-            FASE II: LOMADA EN MOVIMIENTO
+            {isEnglish ? "PHASE II: MOVING RIDGE" : "FASE II: LOMADA EN MOVIMIENTO"}
           </div>
           <h3 class="text-2xl font-semibold text-[#001F3F] mb-4">
-            Activación y Construcción de Plataformas
+            {isEnglish ? "Activation & Platform Building" : "Activación y Construcción de Plataformas"}
           </h3>
           <p class="text-gray-600 leading-relaxed mb-6">
-            Construimos o ajustamos su web. Lanzamos su nueva identidad y creamos los activos 
-            de alto impacto para sus redes sociales. Todo con mentalidad de <strong>testeo continuo</strong>.
+            {isEnglish ? (
+              <>We build or optimize your website, launch your brand identity, and create high-impact assets for social media. Everything with a <strong>continuous testing</strong> mindset.</>
+            ) : (
+              <>Construimos o ajustamos su web. Lanzamos su nueva identidad y creamos los activos de alto impacto para sus redes sociales. Todo con mentalidad de <strong>testeo continuo</strong>.</>
+            )}
           </p>
 
           <!-- Botón para abrir modal -->
-          <a href="#fase2" class="btn-info" role="button" aria-label="Abrir más información de Fase II">Más info</a>
+          <a href="#fase2" class="btn-info" role="button" aria-label={isEnglish ? "Open Phase II information" : "Abrir más información de Fase II"}>{moreInfoBtnText}</a>
         </div>
 
         <div class="card-details">
-          <a href="#methodology" class="close-btn" aria-label="Cerrar">✕</a>
+          <a href="#methodology" class="close-btn" aria-label={isEnglish ? "Close" : "Cerrar"}>✕</a>
 
           <div class="text-sm font-bold text-[#ff4a09] tracking-wider mb-2">
-            FASE II: LOMADA EN MOVIMIENTO
+            {isEnglish ? "PHASE II: MOVING RIDGE" : "FASE II: LOMADA EN MOVIMIENTO"}
           </div>
           <h3 class="text-2xl font-semibold text-[#001F3F] mb-3">
-            Activación y Construcción — Detalle
+            {isEnglish ? "Activation & Building — Details" : "Activación y Construcción — Detalle"}
           </h3>
 
-          <p class="text-gray-700 leading-relaxed mb-3">
-            <strong>Web lista para convertir.</strong><br />
-            Optimizamos la estructura, velocidad y mensajes clave para que su sitio convierta visitas en oportunidades reales.
-          </p>
-          <p class="text-gray-700 leading-relaxed mb-3">
-            <strong>Identidad y activos con impacto.</strong><br />
-            Ajustamos identidad visual y creamos piezas para redes (imágenes y videos) enfocadas en atención y respuesta.
-          </p>
-          <p class="text-gray-700 leading-relaxed">
-            <strong>Prueba y mejora continua.</strong><br />
-            Publicamos, medimos y ajustamos rápidamente para quedarnos con lo que mejor rinde.
-          </p>
+          {isEnglish ? (
+            <>
+              <p class="text-gray-700 leading-relaxed mb-3">
+                <strong>High-converting website.</strong><br />
+                We optimize structure, speed, and messaging so your site converts visits into real opportunities.
+              </p>
+              <p class="text-gray-700 leading-relaxed mb-3">
+                <strong>High-impact identity and assets.</strong><br />
+                We adjust visual identity and craft social media pieces (images & videos) focused on engagement and response.
+              </p>
+              <p class="text-gray-700 leading-relaxed">
+                <strong>Testing and continuous improvement.</strong><br />
+                We publish, measure, and tweak rapidly to keep what performs best.
+              </p>
+            </>
+          ) : (
+            <>
+              <p class="text-gray-700 leading-relaxed mb-3">
+                <strong>Web lista para convertir.</strong><br />
+                Optimizamos la estructura, velocidad y mensajes clave para que su sitio convierta visitas en oportunidades reales.
+              </p>
+              <p class="text-gray-700 leading-relaxed mb-3">
+                <strong>Identidad y activos con impacto.</strong><br />
+                Ajustamos identidad visual y creamos piezas para redes (imágenes y videos) enfocadas en atención y respuesta.
+              </p>
+              <p class="text-gray-700 leading-relaxed">
+                <strong>Prueba y mejora continua.</strong><br />
+                Publicamos, medimos y ajustamos rápidamente para quedarnos con lo que mejor rinde.
+              </p>
+            </>
+          )}
         </div>
       </article>
 
@@ -120,43 +174,64 @@ import CallToAction from "./ui/CallToAction.astro";
       <article id="fase3" class="card-modal">
         <div class="card-summary">
           <div class="text-sm font-bold text-[#ff4a09] tracking-wider mb-2">
-            FASE III: ASCENSO ACELERADO
+            {isEnglish ? "PHASE III: ACCELERATED ASCENT" : "FASE III: ASCENSO ACELERADO"}
           </div>
           <h3 class="text-2xl font-semibold text-[#001F3F] mb-4">
-            Gestión Multicanal y Escalada
+            {isEnglish ? "Multichannel Management & Scaling" : "Gestión Multicanal y Escalada"}
           </h3>
           <p class="text-gray-600 leading-relaxed mb-6">
-            Es la fase de crecimiento. Activamos la estrategia multicanal 
-            (<strong>Ads + Redes + Email</strong>) y optimizamos los presupuestos a diario. 
-            Solo invertimos en lo que <strong>sabemos que funciona</strong>.
+            {isEnglish ? (
+              <>This is the growth phase. We activate the multichannel strategy (<strong>Ads + Social + Email</strong>) and optimize budgets daily. We only invest in what <strong>we know works</strong>.</>
+            ) : (
+              <>Es la fase de crecimiento. Activamos la estrategia multicanal (<strong>Ads + Redes + Email</strong>) y optimizamos los presupuestos a diario. Solo invertimos en lo que <strong>sabemos que funciona</strong>.</>
+            )}
           </p>
 
           <!-- Botón para abrir modal -->
-          <a href="#fase3" class="btn-info" role="button" aria-label="Abrir más información de Fase III">Más info</a>
+          <a href="#fase3" class="btn-info" role="button" aria-label={isEnglish ? "Open Phase III information" : "Abrir más información de Fase III"}>{moreInfoBtnText}</a>
         </div>
 
         <div class="card-details">
-          <a href="#methodology" class="close-btn" aria-label="Cerrar">✕</a>
+          <a href="#methodology" class="close-btn" aria-label={isEnglish ? "Close" : "Cerrar"}>✕</a>
 
           <div class="text-sm font-bold text-[#ff4a09] tracking-wider mb-2">
-            FASE III: ASCENSO ACELERADO
+            {isEnglish ? "PHASE III: ACCELERATED ASCENT" : "FASE III: ASCENSO ACELERADO"}
           </div>
           <h3 class="text-2xl font-semibold text-[#001F3F] mb-3">
-            Gestión y Escalada — Detalle
+            {isEnglish ? "Management & Scaling — Details" : "Gestión y Escalada — Detalle"}
           </h3>
 
-          <p class="text-gray-700 leading-relaxed mb-3">
-            <strong>Multicanal coordinado.</strong><br />
-            Unimos anuncios, contenidos orgánicos y email marketing para mantener el flujo de clientes potenciales.
-          </p>
-          <p class="text-gray-700 leading-relaxed mb-3">
-            <strong>Optimización diaria.</strong><br />
-            Ajustamos audiencias, creatividades y presupuestos según resultados para maximizar el retorno.
-          </p>
-          <p class="text-gray-700 leading-relaxed">
-            <strong>Escalado con control.</strong><br />
-            Invertimos más en lo que prueba resultados, y pausamos lo que no rinde — sin despilfarrar presupuesto.
-          </p>
+          {isEnglish ? (
+            <>
+              <p class="text-gray-700 leading-relaxed mb-3">
+                <strong>Coordinated multichannel.</strong><br />
+                We integrate ads, organic content, and email marketing to maintain a constant stream of leads.
+              </p>
+              <p class="text-gray-700 leading-relaxed mb-3">
+                <strong>Daily optimization.</strong><br />
+                We fine-tune audiences, creatives, and budgets based on performance data to maximize ROI.
+              </p>
+              <p class="text-gray-700 leading-relaxed">
+                <strong>Controlled scaling.</strong><br />
+                We increase budget where results are proven and pause underperforming assets—without wasting resources.
+              </p>
+            </>
+          ) : (
+            <>
+              <p class="text-gray-700 leading-relaxed mb-3">
+                <strong>Multicanal coordinado.</strong><br />
+                Unimos anuncios, contenidos orgánicos y email marketing para mantener el flujo de clientes potenciales.
+              </p>
+              <p class="text-gray-700 leading-relaxed mb-3">
+                <strong>Optimización diaria.</strong><br />
+                Ajustamos audiencias, creatividades y presupuestos según resultados para maximizar el retorno.
+              </p>
+              <p class="text-gray-700 leading-relaxed">
+                <strong>Escalado con control.</strong><br />
+                Invertimos más en lo que prueba resultados, y pausamos lo que no rinde — sin despilfarrar presupuesto.
+              </p>
+            </>
+          )}
         </div>
       </article>
 

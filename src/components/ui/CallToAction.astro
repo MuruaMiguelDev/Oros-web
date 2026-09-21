@@ -1,15 +1,21 @@
 ---
 import Phone from "../ico/Phone.astro";
 import Arrow from "../ico/ArrowIcon.astro";
+
+// Detectar idioma según la URL
+const isEnglish = Astro.url.pathname.startsWith('/en/') || Astro.url.pathname === '/en';
+
+const ctaText = isEnglish ? "I Want My Attack Plan" : "Quiero mi Plan de Ataque";
+const ctaHref = isEnglish ? "/en/contact" : "/contacto";
 ---
 
 <section id="call-to-action" class="mt-12">
   <div class="">
     <a
-      href="/contacto"
+      href={ctaHref}
       class="flex justify-between items-center rounded-xl p-4 w-full bg-[#303133] text-neutral-200 hover:text-[#FF7F50] transition group text-xl"
     >
-      <span>Quiero mi Plan de Ataque</span>
+      <span>{ctaText}</span>
       <span class="relative w-6 h-6 overflow-hidden">
         <!-- Phone: visible al inicio, sale hacia abajo -->
         <!-- <Phone

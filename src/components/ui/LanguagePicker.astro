@@ -1,0 +1,94 @@
+---
+const { pathname } = Astro.url;
+
+// Detectar si la ruta actual es en inglés
+const isEnglish = pathname.startsWith('/en/') || pathname === '/en';
+
+// Mapeo de equivalencias entre rutas en Español e Inglés
+const routesMap: Record<string, string> = {
+  "/": "/en",
+  "/servicios": "/en/services",
+  "/contacto": "/en/contact",
+  "/about": "/en/about",
+  "/blog": "/en/blog",
+  "/en": "/",
+  "/en/services": "/servicios",
+  "/en/contact": "/contacto",
+  "/en/about": "/about",
+  "/en/blog": "/blog",
+};
+
+// Normalizar la ruta eliminando barras inclinadas al final si las hubiera
+const cleanPath = pathname.length > 1 && pathname.endsWith('/') ? pathname.slice(0, -1) : pathname;
+
+// Calcular la ruta destino al alternar según el mapa o fallback
+let targetPath = routesMap[cleanPath] || (
+  isEnglish
+    ? (cleanPath.replace(/^\/en(\/|$)/, '/') || '/')
+    : `/en${cleanPath}`
+);
+---
+
+<a
+  id="languagePickerToggle"
+  href={targetPath}
+  class="relative inline-flex h-9 w-20 cursor-pointer items-center rounded-full bg-slate-300/80 p-1 shadow-inner border border-slate-300/80 transition-colors duration-300 dark:bg-slate-800 dark:border-slate-700"
+  aria-label={isEnglish ? "Switch to Spanish" : "Switch to English"}
+  title={isEnglish ? "Cambiar a Español" : "Switch to English"}
+>
+  <!-- Banderas de fondo fijas (Vectoriales HD) -->
+  <div class="flex w-full items-center justify-between px-0.5 pointer-events-none select-none">
+    
+    <!-- Bandera de España -->
+    <div class={`h-6 w-6 overflow-hidden rounded-full border border-black/10 shadow-sm transition-opacity duration-300 ${isEnglish ? 'opacity-40' : 'opacity-100'}`}>
+      <svg viewBox="0 0 512 512" class="h-full w-full object-cover">
+        <path fill="#d80027" d="M0 0h512v128H0zM0 384h512v128H0z"/>
+        <path fill="#ffda44" d="M0 128h512v256H0z"/>
+      </svg>
+    </div>
+
+    <!-- Bandera de Estados Unidos -->
+    <div class={`h-6 w-6 overflow-hidden rounded-full border border-black/10 shadow-sm transition-opacity duration-300 ${!isEnglish ? 'opacity-40' : 'opacity-100'}`}>
+      <svg viewBox="0 0 512 512" class="h-full w-full object-cover">
+        <path fill="#d80027" d="M0 0h512v39.4H0zm0 78.8h512v39.4H0zm0 78.8h512v39.4H0zm0 78.8h512v39.4H0zm0 78.8h512v39.4H0zm0 78.8h512v39.4H0zm0 78.8h512v39.4H0z"/>
+        <path fill="#f0f0f0" d="M0 39.4h512v39.4H0zm0 78.8h512v39.4H0zm0 78.8h512v39.4H0zm0 78.8h512v39.4H0zm0 78.8h512v39.4H0zm0 78.8h512v39.4H0z"/>
+        <path fill="#0052b4" d="M0 0h256v275.6H0z"/>
+      </svg>
+    </div>
+
+  </div>
+
+  <!-- Botón deslizante con traslación corregida -->
+  <span
+    id="languagePickerPill"
+    class={`absolute left-1 top-1 h-7 w-7 rounded-full bg-white shadow-md border border-slate-200/80 transition-all duration-300 ease-in-out dark:bg-slate-900 dark:border-slate-600 ${
+      isEnglish ? 'translate-x-10' : 'translate-x-0'
+    }`}
+  ></span>
+</a>
+
+<script is:inline>
+  document.addEventListener("astro:page-load", () => {
+    const toggle = document.getElementById("languagePickerToggle");
+    const pill = document.getElementById("languagePickerPill");
+
+    if (toggle && pill) {
+      toggle.addEventListener("click", (e) => {
+        e.preventDefault();
+        const targetUrl = toggle.getAttribute("href");
+
+        // Alternar animación
+        pill.classList.toggle("translate-x-10");
+        pill.classList.toggle("translate-x-0");
+
+        setTimeout(() => {
+          if (window.Astro && window.Astro.navigate) {
+            window.Astro.navigate(targetUrl);
+          } else {
+            window.location.href = targetUrl;
+          }
+        }, 200);
+      });
+    }
+  });
+</script>

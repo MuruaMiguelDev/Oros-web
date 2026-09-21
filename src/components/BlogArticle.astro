@@ -1,8 +1,5 @@
 ---
 // BlogArticle.astro
-// Componente de sección de blog reutilizable con Tailwind y <slot/> para el cuerpo.
-// Requiere Tailwind configurado en tu proyecto.
-
 export interface Props {
   title: string;
   subtitle?: string;
@@ -13,15 +10,20 @@ export interface Props {
   tags?: string[];
 }
 
+// Detectar idioma según la URL
+const isEnglish = Astro.url.pathname.startsWith('/en/') || Astro.url.pathname === '/en';
+
 const {
   title,
   subtitle = "",
   author = "Óros Strategy and Marketing (OSM)",
-  publishedAt = "5 de noviembre de 2025",
-  readingTime = "4 min de lectura",
+  publishedAt = isEnglish ? "November 5, 2025" : "5 de noviembre de 2025",
+  readingTime = isEnglish ? "4 min read" : "4 min de lectura",
   heroImage = "",
   tags = [],
 } = Astro.props as Props;
+
+const byText = isEnglish ? "By" : "Por";
 ---
 
 <article class="relative bg-white">
@@ -36,33 +38,34 @@ const {
         decoding="async"
       />
       <div>
-      <div
-        class="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent"
-        aria-hidden="true"
-      />
-      <figcaption class="absolute inset-x-0 bottom-0 mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 pb-8 text-white">
-        <p class="mb-2 text-sm/6 opacity-90">{publishedAt} • {readingTime}</p>
-        <h1 class="font-semibold tracking-tight text-3xl sm:text-4xl lg:text-5xl">
-          {title}
-        </h1>
-        {subtitle && (
-          <p class="mt-2 pt-12 sm:pt-0 text-white/90 text-base sm:text-lg">
-            {subtitle}
+        <div
+          class="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent"
+          aria-hidden="true"
+        />
+        <figcaption class="absolute inset-x-0 bottom-0 mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 pb-8 text-white">
+          <p class="mb-2 text-sm/6 opacity-90">{publishedAt} • {readingTime}</p>
+          <h1 class="font-semibold tracking-tight text-3xl sm:text-4xl lg:text-5xl">
+            {title}
+          </h1>
+          {subtitle && (
+            <p class="mt-2 pt-12 sm:pt-0 text-white/90 text-base sm:text-lg">
+              {subtitle}
+            </p>
+          )}
+          <p class="mt-3 text-white/90 text-sm">
+            {byText} {author}
           </p>
-        )}
-        <p class="mt-3 text-white/90 text-sm">
-          Por {author}
-        </p>
-        {tags.length > 0 && (
-          <ul class="mt-4 flex flex-wrap gap-2 max-sm:hidden">
-            {tags.map((t) => (
-              <li class="rounded-full bg-white/15 px-3 py-1 text-xs backdrop-blur">
-                {t}
-              </li>
-            ))}
-          </ul>
-        )}
-      </figcaption>
+          {tags.length > 0 && (
+            <ul class="mt-4 flex flex-wrap gap-2 max-sm:hidden">
+              {tags.map((t) => (
+                <li class="rounded-full bg-white/15 px-3 py-1 text-xs backdrop-blur">
+                  {t}
+                </li>
+              ))}
+            </ul>
+          )}
+        </figcaption>
+      </div>
     </figure>
   </header>
 

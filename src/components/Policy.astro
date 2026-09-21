@@ -1,101 +1,165 @@
 ---
-
+// Detectar idioma según la URL
+const isEnglish = Astro.url.pathname.startsWith('/en/') || Astro.url.pathname === '/en';
 ---
 
 <section class="bg-gray-50 py-16 px-6 sm:px-10 lg:px-32 text-gray-800 leading-relaxed">
   <div class="max-w-5xl mx-auto">
-    <h1 class="text-4xl font-bold text-center text-gray-900 mb-10">Política de Privacidad</h1>
-    <p class="text-center text-gray-500 mb-12">Última actualización: <span class="font-semibold text-gray-700">03/11/2025</span></p>
-
-    <p class="mb-8">
-      En <strong>Óros Strategy and Marketing</strong> (“nosotros”, “nuestra empresa” o “el sitio”), valoramos la privacidad de nuestros usuarios y clientes. 
-      Esta Política de Privacidad describe cómo recopilamos, utilizamos, almacenamos y protegemos la información personal que usted nos proporciona 
-      al utilizar nuestro sitio web y nuestros servicios.
+    <h1 class="text-4xl font-bold text-center text-gray-900 mb-10">
+      {isEnglish ? "Privacy Policy" : "Política de Privacidad"}
+    </h1>
+    <p class="text-center text-gray-500 mb-12">
+      {isEnglish ? "Last updated:" : "Última actualización:"} <span class="font-semibold text-gray-700">03/11/2025</span>
     </p>
 
-    <h2 class="text-2xl font-semibold text-gray-900 mb-4 mt-10">1. Información que recopilamos</h2>
+    <p class="mb-8">
+      {isEnglish ? (
+        <>At <strong>Óros Strategy and Marketing</strong> (“we”, “our company”, or “the site”), we value the privacy of our users and clients. This Privacy Policy describes how we collect, use, store, and protect the personal information you provide to us when using our website and services.</>
+      ) : (
+        <>En <strong>Óros Strategy and Marketing</strong> (“nosotros”, “nuestra empresa” o “el sitio”), valoramos la privacidad de nuestros usuarios y clientes. Esta Política de Privacidad describe cómo recopilamos, utilizamos, almacenamos y protegemos la información personal que usted nos proporciona al utilizar nuestro sitio web y nuestros servicios.</>
+      )}
+    </p>
+
+    <!-- 1. Información que recopilamos -->
+    <h2 class="text-2xl font-semibold text-gray-900 mb-4 mt-10">
+      {isEnglish ? "1. Information We Collect" : "1. Información que recopilamos"}
+    </h2>
     <p class="mb-6">
-      Podemos recopilar la siguiente información personal a través de formularios de contacto, campañas publicitarias o comunicaciones directas:
+      {isEnglish
+        ? "We may collect the following personal information through contact forms, advertising campaigns, or direct communications:"
+        : "Podemos recopilar la siguiente información personal a través de formularios de contacto, campañas publicitarias o comunicaciones directas:"}
     </p>
     <ul class="list-disc pl-6 mb-6">
-      <li>Nombre y apellido</li>
-      <li>Dirección de correo electrónico</li>
-      <li>Número de teléfono</li>
-      <li>Mensaje o consulta enviada por el usuario</li>
+      <li>{isEnglish ? "First and last name" : "Nombre y apellido"}</li>
+      <li>{isEnglish ? "Email address" : "Dirección de correo electrónico"}</li>
+      <li>{isEnglish ? "Phone number" : "Número de teléfono"}</li>
+      <li>{isEnglish ? "Message or inquiry sent by the user" : "Mensaje o consulta enviada por el usuario"}</li>
     </ul>
     <p class="mb-8">
-      Además, de forma automática, podemos recopilar ciertos datos técnicos mediante cookies o tecnologías similares, tales como: dirección IP, 
-      tipo de navegador, dispositivo utilizado, páginas visitadas y tiempo de navegación.
+      {isEnglish ? (
+        <>Additionally, we may automatically collect certain technical data through cookies or similar technologies, such as: IP address, browser type, device used, pages visited, and browsing duration.</>
+      ) : (
+        <>Además, de forma automática, podemos recopilar ciertos datos técnicos mediante cookies o tecnologías similares, tales como: dirección IP, tipo de navegador, dispositivo utilizado, páginas visitadas y tiempo de navegación.</>
+      )}
     </p>
 
-    <h2 class="text-2xl font-semibold text-gray-900 mb-4 mt-10">2. Finalidad del tratamiento de los datos</h2>
+    <!-- 2. Finalidad del tratamiento -->
+    <h2 class="text-2xl font-semibold text-gray-900 mb-4 mt-10">
+      {isEnglish ? "2. Purpose of Data Processing" : "2. Finalidad del tratamiento de los datos"}
+    </h2>
     <ul class="list-disc pl-6 mb-8">
-      <li>Brindar respuesta a consultas o solicitudes de información.</li>
-      <li>Enviar información comercial o promocional sobre nuestros servicios, con consentimiento previo.</li>
-      <li>Analizar y optimizar el rendimiento del sitio web y nuestras campañas publicitarias.</li>
-      <li>Mejorar la experiencia del usuario y la calidad de nuestros servicios.</li>
+      <li>{isEnglish ? "To respond to inquiries or requests for information." : "Brindar respuesta a consultas o solicitudes de información."}</li>
+      <li>{isEnglish ? "To send commercial or promotional information about our services, with prior consent." : "Enviar información comercial o promocional sobre nuestros servicios, con consentimiento previo."}</li>
+      <li>{isEnglish ? "To analyze and optimize website performance and advertising campaigns." : "Analizar y optimizar el rendimiento del sitio web y nuestras campañas publicitarias."}</li>
+      <li>{isEnglish ? "To improve user experience and overall service quality." : "Mejorar la experiencia del usuario y la calidad de nuestros servicios."}</li>
     </ul>
 
-    <h2 class="text-2xl font-semibold text-gray-900 mb-4 mt-10">3. Uso de cookies y tecnologías similares</h2>
+    <!-- 3. Cookies -->
+    <h2 class="text-2xl font-semibold text-gray-900 mb-4 mt-10">
+      {isEnglish ? "3. Use of Cookies and Similar Technologies" : "3. Uso de cookies y tecnologías similares"}
+    </h2>
     <p class="mb-8">
-      Nuestro sitio web puede utilizar cookies y herramientas de análisis, tales como <strong>Google Analytics</strong> y <strong>Meta Pixel</strong>, 
-      para obtener información estadística sobre el comportamiento de los usuarios. Estas herramientas nos ayudan a entender cómo los visitantes 
-      interactúan con el sitio y a optimizar nuestras estrategias publicitarias. El usuario puede configurar su navegador para rechazar cookies 
-      o recibir alertas, aunque algunas funciones del sitio pueden verse limitadas.
+      {isEnglish ? (
+        <>Our website may use cookies and analytics tools, such as <strong>Google Analytics</strong> and <strong>Meta Pixel</strong>, to obtain statistical data on user behavior. These tools help us understand how visitors interact with the site and optimize our advertising strategies. Users can configure their browsers to reject cookies or receive alerts, although some features of the site may be limited.</>
+      ) : (
+        <>Nuestro sitio web puede utilizar cookies y herramientas de análisis, tales como <strong>Google Analytics</strong> y <strong>Meta Pixel</strong>, para obtener información estadística sobre el comportamiento de los usuarios. Estas herramientas nos ayudan a entender cómo los visitantes interactúan con el sitio y a optimizar nuestras estrategias publicitarias. El usuario puede configurar su navegador para rechazar cookies o recibir alertas, aunque algunas funciones del sitio pueden verse limitadas.</>
+      )}
     </p>
 
-    <h2 class="text-2xl font-semibold text-gray-900 mb-4 mt-10">4. Cesión o transferencia de datos a terceros</h2>
+    <!-- 4. Cesión o transferencia -->
+    <h2 class="text-2xl font-semibold text-gray-900 mb-4 mt-10">
+      {isEnglish ? "4. Transfer or Disclosure of Data to Third Parties" : "4. Cesión o transferencia de datos a terceros"}
+    </h2>
     <p class="mb-8">
-      <strong>Óros Strategy and Marketing</strong> no vende, alquila ni comparte información personal con terceros, salvo en los siguientes casos:
+      {isEnglish ? (
+        <><strong>Óros Strategy and Marketing</strong> does not sell, rent, or share personal information with third parties, except in the following cases:</>
+      ) : (
+        <><strong>Óros Strategy and Marketing</strong> no vende, alquila ni comparte información personal con terceros, salvo en los siguientes casos:</>
+      )}
     </p>
     <ul class="list-disc pl-6 mb-8">
-      <li>Cuando sea necesario para la ejecución de servicios de marketing o gestión comercial mediante plataformas como <strong>Google Ads</strong>, <strong>Meta Ads</strong> o CRM externos.</li>
-      <li>Cuando exista una obligación legal que así lo requiera.</li>
-      <li>Cuando el usuario haya dado su consentimiento expreso para compartir su información.</li>
+      <li>
+        {isEnglish 
+          ? "When necessary for executing marketing or business management services via platforms like Google Ads, Meta Ads, or external CRMs." 
+          : "Cuando sea necesario para la ejecución de servicios de marketing o gestión comercial mediante plataformas como Google Ads, Meta Ads o CRM externos."}
+      </li>
+      <li>{isEnglish ? "When required by a legal obligation." : "Cuando exista una obligación legal que así lo requiera."}</li>
+      <li>{isEnglish ? "When the user has provided explicit consent to share their information." : "Cuando el usuario haya dado su consentimiento expreso para compartir su información."}</li>
     </ul>
     <p class="mb-8">
-      Todos los proveedores externos con los que trabajamos deberán cumplir con las leyes aplicables de protección de datos.
+      {isEnglish
+        ? "All external providers we work with must comply with applicable data protection laws."
+        : "Todos los proveedores externos con los que trabajamos deberán cumplir con las leyes aplicables de protección de datos."}
     </p>
 
-    <h2 class="text-2xl font-semibold text-gray-900 mb-4 mt-10">5. Conservación de la información</h2>
+    <!-- 5. Conservación -->
+    <h2 class="text-2xl font-semibold text-gray-900 mb-4 mt-10">
+      {isEnglish ? "5. Retention of Information" : "5. Conservación de la información"}
+    </h2>
     <p class="mb-8">
-      Los datos personales se conservarán únicamente durante el tiempo necesario para cumplir con los fines para los cuales fueron recopilados, 
-      o según lo exija la legislación aplicable. Una vez cumplido dicho plazo, la información será eliminada de manera segura.
+      {isEnglish
+        ? "Personal data will be kept only for as long as necessary to fulfill the purposes for which it was collected, or as required by applicable law. Once that period expires, the information will be securely deleted."
+        : "Los datos personales se conservarán únicamente durante el tiempo necesario para cumplir con los fines para los cuales fueron recopilados, o según lo exija la legislación aplicable. Una vez cumplido dicho plazo, la información será eliminada de manera segura."}
     </p>
 
-    <h2 class="text-2xl font-semibold text-gray-900 mb-4 mt-10">6. Derechos de los usuarios</h2>
+    <!-- 6. Derechos -->
+    <h2 class="text-2xl font-semibold text-gray-900 mb-4 mt-10">
+      {isEnglish ? "6. User Rights" : "6. Derechos de los usuarios"}
+    </h2>
     <p class="mb-8">
-      El usuario podrá ejercer en cualquier momento sus derechos de acceso, rectificación, actualización, cancelación y oposición al tratamiento de sus datos personales.  
-      Para hacerlo, puede enviar una solicitud escrita a:
+      {isEnglish
+        ? "Users may exercise their rights of access, rectification, update, deletion, and opposition to the processing of their personal data at any time. To do so, please send a written request to:"
+        : "El usuario podrá ejercer en cualquier momento sus derechos de acceso, rectificación, actualización, cancelación y oposición al tratamiento de sus datos personales. Para hacerlo, puede enviar una solicitud escrita a:"}
     </p>
     <p class="mb-8 font-semibold text-gray-700">📧 info@orossm.com</p>
 
-    <h2 class="text-2xl font-semibold text-gray-900 mb-4 mt-10">7. Seguridad de la información</h2>
+    <!-- 7. Seguridad -->
+    <h2 class="text-2xl font-semibold text-gray-900 mb-4 mt-10">
+      {isEnglish ? "7. Information Security" : "7. Seguridad de la información"}
+    </h2>
     <p class="mb-8">
-      Adoptamos las medidas técnicas, administrativas y organizativas necesarias para proteger los datos personales frente a pérdida, uso indebido, 
-      acceso no autorizado, alteración o destrucción.
+      {isEnglish
+        ? "We adopt the necessary technical, administrative, and organizational measures to protect personal data against loss, misuse, unauthorized access, alteration, or destruction."
+        : "Adoptamos las medidas técnicas, administrativas y organizativas necesarias para proteger los datos personales frente a pérdida, uso indebido, acceso no autorizado, alteración o destrucción."}
     </p>
 
-    <h2 class="text-2xl font-semibold text-gray-900 mb-4 mt-10">8. Enlaces externos</h2>
+    <!-- 8. Enlaces externos -->
+    <h2 class="text-2xl font-semibold text-gray-900 mb-4 mt-10">
+      {isEnglish ? "8. External Links" : "8. Enlaces externos"}
+    </h2>
     <p class="mb-8">
-      Nuestro sitio web puede contener enlaces a otros sitios web de terceros. 
-      <strong>Óros Strategy and Marketing</strong> no se hace responsable de las prácticas de privacidad o el contenido de dichos sitios externos.
+      {isEnglish ? (
+        <>Our website may contain links to third-party websites. <strong>Óros Strategy and Marketing</strong> is not responsible for the privacy practices or content of such external sites.</>
+      ) : (
+        <>Nuestro sitio web puede contener enlaces a otros sitios web de terceros. <strong>Óros Strategy and Marketing</strong> no se hace responsable de las prácticas de privacidad o el contenido de dichos sitios externos.</>
+      )}
     </p>
 
-    <h2 class="text-2xl font-semibold text-gray-900 mb-4 mt-10">9. Cambios en esta Política de Privacidad</h2>
+    <!-- 9. Cambios -->
+    <h2 class="text-2xl font-semibold text-gray-900 mb-4 mt-10">
+      {isEnglish ? "9. Changes to this Privacy Policy" : "9. Cambios en esta Política de Privacidad"}
+    </h2>
     <p class="mb-8">
-      Nos reservamos el derecho de modificar o actualizar esta Política de Privacidad en cualquier momento. 
-      Las modificaciones entrarán en vigor desde su publicación en este mismo sitio web.
+      {isEnglish
+        ? "We reserve the right to modify or update this Privacy Policy at any time. Modifications will take effect immediately upon being published on this website."
+        : "Nos reservamos el derecho de modificar o actualizar esta Política de Privacidad en cualquier momento. Las modificaciones entrarán en vigor desde su publicación en este mismo sitio web."}
     </p>
 
-    <h2 class="text-2xl font-semibold text-gray-900 mb-4 mt-10">10. Contacto</h2>
+    <!-- 10. Contacto -->
+    <h2 class="text-2xl font-semibold text-gray-900 mb-4 mt-10">
+      {isEnglish ? "10. Contact Us" : "10. Contacto"}
+    </h2>
     <p class="mb-8">
-      Para cualquier consulta sobre esta Política de Privacidad o sobre el tratamiento de sus datos personales, puede contactarnos en:
+      {isEnglish
+        ? "For any questions regarding this Privacy Policy or the handling of your personal data, you can contact us at:"
+        : "Para cualquier consulta sobre esta Política de Privacidad o sobre el tratamiento de sus datos personales, puede contactarnos en:"}
     </p>
     <p class="font-semibold text-gray-700">📧 info@orossm.com</p>
 
     <div class="mt-12 text-center border-t border-gray-200 pt-6">
-      <p class="text-gray-500 text-sm">© 2025 Óros Strategy and Marketing. Todos los derechos reservados.</p>
+      <p class="text-gray-500 text-sm">
+        © 2026 Óros Strategy and Marketing. {isEnglish ? "All rights reserved." : "Todos los derechos reservados."}
+      </p>
     </div>
   </div>
 </section>

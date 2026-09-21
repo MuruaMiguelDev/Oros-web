@@ -1,12 +1,19 @@
 ---
+import { ClientRouter } from "astro:transitions";
 import Footer from "../components/Footer.astro";
 import Header from "../components/ui/Header.astro";
 import DividerLine from "../components/ui/DividerLine.astro";
 import "../styles/global.css";
+
+const { pathname } = Astro.url;
+const isEnglish = pathname.startsWith("/en/") || pathname === "/en";
+
+// Idioma dinámico según la ruta activa
+const currentLang = isEnglish ? "en-US" : "es-AR";
 ---
 
 <!doctype html>
-<html lang="es-AR">
+<html lang={currentLang}>
   <head>
 
     <!-- Google Tag Manager -->
@@ -25,17 +32,21 @@ import "../styles/global.css";
     <meta name="description" content="En Óros Strategy and Marketing impulsamos marcas con estrategias digitales efectivas, diseño web profesional, publicidad en redes sociales y posicionamiento en buscadores. Transformamos ideas en resultados medibles." />
     <meta name="keywords" content="agencia de marketing digital, diseño web profesional, estrategias digitales, desarrollo de sitios web, publicidad en redes sociales, posicionamiento SEO, Google Ads, Meta Ads, branding digital, agencia creativa, marketing para empresas, gestión de campañas publicitarias, diseño de landing pages, marketing estratégico, crecimiento de marcas" />
     <meta name="author" content="Óros Strategy and Marketing" />
+
+    <!-- Enrutador del cliente para transiciones sin recargar la página -->
+    <ClientRouter />
   </head>
   <body>
     <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MW3CWTHF"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
+
     <Header />
     <div class="font-sansation">
       <slot />
     </div>
-          <DividerLine/>
+    <DividerLine/>
     <Footer />
   </body>
 </html>
@@ -55,8 +66,6 @@ import "../styles/global.css";
     padding: 0 0.5rem;
   }
 
-  /* CSS Variables generated from Kigen.design */
-  /* CSS Variables generated from Kigen.design */
   :root {
     --everglade-50: 146 80% 90%;
     --everglade-100: 150 77% 73%;

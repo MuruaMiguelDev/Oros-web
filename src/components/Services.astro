@@ -1,24 +1,55 @@
 ---
 import CardServices from "./ui/CardServices.astro";
+
+// Detectar idioma según la URL
+const isEnglish = Astro.url.pathname.startsWith('/en/') || Astro.url.pathname === '/en';
+
+const sectionTitle = isEnglish ? "Our Services" : "Nuestros Servicios";
+const learnMoreText = isEnglish ? "Learn more" : "Saber más";
+const servicesHref = isEnglish ? "/en/services" : "/servicios";
 ---
 
-<section class="services bg-[#2E2C7E]">
-    <h2 class="text-4xl font-bold text-center mb-8">Nuestros Servicios</h2>
+<section class="services bg-[#2E2C7E] px-4 py-12 md:py-16">
+  <div class="mx-auto max-w-7xl">
+    <h2 class="text-4xl font-bold text-center mb-8 text-white">{sectionTitle}</h2>
+    
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div class="service-card p-6 bg-white rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
-            <h3 class="text-2xl font-semibold mb-4">Consultoría Estratégica</h3>
-            <p class="text-gray-700 mb-4">
-                Analizamos tu negocio y mercado para desarrollar estrategias personalizadas que impulsen tu crecimiento.
-            </p>
-            <a href="#" class="text-indigo-600 hover:underline">Saber más</a>
+      <!-- Tarjeta 1: Consultoría -->
+      <div class="service-card p-6 bg-white rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 flex flex-col justify-between">
+        <div>
+          <h3 class="text-2xl font-semibold mb-4 text-[#001F3F]">
+            {isEnglish ? "Strategic Consulting" : "Consultoría Estratégica"}
+          </h3>
+          <p class="text-gray-700 mb-4">
+            {isEnglish 
+              ? "We analyze your business and market to develop tailored strategies that drive your growth."
+              : "Analizamos tu negocio y mercado para desarrollar estrategias personalizadas que impulsen tu crecimiento."}
+          </p>
         </div>
-        <div class="service-card p-6 bg-white rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
-            <h3 class="text-2xl font-semibold mb-4">Marketing Digital</h3>
-            <p class="text-gray-700 mb-4">
-                Diseñamos campañas de marketing digital efectivas para aumentar tu visibilidad y atraer a más clientes.
-            </p>
-            <a href="#" class="text-indigo-600 hover:underline">Saber más</a>
+        <a href={servicesHref} class="text-indigo-600 font-medium hover:underline inline-block mt-2">
+          {learnMoreText}
+        </a>
+      </div>
+
+      <!-- Tarjeta 2: Marketing Digital -->
+      <div class="service-card p-6 bg-white rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 flex flex-col justify-between">
+        <div>
+          <h3 class="text-2xl font-semibold mb-4 text-[#001F3F]">
+            {isEnglish ? "Digital Marketing" : "Marketing Digital"}
+          </h3>
+          <p class="text-gray-700 mb-4">
+            {isEnglish 
+              ? "We design effective digital marketing campaigns to increase your visibility and attract more clients."
+              : "Diseñamos campañas de marketing digital efectivas para aumentar tu visibilidad y atraer a más clientes."}
+          </p>
         </div>
-        <CardServices />
+        <a href={servicesHref} class="text-indigo-600 font-medium hover:underline inline-block mt-2">
+          {learnMoreText}
+        </a>
+      </div>
+
+      <!-- Tarjeta 3: Componente dinámico -->
+      <CardServices />
     </div>
+  </div>
 </section>

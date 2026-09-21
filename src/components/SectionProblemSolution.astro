@@ -3,9 +3,8 @@ import Metrics from "./ui/Metrics.astro";
 import ProgressBar from "./ui/ProgressBar.astro";
 
 /**
- * AboutExpertise.astro
- * - Sección "About / Expertise" con imágenes, badge, barras de progreso, CTA y KPIs
- * - Tailwind-ready (usa #0a2540 y #f95738 como en tu paleta)
+ * SectionProblemSolution.astro
+ * - Sección "Problem & Solution" con imágenes, textos traducibles y CTA.
  */
 interface Skill {
   name: string;
@@ -29,71 +28,95 @@ interface Props {
   imgBottom?: string;
 }
 
+// Detectar idioma según la URL
+const isEnglish = Astro.url.pathname.startsWith('/en/') || Astro.url.pathname === '/en';
+
+// Textos traducidos según el idioma
+const defaultEyebrow = isEnglish ? "About Us" : "Sobre Nosotros";
+
+const problemLabel = isEnglish ? "The Problem" : "El Problema";
+const solutionLabel = isEnglish ? "The Solution" : "La Solución";
+
+const defaultCtaText = isEnglish ? "Let's Talk About Execution →" : "Hablemos de la Ejecución →";
+const defaultCtaHref = isEnglish ? "/en/contact" : "/contacto";
+
 const {
-  // eyebrow = "About Us",
-  eyebrow = "Sobre Nosotros",
-  // title = "Empowering Your Success with Digital Expertise",
-  title = `¿Cansado de la "Montaña de Pendientes"?`,
+  eyebrow = defaultEyebrow,
+  ctaText = defaultCtaText,
+  ctaHref = defaultCtaHref,
   imgTop = "https://images.unsplash.com/photo-1551836022-d5d88e9218df?q=80&w=1200&auto=format&fit=crop",
   imgBottom = "https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1200&auto=format&fit=crop",
 } = Astro.props as Props;
 ---
 
 <section class="relative mx-auto max-w-7xl px-4 py-12 md:py-16">
-  <!-- Fondo y acento lateral -->
-  <!-- <div class="absolute inset-0 -z-10 rounded-3xl border border-black/5 bg-white shadow-sm"></div>
-  <div class="pointer-events-none absolute inset-y-0 right-0 w-1/6 [clip-path:polygon(30%_0,100%_0,100%_100%,0_100%)] bg-[#f95738]/20 -z-10 rounded-e-3xl"></div> -->
-
   <!-- Header -->
   <div class="max-w-7xl mx-auto px-6 lg:px-8 grid md:grid-cols-2 gap-12 items-center">
 
     <!-- Columna Izquierda: Texto general -->
     <div>
       <h2 class="text-4xl md:text-5xl font-bold text-[#001F3F] mb-6">
-        ¿Cansado de la <span class="text-[#ff4a09]">Montaña de Pendientes</span>?
+        {isEnglish ? (
+          <>Tired of the <span class="text-[#ff4a09]">Mountain of Pending Tasks</span>?</>
+        ) : (
+          <>¿Cansado de la <span class="text-[#ff4a09]">Montaña de Pendientes</span>?</>
+        )}
       </h2>
+      
       <p class="text-gray-600 mb-8">
-        Sabemos lo que es invertir tiempo y capital en marketing sin ver el retorno.
-        Las estrategias pasivas no funcionan. Necesitás un socio que tome el mando
-        de la ejecución y garantice que tus canales trabajen sincronizados.
+        {isEnglish ? (
+          "We know what it's like to invest time and capital in marketing without seeing a return. Passive strategies don't work. You need a partner who takes charge of execution and ensures your channels work in sync."
+        ) : (
+          "Sabemos lo que es invertir tiempo y capital en marketing sin ver el retorno. Las estrategias pasivas no funcionan. Necesitás un socio que tome el mando de la ejecución y garantice que tus canales trabajen sincronizados."
+        )}
       </p>
 
       <!-- Problema -->
       <div class="mb-6">
-        <h3 class="text-xl font-semibold text-[#001F3F] mb-2">El Problema</h3>
+        <h3 class="text-xl font-semibold text-[#001F3F] mb-2">{problemLabel}</h3>
         <p class="text-gray-600">
-          No necesitás más teoría. Necesitás <span class="font-semibold text-[#ff4a09]">acción inmediata</span>,
-          testing constante y un equipo que resuelva la operación diaria de tu marketing digital.
+          {isEnglish ? (
+            <>
+              You don't need more theory. You need <span class="font-semibold text-[#ff4a09]">immediate action</span>, constant testing, and a team that handles the daily operations of your digital marketing.
+            </>
+          ) : (
+            <>
+              No necesitás más teoría. Necesitás <span class="font-semibold text-[#ff4a09]">acción inmediata</span>, testing constante y un equipo que resuelva la operación diaria de tu marketing digital.
+            </>
+          )}
         </p>
       </div>
 
       <!-- Solución -->
       <div class="mb-8">
-        <h3 class="text-xl font-semibold text-[#001F3F] mb-2">La Solución</h3>
+        <h3 class="text-xl font-semibold text-[#001F3F] mb-2">{solutionLabel}</h3>
         <p class="text-gray-600">
-          Ejecutamos la <span class="font-semibold">estrategia multicanal</span>:
-          activamos tus redes, optimizamos tu web y automatizamos el email marketing
-          para que vos te enfoques en el negocio.
+          {isEnglish ? (
+            <>
+              We execute the <span class="font-semibold">multichannel strategy</span>: we activate your social media, optimize your website, and automate email marketing so you can focus on your business.
+            </>
+          ) : (
+            <>
+              Ejecutamos la <span class="font-semibold">estrategia multicanal</span>: activamos tus redes, optimizamos tu web y automatizamos el email marketing para que vos te enfoques en el negocio.
+            </>
+          )}
         </p>
       </div>
 
       <!-- CTA -->
-      <a href="/contacto"
+      <a href={ctaHref}
          class="inline-block bg-[#ff4a09] hover:bg-[#f76f3a] text-white font-medium px-6 py-3 rounded-lg transition">
-         Hablemos de la Ejecución →
+         {ctaText}
       </a>
     </div>
 
     <!-- Columna Derecha: Imagen conceptual -->
     <div class="relative">
       <img src="/mkt4.webp"
-           alt="Ejecución de marketing sincronizada"
+           alt={isEnglish ? "Synchronized marketing execution" : "Ejecución de marketing sincronizada"}
            loading="lazy"
            class="rounded-xl shadow-[0_10px_30px_rgba(0,0,0,0.1)]">
     </div>
 
   </div>
-  <!-- <div class="mb-10 gap-6 md:items-center w-full">
-    <Metrics />
-  </div> -->
 </section>
