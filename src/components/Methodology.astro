@@ -4,7 +4,7 @@ import CallToAction from "./ui/CallToAction.astro";
 // Detectar idioma según la URL
 const isEnglish = Astro.url.pathname.startsWith('/en/') || Astro.url.pathname === '/en';
 
-const moreInfoBtnText = isEnglish ? "More info" : "Más info";
+const moreInfoBtnText = isEnglish ? "More Info" : "Más info";
 ---
 
 <section id="methodology" class="bg-[#F6F6F6] py-20">
@@ -14,14 +14,14 @@ const moreInfoBtnText = isEnglish ? "More info" : "Más info";
     <div class="text-center mb-16">
       <h2 class="text-4xl md:text-5xl font-bold text-[#001F3F]">
         {isEnglish ? (
-          <>This is How We Guarantee Your <span class="text-[#ff4a09]">Fast Growth</span></>
+          <>How We Drive <span class="text-[#ff4a09]">Fast Growth</span></>
         ) : (
           <>Así Garantizamos su <span class="text-[#ff4a09]">Avance Rápido</span></>
         )}
       </h2>
       <p class="mt-4 text-gray-600 max-w-2xl mx-auto">
         {isEnglish ? (
-          <>We don't waste time. Our model is designed to go from idea to launch in the shortest time possible, ensuring that your <strong>brand's ascent</strong> is steady and sustained.</>
+          <>No wasted time or endless revisions. We take you from idea to launch as quickly as possible—building steady, predictable momentum for <strong>your brand</strong></>
         ) : (
           <>No perdemos tiempo. Nuestro modelo está diseñado para pasar de la idea al lanzamiento en el menor tiempo posible, garantizando que el <strong>ascenso de su marca</strong> sea firme y sostenido.</>
         )}
@@ -35,14 +35,14 @@ const moreInfoBtnText = isEnglish ? "More info" : "Más info";
       <article id="fase1" class="card-modal">
         <div class="card-summary">
           <div class="text-sm font-bold text-[#ff4a09] tracking-wider mb-2">
-            {isEnglish ? "PHASE I: QUICK PEAK" : "FASE I: CIMA RÁPIDA"}
+            {isEnglish ? "PHASE I: INITIAL PEAK" : "FASE I: CIMA RÁPIDA"}
           </div>
           <h3 class="text-2xl font-semibold text-[#001F3F] mb-4">
             {isEnglish ? "The Strategy" : "La Estrategia"}
           </h3>
           <p class="text-gray-600 leading-relaxed mb-6">
             {isEnglish ? (
-              <>We define your positioning, key message, and the first 3 marketing <em>shots</em> with the highest return potential. <strong>Less paperwork, more action.</strong></>
+              <>We define your brand positioning, <em>core messaging,</em>and the top 3 high-ROI marketing initiatives.<strong>Less fluff, more action</strong></>
             ) : (
               <>Definimos su posición, mensaje clave y los 3 primeros <em>shots</em> de marketing con el mayor potencial de retorno. <strong>Menos papel, más acción.</strong></>
             )}
@@ -57,7 +57,7 @@ const moreInfoBtnText = isEnglish ? "More info" : "Más info";
           <a href="#methodology" class="close-btn" aria-label={isEnglish ? "Close" : "Cerrar"}>✕</a>
 
           <div class="text-sm font-bold text-[#ff4a09] tracking-wider mb-2">
-            {isEnglish ? "PHASE I: QUICK PEAK" : "FASE I: CIMA RÁPIDA"}
+            {isEnglish ? "PHASE I: INITIAL PEAK" : "FASE I: CIMA RÁPIDA"}
           </div>
           <h3 class="text-2xl font-semibold text-[#001F3F] mb-3">
             {isEnglish ? "The Strategy" : "La Estrategia"}
@@ -66,20 +66,20 @@ const moreInfoBtnText = isEnglish ? "More info" : "Más info";
           {isEnglish ? (
             <>
               <p class="text-gray-700 leading-relaxed mb-3">
-                <strong>In-depth analysis of your brand and competition.</strong><br />
-                We review how your business communicates on social media, what competitors are doing, and who your ideal audience is. Based on this, we set clear campaign goals (more clicks, new leads, and measurable sales).
+                <strong>In-Depth Brand & Competitor Analysis</strong><br />
+                We evaluate your social presence, analyze competitor moves, and map your ideal target audience. From there, we define concrete campaign KPIs—focusing on qualified leads and revenue
               </p>
               <p class="text-gray-700 leading-relaxed mb-3">
-                <strong>Conversion journey design.</strong><br />
-                We map a plan that guides your audience step by step: first we attract them, then generate interest, and finally convert them into clients.
+                <strong>Customer Journey Mapping</strong><br />
+                We map out a seamless multi-touch journey: capturing cold attention, building brand trust, and guiding prospects into paying clients
               </p>
               <p class="text-gray-700 leading-relaxed mb-3">
-                <strong>Smart ad planning.</strong><br />
-                We select formats and messages for each stage and target specific audiences to yield real results.
+                <strong>Strategic Media Planning</strong><br />
+                We pair tailored ad creative with high-intent audience segments across every funnel stage to maximize ad spend efficiency
               </p>
               <p class="text-gray-700 leading-relaxed">
-                <strong>Technical setup ready to measure.</strong><br />
-                We connect your Meta Business Suite properly (pixel, events, and audiences) to measure what works and scale with confidence.
+                <strong>Advanced Tracking & Measurement Setup</strong><br />
+                We configure your Meta pixel, conversion API, custom events, and lookalike audiences so you can track performance and scale campaigns predictably
               </p>
             </>
           ) : (
@@ -109,14 +109,14 @@ const moreInfoBtnText = isEnglish ? "More info" : "Más info";
       <article id="fase2" class="card-modal">
         <div class="card-summary">
           <div class="text-sm font-bold text-[#ff4a09] tracking-wider mb-2">
-            {isEnglish ? "PHASE II: MOVING RIDGE" : "FASE II: LOMADA EN MOVIMIENTO"}
+            {isEnglish ? "PHASE II: RIDGE CROSSING" : "FASE II: LOMADA EN MOVIMIENTO"}
           </div>
           <h3 class="text-2xl font-semibold text-[#001F3F] mb-4">
-            {isEnglish ? "Activation & Platform Building" : "Activación y Construcción de Plataformas"}
+            {isEnglish ? "Activation & Infrastructure" : "Activación y Construcción de Plataformas"}
           </h3>
           <p class="text-gray-600 leading-relaxed mb-6">
             {isEnglish ? (
-              <>We build or optimize your website, launch your brand identity, and create high-impact assets for social media. Everything with a <strong>continuous testing</strong> mindset.</>
+              <>We build or optimize your website, establish your brand identity, and launch high-impact social assets—all driven by <strong>continuous testing</strong> and iteration</>
             ) : (
               <>Construimos o ajustamos su web. Lanzamos su nueva identidad y creamos los activos de alto impacto para sus redes sociales. Todo con mentalidad de <strong>testeo continuo</strong>.</>
             )}
@@ -130,25 +130,25 @@ const moreInfoBtnText = isEnglish ? "More info" : "Más info";
           <a href="#methodology" class="close-btn" aria-label={isEnglish ? "Close" : "Cerrar"}>✕</a>
 
           <div class="text-sm font-bold text-[#ff4a09] tracking-wider mb-2">
-            {isEnglish ? "PHASE II: MOVING RIDGE" : "FASE II: LOMADA EN MOVIMIENTO"}
+            {isEnglish ? "PHASE II: RIDGE CROSSING" : "FASE II: LOMADA EN MOVIMIENTO"}
           </div>
           <h3 class="text-2xl font-semibold text-[#001F3F] mb-3">
-            {isEnglish ? "Activation & Building — Details" : "Activación y Construcción — Detalle"}
+            {isEnglish ? "Activation & Infrastructure" : "Activación y Construcción — Detalle"}
           </h3>
 
           {isEnglish ? (
             <>
               <p class="text-gray-700 leading-relaxed mb-3">
-                <strong>High-converting website.</strong><br />
-                We optimize structure, speed, and messaging so your site converts visits into real opportunities.
+                <strong>High-Converting Website Optimization</strong><br />
+                We optimize your site structure, page speed, and messaging to turn incoming traffic into qualified leads and sales
               </p>
               <p class="text-gray-700 leading-relaxed mb-3">
-                <strong>High-impact identity and assets.</strong><br />
-                We adjust visual identity and craft social media pieces (images & videos) focused on engagement and response.
+                <strong>High-Impact Identity & Creative Collateral</strong><br />
+                We refine your visual identity and produce high-converting ad creative—including custom imagery and video—designed to drive engagement
               </p>
               <p class="text-gray-700 leading-relaxed">
-                <strong>Testing and continuous improvement.</strong><br />
-                We publish, measure, and tweak rapidly to keep what performs best.
+                <strong>Rapid Testing & Continuous Optimization</strong><br />
+                We launch, measure, and iterate quickly—doubling down on top-performing assets while cutting what underperforms
               </p>
             </>
           ) : (
@@ -181,7 +181,7 @@ const moreInfoBtnText = isEnglish ? "More info" : "Más info";
           </h3>
           <p class="text-gray-600 leading-relaxed mb-6">
             {isEnglish ? (
-              <>This is the growth phase. We activate the multichannel strategy (<strong>Ads + Social + Email</strong>) and optimize budgets daily. We only invest in what <strong>we know works</strong>.</>
+              <>This is the growth engine. We launch your full multichannel strategy (<strong>Paid Ads + Social + Email</strong>) and optimize spend daily, <strong>doubling down on what drives real revenue</strong>.</>
             ) : (
               <>Es la fase de crecimiento. Activamos la estrategia multicanal (<strong>Ads + Redes + Email</strong>) y optimizamos los presupuestos a diario. Solo invertimos en lo que <strong>sabemos que funciona</strong>.</>
             )}
@@ -198,22 +198,22 @@ const moreInfoBtnText = isEnglish ? "More info" : "Más info";
             {isEnglish ? "PHASE III: ACCELERATED ASCENT" : "FASE III: ASCENSO ACELERADO"}
           </div>
           <h3 class="text-2xl font-semibold text-[#001F3F] mb-3">
-            {isEnglish ? "Management & Scaling — Details" : "Gestión y Escalada — Detalle"}
+            {isEnglish ? "Management & Scaling" : "Gestión y Escalada — Detalle"}
           </h3>
 
           {isEnglish ? (
             <>
               <p class="text-gray-700 leading-relaxed mb-3">
-                <strong>Coordinated multichannel.</strong><br />
-                We integrate ads, organic content, and email marketing to maintain a constant stream of leads.
+                <strong>Integrated Multichannel Execution</strong><br />
+                We align paid ads, organic content, and email marketing into a single cohesive ecosystem to build a steady pipeline of qualified leads
               </p>
               <p class="text-gray-700 leading-relaxed mb-3">
-                <strong>Daily optimization.</strong><br />
-                We fine-tune audiences, creatives, and budgets based on performance data to maximize ROI.
+                <strong>Data-Driven Daily Optimization</strong><br />
+                We actively monitor and refine targeting, ad creative, and budget allocations based on live performance data to maximize ROI
               </p>
               <p class="text-gray-700 leading-relaxed">
-                <strong>Controlled scaling.</strong><br />
-                We increase budget where results are proven and pause underperforming assets—without wasting resources.
+                <strong>Profitable & Predictable Scaling</strong><br />
+                We scale ad spend on proven top-performers while cutting underperforming campaigns—ensuring profitable growth without ad spend waste
               </p>
             </>
           ) : (

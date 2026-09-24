@@ -11,24 +11,24 @@ const privacyPolicyHref = isEnglish ? "/en/privacy-policy" : "/privacy-policy";
       <!-- Columna: Formulario -->
       <form id="contact-form" action="#" method="post" class="max-w-xl">
         <h2 class="text-3xl md:text-4xl font-semibold tracking-tight text-[#001F3F]">
-          {isEnglish ? "Get in Touch" : "Ponte en Contacto"}
+          {isEnglish ? "Let’s Talk Growth" : "Ponte en Contacto"}
         </h2>
         <p class="mt-2 text-sm text-[#303133]">
           {isEnglish 
-            ? "Have questions? We're here to help you." 
+            ? "Have a project in mind? Fill out the form below and our team will get back to you within 24 hours" 
             : "¿Tienes alguna pregunta? Estamos aquí para ayudarte."}
         </p>
 
         <!-- Nombre -->
         <label for="nombre" class="mt-6 block text-sm font-medium text-[#303133]">
-          {isEnglish ? "Name" : "Nombre"}
+          {isEnglish ? "Full Name" : "Nombre"}
         </label>
         <input
           type="text"
           id="nombre"
           name="name"
           required
-          placeholder={isEnglish ? "Your name" : "Tu nombre"}
+          placeholder={isEnglish ? "First and last name" : "Tu nombre"}
           class="mt-2 w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm text-[#303133] placeholder-slate-400 outline-none ring-blue-500 focus:border-blue-400 focus:ring-2"
         />
 
@@ -41,19 +41,19 @@ const privacyPolicyHref = isEnglish ? "/en/privacy-policy" : "/privacy-policy";
           id="correo"
           name="email"
           required
-          placeholder={isEnglish ? "your@email.com" : "tu@email.com"}
+          placeholder={isEnglish ? "name@company.com" : "tu@email.com"}
           class="mt-2 w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm text-[#303133] placeholder-slate-400 outline-none ring-blue-500 focus:border-blue-400 focus:ring-2"
         />
 
         <!-- Asunto -->
         <label for="asunto" class="mt-5 block text-sm font-medium text-slate-700">
-          {isEnglish ? "Subject" : "Asunto"}
+          {isEnglish ? "How Can We Help?" : "Asunto"}
         </label>
         <input
           type="text"
           id="asunto"
           name="affair"
-          placeholder={isEnglish ? "Message subject" : "Asunto del mensaje"}
+          placeholder={isEnglish ? "Select a Service" : "Asunto del mensaje"}
           class="mt-2 w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm text-[#303133] placeholder-slate-400 outline-none ring-blue-500 focus:border-blue-400 focus:ring-2"
         />
 
@@ -80,7 +80,7 @@ const privacyPolicyHref = isEnglish ? "/en/privacy-policy" : "/privacy-policy";
             class="mt-1 h-4 w-4 text-[#FF7F50] border-slate-300 rounded focus:ring-[#FF7F50]"
           />
           <label for="privacyPolicy" class="ml-2 text-sm text-slate-600">
-            {isEnglish ? "I accept the " : "Acepto la "}
+            {isEnglish ? "I agree to the" : "Acepto la "}
             <a href={privacyPolicyHref} target="_blank" rel="noopener noreferrer" class="text-[#FF7F50] hover:underline">
               {isEnglish ? "Privacy Policy" : "Política de Privacidad"}
             </a>.
@@ -92,7 +92,7 @@ const privacyPolicyHref = isEnglish ? "/en/privacy-policy" : "/privacy-policy";
           type="submit"
           class="mt-6 inline-flex items-center justify-center gap-2 rounded-xl bg-[#FF7F50] hover:bg-[#f76f3a] text-white px-6 py-3 text-sm font-medium shadow-sm focus:outline-none focus:ring-2 focus:ring-[#FF7F50] transition hover:translate-y-[-1px]"
         >
-          {isEnglish ? "Send Message" : "Enviar Mensaje"}
+          {isEnglish ? "Submit Inquiry" : "Enviar Mensaje"}
           <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M5 12h14"></path>
             <path d="m12 5 7 7-7 7"></path>
@@ -142,7 +142,8 @@ const privacyPolicyHref = isEnglish ? "/en/privacy-policy" : "/privacy-policy";
           </span>
           <div>
             <p class="text-sm font-medium text-[#303133]">{isEnglish ? "Address" : "Dirección"}</p>
-            <p class="text-sm text-slate-500">Ciudad de Tampa 8699, Córdoba, Arg.</p>
+            <p class="text-sm text-slate-500">30 N Gould St Ste R
+              Sheridan, WY 82801</p>
           </div>
         </div>
       </aside>
