@@ -4,7 +4,26 @@ import CallToAction from "./ui/CallToAction.astro";
 // Detectar idioma según la URL
 const isEnglish = Astro.url.pathname.startsWith('/en/') || Astro.url.pathname === '/en';
 
-const moreInfoBtnText = isEnglish ? "More Info" : "Más info";
+const moreInfoBtnText = isEnglish ? "Más info" : "Más info";
+const mountainImage = "https://images.unsplash.com/photo-1783427091805-c6cc3baacf2d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkcmFtYXRpYyUyMG1vdW50YWluJTIwc3VtbWl0JTIwZGFyayUyMGJsdWUlMjBnb2xkZW4lMjBsaWdodCUyMGFlcmlhbHxlbnwxfHx8fDE3OTAzMDkwMTR8MA&ixlib=rb-4.1.0&q=85&w=1080";
+
+const kpis = [
+  {
+    value: "3.84x",
+    label: "Return on Ad Spend",
+    change: "▲ +42% vs last month",
+  },
+  {
+    value: "$18.40",
+    label: "Target Acquisition Cost",
+    change: "▼ -34% Cost per Lead",
+  },
+  {
+    value: "1,420",
+    label: "Qualified Leads Generated",
+    change: "▲ +185% this quarter",
+  },
+];
 ---
 
 <section id="methodology" class="bg-[#F6F6F6] py-20">
@@ -14,7 +33,7 @@ const moreInfoBtnText = isEnglish ? "More Info" : "Más info";
     <div class="text-center mb-16">
       <h2 class="text-4xl md:text-5xl font-bold text-[#001F3F]">
         {isEnglish ? (
-          <>How We Drive <span class="text-[#ff4a09]">Fast Growth</span></>
+          <>How We Drive <span class="text-[#ff4a09]">Rapid Growth</span></>
         ) : (
           <>Así Garantizamos su <span class="text-[#ff4a09]">Avance Rápido</span></>
         )}
@@ -42,66 +61,133 @@ const moreInfoBtnText = isEnglish ? "More Info" : "Más info";
           </h3>
           <p class="text-gray-600 leading-relaxed mb-6">
             {isEnglish ? (
-              <>We define your brand positioning, <em>core messaging,</em>and the top 3 high-ROI marketing initiatives.<strong>Less fluff, more action</strong></>
+              <>We define your brand positioning, <em>core messaging,</em> and the top 3 high-ROI marketing initiatives. <strong>Less fluff, more action</strong></>
             ) : (
               <>Definimos su posición, mensaje clave y los 3 primeros <em>shots</em> de marketing con el mayor potencial de retorno. <strong>Menos papel, más acción.</strong></>
             )}
           </p>
           <br><br>
-          <!-- Botón para abrir modal -->
           <a href="#fase1" class="btn-info" role="button" aria-label={isEnglish ? "Open Phase I information" : "Abrir más información de Fase I"}>{moreInfoBtnText}</a>
         </div>
 
-        <!-- Contenido del modal -->
+        <!-- Pop-Up FASE I -->
         <div class="card-details">
           <a href="#methodology" class="close-btn" aria-label={isEnglish ? "Close" : "Cerrar"}>✕</a>
 
-          <div class="text-sm font-bold text-[#ff4a09] tracking-wider mb-2">
-            {isEnglish ? "PHASE I: INITIAL PEAK" : "FASE I: CIMA RÁPIDA"}
-          </div>
-          <h3 class="text-2xl font-semibold text-[#001F3F] mb-3">
-            {isEnglish ? "The Strategy" : "La Estrategia"}
-          </h3>
+          <div class="relative overflow-hidden rounded-[24px] border border-[#334155] bg-[#0F172A] p-6 text-slate-100 shadow-[0_30px_100px_rgba(0,0,0,0.5)]">
+            <div class="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_46%,rgba(30,41,59,0.72),transparent_46%)]"></div>
+            <div class="technical-grid pointer-events-none absolute inset-0"></div>
 
-          {isEnglish ? (
-            <>
-              <p class="text-gray-700 leading-relaxed mb-3">
-                <strong>In-Depth Brand & Competitor Analysis</strong><br />
-                We evaluate your social presence, analyze competitor moves, and map your ideal target audience. From there, we define concrete campaign KPIs—focusing on qualified leads and revenue
+            <header class="relative z-10 border-b border-[#334155]/70 pb-5 mb-6">
+              <div class="flex items-center justify-between mb-3">
+                <span class="rounded-full border border-[#38BDF8]/50 bg-[#0EA5E9]/15 px-3 py-1 text-[10px] font-bold tracking-[0.14em] text-[#7DD3FC] uppercase">Phase I</span>
+                <div class="flex items-center gap-1.5 text-[#F59E0B]">
+                  <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24"><path d="m2.5 18.5 6.6-10.2 3.3 4.9 3.4-5.4 5.7 10.7h-19Z" stroke="currentColor" stroke-linejoin="round" stroke-width="1.7"/></svg>
+                  <span class="text-[10px] font-bold tracking-[0.15em]">ÓROS</span>
+                </div>
+              </div>
+              <p class="text-[10px] font-semibold tracking-[0.16em] text-slate-500 uppercase">Infrastructure Layer</p>
+              <h1 class="text-2xl md:text-3xl font-semibold tracking-[-0.035em] text-white mt-1">
+                Conversion & Tracking Infrastructure
+              </h1>
+              <p class="text-xs text-slate-400 mt-1">
+                Precision data architecture built for measurable growth, complete event visibility, and reliable attribution.
               </p>
-              <p class="text-gray-700 leading-relaxed mb-3">
-                <strong>Customer Journey Mapping</strong><br />
-                We map out a seamless multi-touch journey: capturing cold attention, building brand trust, and guiding prospects into paying clients
-              </p>
-              <p class="text-gray-700 leading-relaxed mb-3">
-                <strong>Strategic Media Planning</strong><br />
-                We pair tailored ad creative with high-intent audience segments across every funnel stage to maximize ad spend efficiency
-              </p>
-              <p class="text-gray-700 leading-relaxed">
-                <strong>Advanced Tracking & Measurement Setup</strong><br />
-                We configure your Meta pixel, conversion API, custom events, and lookalike audiences so you can track performance and scale campaigns predictably
-              </p>
-            </>
-          ) : (
-            <>
-              <p class="text-gray-700 leading-relaxed mb-3">
-                <strong>Análisis profundo de su marca y competencia.</strong><br />
-                Revisamos cómo se comunica su negocio en redes, qué hacen sus competidores y quién es su público ideal. Con esa base, definimos objetivos claros para la campaña (más clics, nuevos contactos y ventas medibles).
-              </p>
-              <p class="text-gray-700 leading-relaxed mb-3">
-                <strong>Diseño del recorrido de conversión.</strong><br />
-                Trazamos un plan que guía a su audiencia paso a paso: primero los atraemos, luego generamos interés y finalmente los convertimos en clientes.
-              </p>
-              <p class="text-gray-700 leading-relaxed mb-3">
-                <strong>Plan de anuncios inteligente.</strong><br />
-                Elegimos formatos y mensajes para cada etapa y definimos a qué públicos dirigirnos para obtener resultados.
-              </p>
-              <p class="text-gray-700 leading-relaxed">
-                <strong>Configuración técnica lista para medir.</strong><br />
-                Dejamos su cuenta de Meta Business Suite bien conectada (píxel, eventos y audiencias) para medir qué funciona y escalar con seguridad.
-              </p>
-            </>
-          )}
+            </header>
+
+            <div class="relative z-10 flex flex-col items-center gap-4 py-2">
+              <p class="text-[10px] font-bold tracking-[0.18em] text-slate-500 uppercase">Data Destinations</p>
+              <div class="w-full grid gap-3 max-w-md">
+                <div class="node-card flex min-h-[72px] items-center gap-4 rounded-xl border border-[#334155] bg-[#1E293B]/95 px-4">
+                  <div class="grid h-10 w-10 shrink-0 place-items-center rounded-lg border border-[#F59E0B]/20 bg-[#0F172A] text-xs font-bold text-[#F59E0B]">MP</div>
+                  <div>
+                    <p class="text-[13px] font-semibold text-slate-100">Meta Pixel / CAPI</p>
+                    <div class="mt-1 flex items-center gap-1.5"><span class="h-1.5 w-1.5 rounded-full bg-[#22C55E]"></span><p class="text-[10px] text-slate-400">Advanced Matching Enabled</p></div>
+                  </div>
+                </div>
+
+                <div class="node-card flex min-h-[72px] items-center gap-4 rounded-xl border border-[#334155] bg-[#1E293B]/95 px-4">
+                  <div class="grid h-10 w-10 shrink-0 place-items-center rounded-lg border border-[#F59E0B]/20 bg-[#0F172A] text-xs font-bold text-[#F59E0B]">G4</div>
+                  <div>
+                    <p class="text-[13px] font-semibold text-slate-100">Google Analytics 4</p>
+                    <div class="mt-1 flex items-center gap-1.5"><span class="h-1.5 w-1.5 rounded-full bg-[#22C55E]"></span><p class="text-[10px] text-slate-400">Custom Event Mapping</p></div>
+                  </div>
+                </div>
+
+                <div class="node-card flex min-h-[72px] items-center gap-4 rounded-xl border border-[#334155] bg-[#1E293B]/95 px-4">
+                  <div class="grid h-10 w-10 shrink-0 place-items-center rounded-lg border border-[#F59E0B]/20 bg-[#0F172A] text-xs font-bold text-[#F59E0B]">CR</div>
+                  <div>
+                    <p class="text-[13px] font-semibold text-slate-100">CRM / Lead Auto-Sync</p>
+                    <div class="mt-1 flex items-center gap-1.5"><span class="h-1.5 w-1.5 rounded-full bg-[#22C55E]"></span><p class="text-[10px] text-slate-400">Instant Routing</p></div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mobile-flow-line h-10 w-px"></div>
+
+              <div class="engine-glow relative flex h-[190px] w-[190px] flex-col items-center justify-center rounded-full border border-[#38BDF8]/60 bg-[#111d2f] text-center my-1">
+                <div class="absolute inset-2.5 rounded-full border border-dashed border-[#38BDF8]/25"></div>
+                <div class="mb-2 grid h-12 w-12 place-items-center rounded-xl border border-[#38BDF8]/30 bg-[#38BDF8]/10 text-[#38BDF8] shadow-[0_0_20px_rgba(56,189,248,0.18)]">
+                  <svg class="h-8 w-8" fill="none" viewBox="0 0 48 48">
+                    <path d="M14 17.5h-1.2a6.3 6.3 0 1 1 1.5-12.4A9.2 9.2 0 0 1 31.7 7a6 6 0 1 1 3.5 10.8H34" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"/>
+                    <rect x="9" y="21" width="30" height="9" rx="2.5" stroke="currentColor" stroke-width="1.8"/>
+                    <rect x="9" y="34" width="30" height="9" rx="2.5" stroke="currentColor" stroke-width="1.8"/>
+                    <path d="M15 25.5h.01M15 38.5h.01M20 25.5h11M20 38.5h11" stroke="currentColor" stroke-linecap="round" stroke-width="2.2"/>
+                    <path d="M24 17.5V21" stroke="currentColor" stroke-linecap="round" stroke-width="1.8"/>
+                  </svg>
+                </div>
+                <p class="max-w-[140px] text-sm leading-tight font-semibold text-white">Server-Side Data Engine</p>
+                <p class="mt-0.5 text-[9px] text-slate-500">Stape / Meta CAPI Gateway</p>
+                <div class="mt-2.5 flex items-center gap-1.5 rounded-full border border-[#22C55E]/25 bg-[#22C55E]/10 px-2.5 py-1">
+                  <span class="status-dot h-1.5 w-1.5 rounded-full bg-[#22C55E]"></span>
+                  <span class="text-[8px] font-bold text-[#86EFAC] uppercase">Active · 99.4% Match</span>
+                </div>
+              </div>
+
+              <div class="mobile-flow-line h-10 w-px"></div>
+
+              <p class="text-[10px] font-bold tracking-[0.18em] text-slate-500 uppercase">Traffic Sources</p>
+              <div class="w-full grid gap-3 max-w-md">
+                <div class="node-card flex min-h-[72px] items-center gap-4 rounded-xl border border-[#334155] bg-[#1E293B]/95 px-4">
+                  <div class="grid h-10 w-10 shrink-0 place-items-center rounded-lg border border-[#38BDF8]/20 bg-[#0F172A] text-[#38BDF8]">
+                    <svg class="h-5 w-5" fill="none" viewBox="0 0 28 20"><path d="M2 17C4.7 3.2 8.3 2 11.1 7.4L14 13l2.9-5.6C19.7 2 23.3 3.2 26 17M2 17c2.5 1.8 5.1-.4 9.1-9.6M26 17c-2.5 1.8-5.1-.4-9.1-9.6" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2"/></svg>
+                  </div>
+                  <div><p class="text-[10px] font-medium text-slate-500">Meta Ads</p><p class="mt-0.5 text-[13px] font-semibold text-slate-100">Paid Social Traffic</p></div>
+                </div>
+
+                <div class="node-card flex min-h-[72px] items-center gap-4 rounded-xl border border-[#334155] bg-[#1E293B]/95 px-4">
+                  <div class="grid h-10 w-10 shrink-0 place-items-center rounded-lg border border-[#38BDF8]/20 bg-[#0F172A] text-[#38BDF8]">
+                    <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5" stroke="currentColor" stroke-width="2"/><path d="m15.5 15.5 5 5" stroke="currentColor" stroke-linecap="round" stroke-width="2"/></svg>
+                  </div>
+                  <div><p class="text-[10px] font-medium text-slate-500">Google Search</p><p class="mt-0.5 text-[13px] font-semibold text-slate-100">High-Intent Search</p></div>
+                </div>
+
+                <div class="node-card flex min-h-[72px] items-center gap-4 rounded-xl border border-[#334155] bg-[#1E293B]/95 px-4">
+                  <div class="grid h-10 w-10 shrink-0 place-items-center rounded-lg border border-[#38BDF8]/20 bg-[#0F172A] text-[#38BDF8]">
+                    <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24"><path d="M9.5 14.5 14.5 9M7.3 17.8l-1.1 1.1a3.5 3.5 0 0 1-5-5l4-4a3.5 3.5 0 0 1 5 0M16.7 6.2l1.1-1.1a3.5 3.5 0 1 1 5 5l-4 4a3.5 3.5 0 0 1-5 0" stroke="currentColor" stroke-linecap="round" stroke-width="1.8"/></svg>
+                  </div>
+                  <div><p class="text-[10px] font-medium text-slate-500">Organic Content</p><p class="mt-0.5 text-[13px] font-semibold text-slate-100">Direct & Referral</p></div>
+                </div>
+              </div>
+
+              <div class="mt-3 flex items-center gap-2 rounded-full border border-[#38BDF8]/25 bg-[#38BDF8]/10 px-3 py-1.5 text-[9px] font-bold tracking-[0.09em] text-[#7DD3FC] uppercase">
+                <span class="status-dot h-1.5 w-1.5 rounded-full bg-[#38BDF8]"></span> Live vertical data stream
+              </div>
+            </div>
+
+            <!-- Navegación Flotante -->
+            <div class="sticky bottom-0 left-0 right-0 pt-4 pb-1 bg-[#0F172A]/95 backdrop-blur-md border-t border-[#334155]/60 flex justify-center gap-2 z-30">
+              <a href="#fase1" class="px-3 py-1.5 rounded-lg text-[10px] font-bold uppercase bg-[#38BDF8] text-[#031521] shadow-[0_0_15px_rgba(56,189,248,0.3)]">
+                I · INFRASTRUCTURE
+              </a>
+              <a href="#fase2" class="px-3 py-1.5 rounded-lg text-[10px] font-bold uppercase text-slate-400 hover:bg-[#1E293B] hover:text-white transition">
+                II · CREATIVE STACK
+              </a>
+              <a href="#fase3" class="px-3 py-1.5 rounded-lg text-[10px] font-bold uppercase text-slate-400 hover:bg-[#1E293B] hover:text-white transition">
+                III · ANALYTICS
+              </a>
+            </div>
+          </div>
         </div>
       </article>
 
@@ -122,51 +208,153 @@ const moreInfoBtnText = isEnglish ? "More Info" : "Más info";
             )}
           </p>
 
-          <!-- Botón para abrir modal -->
           <a href="#fase2" class="btn-info" role="button" aria-label={isEnglish ? "Open Phase II information" : "Abrir más información de Fase II"}>{moreInfoBtnText}</a>
         </div>
 
+        <!-- Pop-Up FASE II -->
         <div class="card-details">
           <a href="#methodology" class="close-btn" aria-label={isEnglish ? "Close" : "Cerrar"}>✕</a>
 
-          <div class="text-sm font-bold text-[#ff4a09] tracking-wider mb-2">
-            {isEnglish ? "PHASE II: RIDGE CROSSING" : "FASE II: LOMADA EN MOVIMIENTO"}
-          </div>
-          <h3 class="text-2xl font-semibold text-[#001F3F] mb-3">
-            {isEnglish ? "Activation & Infrastructure" : "Activación y Construcción — Detalle"}
-          </h3>
+          <div class="relative overflow-hidden rounded-[24px] border border-[#334155] bg-[#0F172A] p-6 text-slate-100 shadow-[0_30px_100px_rgba(0,0,0,0.5)]">
+            <div class="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_38%,rgba(30,41,59,0.72),transparent_44%)]"></div>
+            <div class="technical-grid pointer-events-none absolute inset-0"></div>
 
-          {isEnglish ? (
-            <>
-              <p class="text-gray-700 leading-relaxed mb-3">
-                <strong>High-Converting Website Optimization</strong><br />
-                We optimize your site structure, page speed, and messaging to turn incoming traffic into qualified leads and sales
+            <header class="relative z-10 border-b border-[#334155]/70 pb-5 mb-6">
+              <div class="flex items-center justify-between mb-3">
+                <span class="rounded-full border border-[#38BDF8]/50 bg-[#0EA5E9]/15 px-3 py-1 text-[10px] font-bold tracking-[0.14em] text-[#7DD3FC] uppercase">Phase II</span>
+                <div class="flex items-center gap-1.5 text-[#F59E0B]">
+                  <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24"><path d="m2.5 18.5 6.6-10.2 3.3 4.9 3.4-5.4 5.7 10.7h-19Z" stroke="currentColor" stroke-linejoin="round" stroke-width="1.7"/></svg>
+                  <span class="text-[10px] font-bold tracking-[0.15em]">ÓROS</span>
+                </div>
+              </div>
+              <p class="text-[10px] font-semibold tracking-[0.16em] text-slate-500 uppercase">Creative Conversion Layer</p>
+              <h1 class="text-2xl md:text-3xl font-semibold tracking-[-0.045em] text-white mt-1 leading-snug">
+                Ad Creative & High-Converting Landing Page Stack
+              </h1>
+              <p class="text-xs text-slate-400 mt-2 leading-relaxed">
+                One seamless, high-performance user journey from the first creative impression to qualified conversion.
               </p>
-              <p class="text-gray-700 leading-relaxed mb-3">
-                <strong>High-Impact Identity & Creative Collateral</strong><br />
-                We refine your visual identity and produce high-converting ad creative—including custom imagery and video—designed to drive engagement
-              </p>
-              <p class="text-gray-700 leading-relaxed">
-                <strong>Rapid Testing & Continuous Optimization</strong><br />
-                We launch, measure, and iterate quickly—doubling down on top-performing assets while cutting what underperforms
-              </p>
-            </>
-          ) : (
-            <>
-              <p class="text-gray-700 leading-relaxed mb-3">
-                <strong>Web lista para convertir.</strong><br />
-                Optimizamos la estructura, velocidad y mensajes clave para que su sitio convierta visitas en oportunidades reales.
-              </p>
-              <p class="text-gray-700 leading-relaxed mb-3">
-                <strong>Identidad y activos con impacto.</strong><br />
-                Ajustamos identidad visual y creamos piezas para redes (imágenes y videos) enfocadas en atención y respuesta.
-              </p>
-              <p class="text-gray-700 leading-relaxed">
-                <strong>Prueba y mejora continua.</strong><br />
-                Publicamos, medimos y ajustamos rápidamente para quedarnos con lo que mejor rinde.
-              </p>
-            </>
-          )}
+            </header>
+
+            <div class="relative z-10 flex flex-col items-center gap-4 py-2">
+              <p class="text-[10px] font-bold tracking-[0.18em] text-slate-500 uppercase self-start w-full text-center">01 / Hook-Tested Creative</p>
+              
+              <article class="node-card w-full max-w-md overflow-hidden rounded-2xl border border-[#334155] bg-[#1E293B]">
+                <div class="flex h-[52px] items-center justify-between border-b border-[#334155] bg-[#172033] px-4">
+                  <div class="flex items-center gap-2.5">
+                    <div class="grid h-8 w-8 place-items-center rounded-full border border-[#F59E0B]/40 bg-[#F59E0B]/10 text-[#F59E0B]">
+                      <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24"><path d="m2.5 18.5 6.6-10.2 3.3 4.9 3.4-5.4 5.7 10.7h-19Z" stroke="currentColor" stroke-linejoin="round" stroke-width="1.7"/></svg>
+                    </div>
+                    <div>
+                      <p class="text-xs font-semibold text-white">@oros.sm</p>
+                      <p class="text-[9px] text-slate-500">Sponsored</p>
+                    </div>
+                  </div>
+                  <div class="flex gap-1 text-slate-500">
+                    <span class="h-1 w-1 rounded-full bg-current"></span>
+                    <span class="h-1 w-1 rounded-full bg-current"></span>
+                    <span class="h-1 w-1 rounded-full bg-current"></span>
+                  </div>
+                </div>
+
+                <div class="relative aspect-[4/4.25] w-full overflow-hidden">
+                  <img alt="Summit mountain view" class="h-full w-full object-cover" src={mountainImage} />
+                  <div class="absolute inset-0 bg-gradient-to-t from-[#050a12] via-[#0F172A]/15 to-transparent"></div>
+                  <div class="absolute left-4 top-4 rounded-full border border-white/20 bg-black/25 px-2.5 py-1 text-[8px] font-bold tracking-[0.15em] text-white backdrop-blur-md uppercase">
+                    The cost of guessing
+                  </div>
+                  <div class="absolute inset-x-4 bottom-5">
+                    <h2 class="text-2xl font-bold tracking-[-0.055em] text-white leading-tight">
+                      Stop Wasting<br />Ad Spend.<br />
+                      <span class="text-[#38BDF8]">Scale With Data.</span>
+                    </h2>
+                    <p class="mt-2 text-[10px] text-slate-300">Turn every click into a clear signal for growth.</p>
+                  </div>
+                </div>
+
+                <div class="flex h-[56px] items-center justify-between bg-[#172033] px-4 border-t border-[#334155]">
+                  <span class="text-[9px] text-slate-400">Build your growth system</span>
+                  <button class="flex items-center gap-1.5 rounded-lg bg-[#F59E0B] px-3 py-2 text-[10px] font-bold text-[#111827]" type="button">
+                    Learn More →
+                  </button>
+                </div>
+              </article>
+
+              <div class="mobile-callout-connector mx-auto h-8 w-px"></div>
+
+              <aside class="glass-callout w-full max-w-md rounded-xl border border-[#38BDF8]/25 p-4">
+                <div class="mb-2 flex items-center justify-between">
+                  <span class="rounded bg-[#38BDF8]/10 px-2 py-0.5 text-[8px] font-bold tracking-[0.1em] text-[#38BDF8] uppercase">Creative Signal</span>
+                  <span class="text-[9px] font-bold text-[#22C55E]">A/B · 04</span>
+                </div>
+                <p class="text-xs font-semibold text-white">Hook-Tested Creative Angle</p>
+                <p class="mt-1 text-[10px] leading-relaxed text-slate-400">Connected directly to the creative hook above—built to arrest attention and qualify intent.</p>
+              </aside>
+
+              <p class="text-[10px] font-bold tracking-[0.18em] text-slate-500 uppercase mt-4 text-center">02 / Conversion Experience</p>
+
+              <div class="w-full max-w-md rounded-[32px] border border-[#475569] bg-[#060a12] p-2 shadow-[0_30px_65px_rgba(0,0,0,0.5),0_0_45px_rgba(56,189,248,0.07)]">
+                <div class="relative min-h-[460px] overflow-hidden rounded-[24px] bg-[#F8FAFC] text-[#0F172A] p-5">
+                  <div class="absolute left-1/2 top-2 h-4 w-16 -translate-x-1/2 rounded-full bg-[#05070b]"></div>
+                  
+                  <nav class="flex items-center justify-between border-b border-slate-200 pb-3 pt-2">
+                    <div class="flex items-center gap-1.5 font-bold">
+                      <svg class="h-4 w-4 text-[#F59E0B]" fill="none" viewBox="0 0 24 24"><path d="m2.5 18.5 6.6-10.2 3.3 4.9 3.4-5.4 5.7 10.7h-19Z" stroke="currentColor" stroke-linejoin="round" stroke-width="1.7"/></svg>
+                      <span class="text-[10px] tracking-[0.08em]">ÓROS</span>
+                    </div>
+                    <span class="text-[7px] font-semibold tracking-[0.12em] text-slate-400 uppercase">Growth Studio</span>
+                  </nav>
+
+                  <div class="pt-5">
+                    <div class="mb-3 inline-flex items-center gap-1.5 rounded-full bg-sky-50 px-2.5 py-1 text-[7px] font-bold tracking-[0.08em] text-sky-600 uppercase">
+                      <span class="h-1.5 w-1.5 rounded-full bg-[#22C55E]"></span> Applications now open
+                    </div>
+                    <h2 class="text-xl font-bold tracking-[-0.055em] text-[#0F172A] leading-tight">Predictable Growth for Ambitious Brands</h2>
+                    <p class="mt-2 text-[10px] text-slate-500 leading-relaxed">A data-led growth system built to turn attention into revenue.</p>
+                    
+                    <form class="mt-4 space-y-2.5" onclick="event.preventDefault();">
+                      <input aria-label="Your name" class="h-10 w-full rounded-lg border border-slate-200 bg-white px-3 text-[10px] outline-none placeholder:text-slate-400" placeholder="Enter Your Name" type="text" />
+                      <input aria-label="Email address" class="h-10 w-full rounded-lg border border-slate-200 bg-white px-3 text-[10px] outline-none placeholder:text-slate-400" placeholder="Enter Email" type="email" />
+                      <button class="flex h-10 w-full items-center justify-center gap-1.5 rounded-lg bg-[#38BDF8] text-[9px] font-extrabold tracking-[0.06em] text-[#082F49] shadow-[0_8px_25px_rgba(56,189,248,0.3)]" type="button">
+                        CLAIM STRATEGY CALL →
+                      </button>
+                    </form>
+
+                    <div class="mt-4 flex items-center justify-center gap-3 text-[8px] font-medium text-emerald-600">
+                      <span>✓ No obligation</span>
+                      <span>✓ 100% private</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mobile-callout-connector mx-auto h-8 w-px"></div>
+
+              <aside class="glass-callout w-full max-w-md rounded-xl border border-[#38BDF8]/25 p-4">
+                <div class="mb-2 flex items-center justify-between">
+                  <span class="rounded bg-[#38BDF8]/10 px-2 py-0.5 text-[8px] font-bold tracking-[0.1em] text-[#38BDF8] uppercase">Experience Signal</span>
+                  <span class="flex items-center gap-1 text-[9px] font-bold text-[#22C55E]">
+                    <span class="status-dot h-1.5 w-1.5 rounded-full bg-[#22C55E]"></span> LIVE
+                  </span>
+                </div>
+                <p class="text-xs font-semibold leading-snug text-white">Sub-1-Second Load Speed & Frictionless Capture</p>
+                <p class="mt-1 text-[10px] leading-relaxed text-slate-400">Connected directly to the mobile form above to highlight the optimized capture experience.</p>
+              </aside>
+            </div>
+
+            <!-- Navegación Flotante -->
+            <div class="sticky bottom-0 left-0 right-0 pt-4 pb-1 bg-[#0F172A]/95 backdrop-blur-md border-t border-[#334155]/60 flex justify-center gap-2 z-30">
+              <a href="#fase1" class="px-3 py-1.5 rounded-lg text-[10px] font-bold uppercase text-slate-400 hover:bg-[#1E293B] hover:text-white transition">
+                I · INFRASTRUCTURE
+              </a>
+              <a href="#fase2" class="px-3 py-1.5 rounded-lg text-[10px] font-bold uppercase bg-[#38BDF8] text-[#031521] shadow-[0_0_15px_rgba(56,189,248,0.3)]">
+                II · CREATIVE STACK
+              </a>
+              <a href="#fase3" class="px-3 py-1.5 rounded-lg text-[10px] font-bold uppercase text-slate-400 hover:bg-[#1E293B] hover:text-white transition">
+                III · ANALYTICS
+              </a>
+            </div>
+          </div>
         </div>
       </article>
 
@@ -187,55 +375,154 @@ const moreInfoBtnText = isEnglish ? "More Info" : "Más info";
             )}
           </p>
 
-          <!-- Botón para abrir modal -->
           <a href="#fase3" class="btn-info" role="button" aria-label={isEnglish ? "Open Phase III information" : "Abrir más información de Fase III"}>{moreInfoBtnText}</a>
         </div>
 
+        <!-- Pop-Up FASE III -->
         <div class="card-details">
           <a href="#methodology" class="close-btn" aria-label={isEnglish ? "Close" : "Cerrar"}>✕</a>
 
-          <div class="text-sm font-bold text-[#ff4a09] tracking-wider mb-2">
-            {isEnglish ? "PHASE III: ACCELERATED ASCENT" : "FASE III: ASCENSO ACELERADO"}
-          </div>
-          <h3 class="text-2xl font-semibold text-[#001F3F] mb-3">
-            {isEnglish ? "Management & Scaling" : "Gestión y Escalada — Detalle"}
-          </h3>
+          <div class="relative overflow-hidden rounded-[24px] border border-[#334155] bg-[#0F172A] p-6 text-slate-100 shadow-[0_30px_100px_rgba(0,0,0,0.5)]">
+            <div class="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_44%,rgba(30,41,59,0.72),transparent_46%)]"></div>
+            <div class="technical-grid pointer-events-none absolute inset-0"></div>
 
-          {isEnglish ? (
-            <>
-              <p class="text-gray-700 leading-relaxed mb-3">
-                <strong>Integrated Multichannel Execution</strong><br />
-                We align paid ads, organic content, and email marketing into a single cohesive ecosystem to build a steady pipeline of qualified leads
+            <header class="relative z-10 border-b border-[#334155]/70 pb-5 mb-6">
+              <div class="flex items-center justify-between mb-3">
+                <span class="rounded-full border border-[#38BDF8]/50 bg-[#0EA5E9]/15 px-3 py-1 text-[10px] font-bold tracking-[0.14em] text-[#7DD3FC] uppercase">Phase III</span>
+                <div class="flex items-center gap-1.5 text-[#F59E0B]">
+                  <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24"><path d="m2.5 18.5 6.6-10.2 3.3 4.9 3.4-5.4 5.7 10.7h-19Z" stroke="currentColor" stroke-linejoin="round" stroke-width="1.7"/></svg>
+                  <span class="text-[10px] font-bold tracking-[0.15em]">ÓROS</span>
+                </div>
+              </div>
+              <p class="text-[10px] font-semibold tracking-[0.16em] text-slate-500 uppercase">Performance Intelligence</p>
+              <h1 class="text-2xl md:text-3xl font-semibold tracking-[-0.045em] text-white mt-1 leading-snug">
+                Scaled Performance Analytics Dashboard
+              </h1>
+              <p class="text-xs text-slate-400 mt-2 leading-relaxed">
+                Revenue-level clarity across every acquisition channel for confident, efficient, and profitable scale.
               </p>
-              <p class="text-gray-700 leading-relaxed mb-3">
-                <strong>Data-Driven Daily Optimization</strong><br />
-                We actively monitor and refine targeting, ad creative, and budget allocations based on live performance data to maximize ROI
-              </p>
-              <p class="text-gray-700 leading-relaxed">
-                <strong>Profitable & Predictable Scaling</strong><br />
-                We scale ad spend on proven top-performers while cutting underperforming campaigns—ensuring profitable growth without ad spend waste
-              </p>
-            </>
-          ) : (
-            <>
-              <p class="text-gray-700 leading-relaxed mb-3">
-                <strong>Multicanal coordinado.</strong><br />
-                Unimos anuncios, contenidos orgánicos y email marketing para mantener el flujo de clientes potenciales.
-              </p>
-              <p class="text-gray-700 leading-relaxed mb-3">
-                <strong>Optimización diaria.</strong><br />
-                Ajustamos audiencias, creatividades y presupuestos según resultados para maximizar el retorno.
-              </p>
-              <p class="text-gray-700 leading-relaxed">
-                <strong>Escalado con control.</strong><br />
-                Invertimos más en lo que prueba resultados, y pausamos lo que no rinde — sin despilfarrar presupuesto.
-              </p>
-            </>
-          )}
+            </header>
+
+            <div class="relative z-10 flex flex-col items-center gap-4 py-2">
+              
+              <!-- Cards KPI (3 Cards) -->
+              <div class="w-full grid gap-3 max-w-md">
+                {kpis.map((kpi, index) => (
+                  <article class="kpi-card w-full rounded-xl border border-[#334155] bg-[#1E293B] px-5 py-4">
+                    <div class="flex items-start justify-between gap-3">
+                      <div>
+                        <p class="text-[9px] font-semibold tracking-[0.12em] text-slate-500 uppercase">0{index + 1} / KPI</p>
+                        <p class="mt-1.5 text-[28px] font-bold tracking-[-0.045em] text-white">{kpi.value}</p>
+                      </div>
+                      <span class="max-w-[130px] rounded-full border border-[#22C55E]/20 bg-[#22C55E]/10 px-2.5 py-1 text-right text-[8px] leading-3 font-bold text-[#86EFAC]">
+                        {kpi.change}
+                      </span>
+                    </div>
+                    <p class="mt-1 text-[11px] text-slate-400">{kpi.label}</p>
+                  </article>
+                ))}
+              </div>
+
+              <!-- Revenue Performance Graph Card (Monitoreado por IntersectionObserver) -->
+              <div id="chart-container" class="relative mt-2 h-[340px] w-full max-w-md overflow-hidden rounded-xl border border-[#334155] bg-[#0d1728] p-4">
+                <div class="flex items-start justify-between gap-3 relative z-10">
+                  <div>
+                    <p class="text-[9px] font-bold tracking-[0.14em] text-slate-500 uppercase">Revenue Performance</p>
+                    <p class="mt-0.5 text-[12px] font-semibold text-slate-200">90-day trajectory</p>
+                  </div>
+                  <div class="flex items-center gap-1.5 text-[8px] text-slate-400">
+                    <span class="h-2 w-2 rounded-full bg-[#38BDF8]"></span> Revenue
+                  </div>
+                </div>
+
+                <svg aria-label="Revenue chart showing a strong upward growth curve" class="absolute inset-0 h-full w-full" preserveAspectRatio="none" role="img" viewBox="0 0 360 340">
+                  <defs>
+                    <linearGradient id="mobileChartStroke" x1="0" x2="1" y1="0" y2="0">
+                      <stop stop-color="#38BDF8"></stop>
+                      <stop offset="1" stop-color="#22C55E"></stop>
+                    </linearGradient>
+                    <linearGradient id="mobileChartFill" x1="0" x2="0" y1="0" y2="1">
+                      <stop stop-color="#38BDF8" stop-opacity=".24"></stop>
+                      <stop offset="1" stop-color="#38BDF8" stop-opacity="0"></stop>
+                    </linearGradient>
+                    <filter id="mobileChartGlow">
+                      <feGaussianBlur result="blur" stdDeviation="4"></feGaussianBlur>
+                      <feMerge>
+                        <feMergeNode in="blur"></feMergeNode>
+                        <feMergeNode in="SourceGraphic"></feMergeNode>
+                      </feMerge>
+                    </filter>
+                  </defs>
+                  
+                  <line stroke="#334155" stroke-dasharray="3 7" stroke-width="1" x1="18" x2="342" y1="105" y2="105"></line>
+                  <line stroke="#334155" stroke-dasharray="3 7" stroke-width="1" x1="18" x2="342" y1="150" y2="150"></line>
+                  <line stroke="#334155" stroke-dasharray="3 7" stroke-width="1" x1="18" x2="342" y1="195" y2="195"></line>
+                  <line stroke="#334155" stroke-dasharray="3 7" stroke-width="1" x1="18" x2="342" y1="240" y2="240"></line>
+                  <line stroke="#334155" stroke-dasharray="3 7" stroke-width="1" x1="18" x2="342" y1="285" y2="285"></line>
+
+                  <line stroke="#334155" stroke-dasharray="3 7" stroke-width="1" x1="18" x2="18" y1="80" y2="285"></line>
+                  <line stroke="#334155" stroke-dasharray="3 7" stroke-width="1" x1="126" x2="126" y1="80" y2="285"></line>
+                  <line stroke="#334155" stroke-dasharray="3 7" stroke-width="1" x1="234" x2="234" y1="80" y2="285"></line>
+                  <line stroke="#334155" stroke-dasharray="3 7" stroke-width="1" x1="342" x2="342" y1="80" y2="285"></line>
+
+                  <path class="growth-fill" d="M18 269 C55 265 69 241 101 245 C137 248 151 218 178 207 C210 194 220 173 248 141 C275 110 295 82 342 46 L342 286 L18 286 Z" fill="url(#mobileChartFill)"></path>
+                  <path class="growth-path" stroke="url(#mobileChartStroke)" stroke-linecap="round" stroke-width="3" d="M18 269 C55 265 69 241 101 245 C137 248 151 218 178 207 C210 194 220 173 248 141 C275 110 295 82 342 46" fill="none" filter="url(#mobileChartGlow)"></path>
+                  <circle class="apex-dot" cx="342" cy="46" fill="#0d1728" r="5" stroke="#22C55E" stroke-width="3"></circle>
+                </svg>
+
+                <div class="revenue-peak-badge absolute right-4 top-[95px] rounded-lg border border-[#22C55E]/25 bg-[#10251f]/90 px-3 py-2 backdrop-blur-md">
+                  <p class="text-[7px] font-bold tracking-[0.08em] text-[#86EFAC] uppercase">Revenue Peak</p>
+                  <p class="mt-0.5 text-[14px] font-bold text-white">$42,800 <span class="text-[8px] font-medium text-slate-400">/ Mo</span></p>
+                </div>
+
+                <div class="absolute bottom-3 left-3 right-3 grid grid-cols-3 place-items-center text-[7px] font-semibold tracking-[0.08em] uppercase">
+                  <span class="month-marker"><i />Month 1</span>
+                  <span class="month-marker"><i />Month 2</span>
+                  <span class="month-marker"><i />Month 3</span>
+                </div>
+              </div>
+
+              <!-- Active Scaling Channels -->
+              <footer class="w-full max-w-md rounded-xl border border-[#334155] bg-[#1E293B] p-4">
+                <p class="mb-3 text-[9px] font-bold tracking-[0.13em] text-slate-500 uppercase">Active Scaling Channels</p>
+                <div class="flex flex-col gap-2.5 text-[10px]">
+                  <div class="flex items-center gap-2">
+                    <span class="h-2 w-2 rounded-full bg-[#38BDF8] shadow-[0_0_8px_#38BDF8]"></span>
+                    <span class="font-semibold text-slate-200">Meta Ads</span>
+                    <span class="text-slate-500">($350/day · Active)</span>
+                  </div>
+                  <div class="flex items-center gap-2">
+                    <span class="h-2 w-2 rounded-full bg-[#F59E0B] shadow-[0_0_8px_#F59E0B]"></span>
+                    <span class="font-semibold text-slate-200">Google Search</span>
+                    <span class="text-slate-500">($150/day · Active)</span>
+                  </div>
+                  <div class="flex items-center gap-2">
+                    <span class="h-2 w-2 rounded-full bg-[#22C55E] shadow-[0_0_8px_#22C55E]"></span>
+                    <span class="font-semibold text-slate-200">Email Flows</span>
+                    <span class="text-slate-500">(Automation · Active)</span>
+                  </div>
+                </div>
+              </footer>
+
+            </div>
+
+            <!-- Navegación Flotante -->
+            <div class="sticky bottom-0 left-0 right-0 pt-4 pb-1 bg-[#0F172A]/95 backdrop-blur-md border-t border-[#334155]/60 flex justify-center gap-2 z-30">
+              <a href="#fase1" class="px-3 py-1.5 rounded-lg text-[10px] font-bold uppercase text-slate-400 hover:bg-[#1E293B] hover:text-white transition">
+                I · INFRASTRUCTURE
+              </a>
+              <a href="#fase2" class="px-3 py-1.5 rounded-lg text-[10px] font-bold uppercase text-slate-400 hover:bg-[#1E293B] hover:text-white transition">
+                II · CREATIVE STACK
+              </a>
+              <a href="#fase3" class="px-3 py-1.5 rounded-lg text-[10px] font-bold uppercase bg-[#38BDF8] text-[#031521] shadow-[0_0_15px_rgba(56,189,248,0.3)]">
+                III · ANALYTICS
+              </a>
+            </div>
+          </div>
         </div>
       </article>
 
-      <!-- OVERLAY (cierra al hacer clic afuera) -->
+      <!-- OVERLAY -->
       <a href="#methodology" class="overlay" aria-hidden="true"></a>
     </div>
 
@@ -243,7 +530,207 @@ const moreInfoBtnText = isEnglish ? "More Info" : "Más info";
   </div>
 </section>
 
+<!-- Script para disparar la animación al scrollear hasta la tarjeta del gráfico dentro del modal -->
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const chartContainer = document.getElementById('chart-container');
+    const modalFase3 = document.querySelector('#fase3 .card-details');
+
+    if (chartContainer && modalFase3) {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              chartContainer.classList.add('is-visible');
+            } else {
+              // Si sale del scroll, reiniciamos la clase para que pueda repetirse la animación
+              chartContainer.classList.remove('is-visible');
+            }
+          });
+        },
+        {
+          root: modalFase3, // El contenedor con scroll es el modal expandido
+          threshold: 0.35, // Se activa cuando el 35% del gráfico es visible
+        }
+      );
+
+      observer.observe(chartContainer);
+    }
+  });
+</script>
+
 <style>
+  /* CSS proveniente de Figma */
+  .technical-grid {
+    opacity: 0.16;
+    background-image: radial-gradient(circle, #7dd3fc 1px, transparent 1.2px);
+    background-position: 0 0;
+    background-size: 18px 18px;
+  }
+
+  .glass-callout {
+    background: linear-gradient(135deg, rgb(30 41 59 / 88%), rgb(15 23 42 / 78%));
+    box-shadow:
+      0 18px 45px rgb(0 0 0 / 25%),
+      inset 0 1px rgb(255 255 255 / 4%);
+    backdrop-filter: blur(14px);
+  }
+
+  .node-card,
+  .kpi-card {
+    box-shadow:
+      inset 0 1px 0 rgb(255 255 255 / 5%),
+      inset 8px -10px 22px rgb(56 189 248 / 5%),
+      -8px 12px 30px rgb(56 189 248 / 5%),
+      0 12px 30px rgb(2 6 23 / 24%);
+  }
+
+  .engine-glow {
+    box-shadow:
+      0 0 0 12px rgb(56 189 248 / 3%),
+      0 0 55px rgb(56 189 248 / 18%),
+      inset 0 0 35px rgb(56 189 248 / 5%);
+  }
+
+  .mobile-flow-line {
+    position: relative;
+    background: linear-gradient(to top, #334155, #38bdf8 45%, #7dd3fc 70%, #334155);
+    box-shadow:
+      0 0 4px rgb(56 189 248 / 80%),
+      0 0 12px rgb(56 189 248 / 42%);
+  }
+
+  .mobile-flow-line::before {
+    position: absolute;
+    top: 3px;
+    left: 50%;
+    width: 7px;
+    height: 7px;
+    content: '';
+    border-top: 1.5px solid #7dd3fc;
+    border-left: 1.5px solid #7dd3fc;
+    transform: translateX(-50%) rotate(45deg);
+    filter: drop-shadow(0 0 4px #38bdf8);
+  }
+
+  .mobile-callout-connector {
+    position: relative;
+    border-left: 1px dashed rgb(56 189 248 / 75%);
+    filter: drop-shadow(0 0 4px rgb(56 189 248 / 65%));
+  }
+
+  .mobile-callout-connector::before {
+    position: absolute;
+    top: -3px;
+    left: -3.5px;
+    width: 6px;
+    height: 6px;
+    content: '';
+    border-radius: 999px;
+    background: #38bdf8;
+    box-shadow: 0 0 8px #38bdf8;
+  }
+
+  .mobile-callout-connector::after {
+    position: absolute;
+    bottom: -3px;
+    left: -3.5px;
+    width: 6px;
+    height: 6px;
+    content: '';
+    border-radius: 999px;
+    border: 1px solid #7dd3fc;
+    background: #0f172a;
+  }
+
+  /* Animación accionada únicamente cuando #chart-container.is-visible está activado */
+  .growth-path {
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+  }
+
+  .growth-fill,
+  .apex-dot,
+  .revenue-peak-badge {
+    opacity: 0;
+  }
+
+  /* 1. Dibujo de la línea (2.5s) */
+  #chart-container.is-visible .growth-path {
+    animation: draw-growth 2.5s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+  }
+
+  /* 2. Relleno azul/verde gradual */
+  #chart-container.is-visible .growth-fill {
+    animation: fade-in-element 0.5s ease-out 0.6s forwards;
+  }
+
+  /* 3. Círculo y recuadro aparecen en simultáneo exactamente al segundo 2.5s */
+  #chart-container.is-visible .apex-dot,
+  #chart-container.is-visible .revenue-peak-badge {
+    animation: fade-in-element 0.3s ease-out 1s forwards;
+  }
+
+  @keyframes draw-growth {
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+
+  @keyframes fade-in-element {
+    from {
+      opacity: 0;
+      transform: translateY(4px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .month-marker {
+    display: inline-flex;
+    position: relative;
+    align-items: center;
+    gap: 6px;
+    padding: 3px 7px;
+    color: #94a3b8;
+    border: 1px solid rgb(56 189 248 / 18%);
+    border-radius: 999px;
+    background: rgb(15 23 42 / 88%);
+    box-shadow: 0 5px 16px rgb(0 0 0 / 18%);
+  }
+
+  .month-marker::before {
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    width: 1px;
+    height: 12px;
+    content: '';
+    background: linear-gradient(to top, rgb(56 189 248 / 55%), transparent);
+  }
+
+  .month-marker i {
+    width: 4px;
+    height: 4px;
+    border-radius: 999px;
+    background: #38bdf8;
+    box-shadow: 0 0 7px #38bdf8;
+  }
+
+  .status-dot {
+    box-shadow: 0 0 9px #22c55e;
+    animation: status-pulse 1.8s ease-in-out infinite;
+  }
+
+  @keyframes status-pulse {
+    50% {
+      opacity: 0.45;
+      transform: scale(0.82);
+    }
+  }
+
   /* Bloqueo del scroll del documento (CSS puro) */
   html:has(.card-modal:target),
   body:has(.card-modal:target) {
@@ -283,7 +770,7 @@ const moreInfoBtnText = isEnglish ? "More Info" : "Más info";
   .card-summary { display: block; }
   .card-details { display: none; }
 
-  .card-modal:target .card-summary { display: none; }
+  .card-modal:target .card-summary { display: block; }
   .card-modal:target .card-details { display: block; }
 
   /* Estado expandido (modal) */
@@ -293,13 +780,13 @@ const moreInfoBtnText = isEnglish ? "More Info" : "Más info";
     top: 50%;
     transform: translate(-50%, -50%);
     z-index: 50;
-    width: min(92vw, 920px);
+    width: min(92vw, 520px);
     max-height: 85vh;
-    overflow: auto;
-    padding: 2.5rem;
-    box-shadow: 0 24px 80px rgba(0,0,0,.22);
-    border-radius: 1rem;
-    background: #fff;
+    overflow-y: auto;
+    padding: 0;
+    box-shadow: 0 24px 80px rgba(0,0,0,.45);
+    border-radius: 1.5rem;
+    background: transparent;
     animation: pop .18s ease-out;
   }
 
@@ -315,17 +802,17 @@ const moreInfoBtnText = isEnglish ? "More Info" : "Más info";
     right: .75rem;
     padding: .4rem .6rem;
     border-radius: 999px;
-    border: 1px solid #e5e7eb;
-    background: rgba(255,255,255,.96);
-    box-shadow: 0 2px 6px rgba(0,0,0,.08);
+    border: 1px solid #334155;
+    background: rgba(15, 23, 42, 0.9);
+    box-shadow: 0 2px 6px rgba(0,0,0,.2);
     font-size: 1rem;
     line-height: 1;
-    color: #0a2540;
+    color: #fff;
     z-index: 60;
     cursor: pointer;
     text-decoration: none;
   }
-  .close-btn:hover { filter: brightness(.98); }
+  .close-btn:hover { background: #334155; }
 
   /* Overlay */
   .overlay { display: none; }
@@ -334,7 +821,7 @@ const moreInfoBtnText = isEnglish ? "More Info" : "Más info";
     position: fixed;
     inset: 0;
     z-index: 40;
-    background: rgba(0,0,0,.22);
+    background: rgba(0,0,0,.4);
     backdrop-filter: blur(6px);
   }
 

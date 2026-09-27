@@ -10,16 +10,16 @@ const navItems = isEnglish
   ? [
       { label: "Home", path: "/" },
       { label: "Services", path: "/services" },
-      { label: "Contact", path: "/contact" },
       { label: "About Us", path: "/about" },
-      { label: "Blog", path: "/blog" },
+      { label: "Contact", path: "/contact" },
+      // { label: "Blog", path: "/blog" },
     ]
   : [
       { label: "Inicio", path: "/" },
       { label: "Servicios", path: "/servicios" },
-      { label: "Contacto", path: "/contacto" },
       { label: "Nosotros", path: "/about" },
-      { label: "Blogs", path: "/blog" },
+      { label: "Contacto", path: "/contacto" },
+      //{ label: "Blogs", path: "/blog" },
     ];
 
 const ctaText = isEnglish ? "Get a Free Quote" : "Solicitar Propuesta";
@@ -80,7 +80,7 @@ const ctaHref = `${langPrefix}${contactPath}`;
       <!-- CTA Escritorio -->
       <a
         href={ctaHref}
-        class="hidden md:inline-flex items-center justify-center rounded-full bg-[#303133] px-4 py-2 font-medium text-white hover:text-[#FF7F50] transition-colors duration-200"
+        class="hidden md:inline-flex items-center justify-center rounded-full bg-[#303133] px-4 py-2 font-medium text-white hover:bg-[#FF7F50] hover:text-[#f7f5f4] transition-colors duration-200"
       >
         {ctaText}
       </a>
@@ -147,33 +147,41 @@ const ctaHref = `${langPrefix}${contactPath}`;
   </div>
 
   <script is:inline>
-    (function () {
+    function setupMobileMenu() {
       const btn = document.getElementById("mobileMenuBtn");
       const panel = document.getElementById("mobileMenu");
       const overlay = document.getElementById("mobileOverlay");
       const closeBtn = document.getElementById("mobileCloseBtn");
 
+      if (!btn || !panel) return;
+
+      // Asegurar limpieza del scroll en la navegación
+      document.body.style.overflow = "";
+
       const open = () => {
-        panel?.classList.remove("translate-x-full");
+        panel.classList.remove("translate-x-full");
         overlay?.classList.remove("hidden");
-        btn?.setAttribute("aria-expanded", "true");
+        btn.setAttribute("aria-expanded", "true");
         document.body.style.overflow = "hidden";
       };
 
       const close = () => {
-        panel?.classList.add("translate-x-full");
+        panel.classList.add("translate-x-full");
         overlay?.classList.add("hidden");
-        btn?.setAttribute("aria-expanded", "false");
+        btn.setAttribute("aria-expanded", "false");
         document.body.style.overflow = "";
       };
 
-      btn?.addEventListener("click", open);
+      btn.addEventListener("click", open);
       overlay?.addEventListener("click", close);
       closeBtn?.addEventListener("click", close);
 
       document.addEventListener("keydown", (e) => {
         if (e.key === "Escape") close();
       });
-    })();
+    }
+
+    // Se ejecuta al cargar la página y tras cada navegación con View Transitions
+    document.addEventListener("astro:page-load", setupMobileMenu);
   </script>
 </header>

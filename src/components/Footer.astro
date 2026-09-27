@@ -12,6 +12,9 @@ const links = {
   contact: isEnglish ? "/en/contact" : "/contacto",
   privacy: isEnglish ? "/en/privacy-policy" : "/privacy-policy",
 };
+
+// Obtener el año actual dinámicamente
+const currentYear = new Date().getFullYear();
 ---
 <footer class="relative px-4 py-12 md:py-16 text-[#303133]">
   <!-- Contenido -->
@@ -48,15 +51,15 @@ const links = {
         <ul class="space-y-2 text-sm text-[#303133]">
           <li><a href="tel:+5493513806166" rel="noopener noreferrer" class="hover:text-[#ff4a09] transition">+54 9 351 3806166</a></li>
           <li><a href="mailto:info@orossm.com" rel="noopener noreferrer" class="hover:text-[#ff4a09] transition">info@orossm.com</a></li>
-          <li>30 N Gould St Ste R
-            Sheridan, WY 82801</li>
+          <li>Sheridan, WY 82801</li>
         </ul>
       </div>
     </div>
 
     <!-- Línea inferior -->
-    <div class="relative border-t border-black/10 mt-12 pt-6 text-sm text-center text-[#303133]">
-      © 2026 OROS SM. {isEnglish ? "All rights reserved." : "Todos los derechos reservados."}.
-    </div>
+
+<div class="relative border-t border-black/10 mt-12 pt-6 text-sm text-center text-[#303133]">
+  © {currentYear} OROS SM. {isEnglish ? "All rights reserved." : "Todos los derechos reservados."}
+</div>
   </div>
 </footer>
