@@ -186,7 +186,7 @@
     }
   }
 
- function init() {
+  function init() {
     const form = document.getElementById("contact-form");
     if (!form) return;
 
@@ -198,9 +198,9 @@
     // Textos según el idioma
     const labels = {
       sending: isEnglish ? "Sending…" : "Enviando…",
-      successTitle: isEnglish ? "Thank you! We received your message" : "¡Gracias! Recibimos tu mensaje",
+      successTitle: isEnglish ? "Thank You! We’ve Received Your Inquiry" : "¡Gracias! Recibimos tu mensaje",
       successMessage: isEnglish
-        ? "We will get back to you shortly. If you need an urgent response, you can write to us at <strong>info@orossm.com</strong> or call <strong>+54 9 351-380-6166</strong>."
+        ? "We’re excited to explore how we can help scale your digital operation. Our team will get in touch shortly to discuss next steps.<br><br>Need urgent support? Reach us directly at <strong>info@orossm.com</strong> or <strong>+1 (909) 745-3256</strong>."
         : "Te contactaremos a la brevedad. Si necesitas una respuesta urgente, puedes escribirnos a <strong>info@orossm.com</strong> o llamar al <strong>+54 9 351-380-6166</strong>.",
       errorTitle: isEnglish ? "We couldn't send your message" : "No pudimos enviar tu mensaje",
       errorMessage: isEnglish
