@@ -101,52 +101,71 @@ const privacyPolicyHref = isEnglish ? "/en/privacy-policy" : "/privacy-policy";
       </form>
 
       <!-- Columna: Panel de contacto -->
-      <aside class="rounded-2xl bg-white p-6 shadow-sm md:p-8">
-        <h3 class="text-2xl font-semibold text-start text-[#001F3F] mb-4">
-          {isEnglish ? "Other Ways to Contact Us" : "Otras Formas de Contactarnos"}
-        </h3>
+<!-- Columna: Panel de contacto -->
+<aside class="rounded-2xl bg-white p-6 shadow-sm md:p-8">
+  <h3 class="text-2xl font-semibold text-start text-[#001F3F] mb-2">
+    {isEnglish ? "Other Ways to Contact Us" : "Otras Formas de Contactarnos"}
+  </h3>
 
-        <!-- Teléfono -->
-        <div class="mt-6 flex items-start gap-4">
-          <span class="grid h-10 w-10 place-items-center rounded-full bg-[#0a2540] text-white">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
-              <path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 2 6a2 2 0 0 1 2-2"/>
-            </svg>
-          </span>
-          <div>
-            <p class="text-sm font-medium text-[#303133]">{isEnglish ? "Phone" : "Teléfono"}</p>
-            <a href="tel:+5493513806166" rel="noopener noreferrer" class="text-sm text-slate-500 hover:text-[#FF7F50]">+54 9 351 3806166</a>
-          </div>
-        </div>
+  <!-- Información de la empresa (según captura de pantalla) -->
+  <div class="mb-6 border-b border-slate-100 pb-5">
+    <p class="text-sm font-bold text-[#001F3F] mb-1">
+      {isEnglish 
+        ? "Headquartered in Wyoming | Operating Nationwide" 
+        : "Con Sede en Wyoming | Operando a Nivel Nacional"}
+    </p>
+    <p class="text-xs text-slate-600 leading-relaxed mb-2">
+      {isEnglish 
+        ? "We are a fully digital agency providing strategy, paid media, and brand architecture for high-end contractors and businesses across the US." 
+        : "Somos una agencia 100% digital que ofrece estrategia, pauta publicitaria y arquitectura de marca para contratistas y empresas de alto nivel en EE. UU."}
+    </p>
+    <p class="text-xs font-semibold text-[#ff4a09]">
+      {isEnglish 
+        ? "Schedule a discovery call or send us a message." 
+        : "Agenda una llamada de exploración o envíanos un mensaje."}
+    </p>
+  </div>
 
-        <!-- Email -->
-        <div class="mt-5 flex items-start gap-4">
-          <span class="grid h-10 w-10 place-items-center rounded-full bg-[#0a2540] text-white">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
-              <rect x="3" y="5" width="18" height="14" rx="2"></rect>
-              <path d="M3 7l9 6 9-6"></path>
-            </svg>
-          </span>
-          <div>
-            <p class="text-sm font-medium text-[#303133]">Email</p>
-            <a href="mailto:info@orossm.com" rel="noopener noreferrer" class="text-sm text-slate-500 hover:text-[#FF7F50]">info@orossm.com</a>
-          </div>
-        </div>
+  <!-- Teléfono -->
+  <div class="mt-4 flex items-start gap-4">
+    <span class="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-[#0a2540] text-white">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
+        <path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 2 6a2 2 0 0 1 2-2"/>
+      </svg>
+    </span>
+    <div>
+      <p class="text-sm font-medium text-[#303133]">{isEnglish ? "Phone" : "Teléfono"}</p>
+      <a href="tel:+19097453256" rel="noopener noreferrer" class="text-sm text-slate-500 hover:text-[#FF7F50] transition">+1 (909) 745-3256</a>
+    </div>
+  </div>
 
-        <!-- Dirección -->
-        <div class="mt-5 flex items-start gap-4">
-          <span class="grid h-10 w-10 place-items-center rounded-full bg-[#0a2540] text-white">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M12 21a2 2 0 0 1-1.42-.59l-4.24-4.24a9 9 0 1 1 12.73 0l-4.24 4.24A2 2 0 0 1 12 21Zm0-12a3 3 0 1 0 0 6a3 3 0 0 0 0-6Z"/>
-            </svg>
-          </span>
-          <div>
-            <p class="text-sm font-medium text-[#303133]">{isEnglish ? "Address" : "Dirección"}</p>
-            <p class="text-sm text-slate-500">30 N Gould St Ste R
-              Sheridan, WY 82801</p>
-          </div>
-        </div>
-      </aside>
+  <!-- Email -->
+  <div class="mt-5 flex items-start gap-4">
+    <span class="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-[#0a2540] text-white">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
+        <rect x="3" y="5" width="18" height="14" rx="2"></rect>
+        <path d="M3 7l9 6 9-6"></path>
+      </svg>
+    </span>
+    <div>
+      <p class="text-sm font-medium text-[#303133]">Email</p>
+      <a href="mailto:info@orossm.com" rel="noopener noreferrer" class="text-sm text-slate-500 hover:text-[#FF7F50] transition">info@orossm.com</a>
+    </div>
+  </div>
+
+  <!-- Dirección -->
+  <div class="mt-5 flex items-start gap-4">
+    <span class="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-[#0a2540] text-white">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12 21a2 2 0 0 1-1.42-.59l-4.24-4.24a9 9 0 1 1 12.73 0l-4.24 4.24A2 2 0 0 1 12 21Zm0-12a3 3 0 1 0 0 6a3 3 0 0 0 0-6Z"/>
+      </svg>
+    </span>
+    <div>
+      <p class="text-sm font-medium text-[#303133]">{isEnglish ? "Address" : "Dirección"}</p>
+      <p class="text-sm text-slate-500">Sheridan, WY 82801</p>
+    </div>
+  </div>
+</aside>
     </div>
   </div>
 </section>

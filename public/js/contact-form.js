@@ -186,11 +186,31 @@
     }
   }
 
-  function init() {
+ function init() {
     const form = document.getElementById("contact-form");
     if (!form) return;
 
     const submitBtn = form.querySelector('button[type="submit"]');
+
+    // Detectar si la página está en inglés según la URL
+    const isEnglish = window.location.pathname.startsWith("/en/") || window.location.pathname === "/en";
+
+    // Textos según el idioma
+    const labels = {
+      sending: isEnglish ? "Sending…" : "Enviando…",
+      successTitle: isEnglish ? "Thank you! We received your message" : "¡Gracias! Recibimos tu mensaje",
+      successMessage: isEnglish
+        ? "We will get back to you shortly. If you need an urgent response, you can write to us at <strong>info@orossm.com</strong> or call <strong>+54 9 351-380-6166</strong>."
+        : "Te contactaremos a la brevedad. Si necesitas una respuesta urgente, puedes escribirnos a <strong>info@orossm.com</strong> o llamar al <strong>+54 9 351-380-6166</strong>.",
+      errorTitle: isEnglish ? "We couldn't send your message" : "No pudimos enviar tu mensaje",
+      errorMessage: isEnglish
+        ? "Please try again in a few minutes.<br>Details: <em>" + (resultError => resultError || "Unknown error") + "</em><br><br>" +
+          "If the problem persists, write to us at <strong>oros.strategy@gmail.com</strong> or call <strong>+54 9 351-567-890</strong>.<br><br>" +
+          "<strong>Data preview (non-sensitive):</strong><br>"
+        : "Por favor, intenta nuevamente en unos minutos.<br>Detalle: <em>" + (resultError => resultError || "Error desconocido") + "</em><br><br>" +
+          "Si el problema persiste, escríbenos a <strong>oros.strategy@gmail.com</strong> o llama al <strong>+54 9 351-567-890</strong>.<br><br>" +
+          "<strong>Vista previa de los datos (no sensibles):</strong><br>"
+    };
 
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
@@ -201,7 +221,7 @@
         submitBtn.disabled = true;
         submitBtn.style.opacity = "0.7";
         submitBtn.innerHTML = `
-          Enviando…
+          ${labels.sending}
           <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 animate-spin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <circle cx="12" cy="12" r="10" opacity=".2"></circle>
             <path d="M12 2a10 10 0 0 1 10 10" />
@@ -228,9 +248,8 @@
         form.reset();
         showPopup({
           type: "success",
-          title: "¡Gracias! Recibimos tu mensaje",
-          message:
-            "Te contactaremos a la brevedad. Si necesitas una respuesta urgente, puedes escribirnos a <strong>info@orossm.com</strong> o llamar al <strong>+54 9 351-380-6166</strong>."
+          title: labels.successTitle,
+          message: labels.successMessage
         });
       } else {
         const details = (() => {
@@ -244,13 +263,18 @@
           )}</pre>`;
         })();
 
+        const errorDetail = result.error || (isEnglish ? "Unknown error" : "Error desconocido");
+
         showPopup({
           type: "error",
-          title: "No pudimos enviar tu mensaje",
-          message:
-            `Por favor, intenta nuevamente en unos minutos.<br>Detalle: <em>${result.error || "Error desconocido"}</em><br><br>` +
-            `Si el problema persiste, escríbenos a <strong>oros.strategy@gmail.com</strong> o llama al <strong>+54 9 351-567-890</strong>.<br><br>` +
-            `<strong>Vista previa de los datos (no sensibles):</strong><br>${details}`
+          title: labels.errorTitle,
+          message: isEnglish
+            ? `Please try again in a few minutes.<br>Details: <em>${errorDetail}</em><br><br>` +
+              `If the problem persists, write to us at <strong>oros.strategy@gmail.com</strong> or call <strong>+54 9 351-567-890</strong>.<br><br>` +
+              `<strong>Data preview (non-sensitive):</strong><br>${details}`
+            : `Por favor, intenta nuevamente en unos minutos.<br>Detalle: <em>${errorDetail}</em><br><br>` +
+              `Si el problema persiste, escríbenos a <strong>oros.strategy@gmail.com</strong> o llama al <strong>+54 9 351-567-890</strong>.<br><br>` +
+              `<strong>Vista previa de los datos (no sensibles):</strong><br>${details}`
         });
       }
     });

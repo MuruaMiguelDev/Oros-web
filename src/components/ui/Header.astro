@@ -38,25 +38,39 @@ const ctaHref = `${langPrefix}${contactPath}`;
         <img src="/Logotipo-Navy---Navy-y-Coral.webp" alt="Logo Intellecta" class="h-8 w-auto" />
       </a>
 
-      <!-- Botón mobile -->
+      <!-- Botón mobile (Hamburguesa / X dinámico) -->
       <button
         id="mobileMenuBtn"
-        class="inline-flex h-10 w-10 items-center justify-center rounded-xl text-[#0a2540] md:hidden"
+        class="inline-flex h-10 w-10 items-center justify-center rounded-xl text-[#0a2540] hover:bg-slate-100 transition-colors md:hidden"
         aria-controls="mobileMenu"
         aria-expanded="false"
         aria-label="Abrir menú"
       >
+        <!-- Ícono Hamburguesa (Menú Cerrado) -->
         <svg
+          id="hamburgerIcon"
           xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="24"
+          class="h-6 w-6"
+          fill="none"
           viewBox="0 0 24 24"
-          fill="currentColor"
-          class="icon icon-tabler icons-tabler-filled icon-tabler-layout-sidebar-right-expand"
-        ><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path
-            d="M18 3a3 3 0 0 1 2.995 2.824l.005 .176v12a3 3 0 0 1 -2.824 2.995l-.176 .005h-12a3 3 0 0 1 -2.995 -2.824l-.005 -.176v-12a3 3 0 0 1 2.824 -.2995l.176 -.005h12zm-3 2h-9a1 1 0 0 0 -.993 .883l-.007 .117v12a1 1 0 0 0 .883 .993l.117 .007h9v-14zm-3.293 4.293a1 1 0 0 1 .083 1.32l-.083 .094l-1.292 1.293l1.292 1.293a1 1 0 0 1 .083 1.32l-.083 .094a1 1 0 0 1 -1.32 .083l-.094 -.083l-2 -2a1 1 0 0 1 -.083 -1.32l.083 -.094l2 -2a1 1 0 0 1 1.414 0z"
-          ></path></svg
+          stroke="currentColor"
+          stroke-width="2"
         >
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+
+        <!-- Ícono X (Menú Abierto) -->
+        <svg
+          id="closeIcon"
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-6 w-6 hidden"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          stroke-width="2"
+        >
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+        </svg>
       </button>
 
       <!-- Nav escritorio -->
@@ -105,20 +119,20 @@ const ctaHref = `${langPrefix}${contactPath}`;
       <span class="text-sm font-semibold text-[#303133]">{isEnglish ? "Menu" : "Menú"}</span>
       <button
         id="mobileCloseBtn"
-        class="inline-flex h-9 w-9 items-center justify-center rounded-lg text-[#303133]"
+        class="inline-flex h-9 w-9 items-center justify-center rounded-lg text-[#303133] hover:bg-slate-100 transition-colors"
         aria-label="Cerrar menú"
       >
+        <!-- Ícono X dentro del panel -->
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="24"
+          class="h-6 w-6"
+          fill="none"
           viewBox="0 0 24 24"
-          fill="currentColor"
-          class="icon icon-tabler icons-tabler-filled icon-tabler-layout-sidebar-left-expand"
-        ><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path
-            d="M18 3a3 3 0 0 1 2.995 2.824l.005 .176v12a3 3 0 0 1 -2.824 2.995l-.176 .005h-12a3 3 0 0 1 -2.995 -2.824l-.005 -.176v-12a3 3 0 0 1 2.824 -.2995l.176 -.005h12zm0 2h-9v14h9a1 1 0 0 0 .993 -.883l.007 -.117v-12a1 1 0 0 0 -.883 -.993l-.117 -.007zm-4.387 4.21l.094 .083l2 2a1 1 0 0 1 .083 1.32l-.083 .094l-2 2a1 1 0 0 1 -1.497 -1.32l.083 -.094l1.292 -1.293l-1.292 -1.293a1 1 0 0 1 -.083 -1.32l.083 -.094a1 1 0 0 1 1.32 -.083z"
-          ></path></svg
+          stroke="currentColor"
+          stroke-width="2"
         >
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+        </svg>
       </button>
     </div>
 
@@ -152,15 +166,18 @@ const ctaHref = `${langPrefix}${contactPath}`;
       const panel = document.getElementById("mobileMenu");
       const overlay = document.getElementById("mobileOverlay");
       const closeBtn = document.getElementById("mobileCloseBtn");
+      const hamburgerIcon = document.getElementById("hamburgerIcon");
+      const closeIcon = document.getElementById("closeIcon");
 
       if (!btn || !panel) return;
 
-      // Asegurar limpieza del scroll en la navegación
       document.body.style.overflow = "";
 
       const open = () => {
         panel.classList.remove("translate-x-full");
         overlay?.classList.remove("hidden");
+        hamburgerIcon?.classList.add("hidden");
+        closeIcon?.classList.remove("hidden");
         btn.setAttribute("aria-expanded", "true");
         document.body.style.overflow = "hidden";
       };
@@ -168,11 +185,21 @@ const ctaHref = `${langPrefix}${contactPath}`;
       const close = () => {
         panel.classList.add("translate-x-full");
         overlay?.classList.add("hidden");
+        closeIcon?.classList.add("hidden");
+        hamburgerIcon?.classList.remove("hidden");
         btn.setAttribute("aria-expanded", "false");
         document.body.style.overflow = "";
       };
 
-      btn.addEventListener("click", open);
+      btn.addEventListener("click", () => {
+        const isExpanded = btn.getAttribute("aria-expanded") === "true";
+        if (isExpanded) {
+          close();
+        } else {
+          open();
+        }
+      });
+
       overlay?.addEventListener("click", close);
       closeBtn?.addEventListener("click", close);
 
@@ -181,7 +208,6 @@ const ctaHref = `${langPrefix}${contactPath}`;
       });
     }
 
-    // Se ejecuta al cargar la página y tras cada navegación con View Transitions
     document.addEventListener("astro:page-load", setupMobileMenu);
   </script>
 </header>
