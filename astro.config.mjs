@@ -1,6 +1,8 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
+
 import tailwindcss from '@tailwindcss/vite';
+
 
 // https://astro.build/config
 export default defineConfig({
@@ -9,10 +11,9 @@ export default defineConfig({
   },
   i18n: {
     defaultLocale: 'en',
-    locales: ['en', 'es'],
+    locales: ['es', 'en'],
     routing: {
-      prefixDefaultLocale: true, // Redirige automáticamente de / a /en/
-      redirectToDefaultLocale: true
+      prefixDefaultLocale: false // Mantiene tus URLs en español como raíz (/about) y agrega /en/about para inglés
     }
   }
 });
